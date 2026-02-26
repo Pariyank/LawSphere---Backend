@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const axios = require("axios"); 
 const { Pinecone } = require("@pinecone-database/pinecone");
 const { pipeline } = require("@xenova/transformers");
 const Groq = require("groq-sdk");
@@ -9,13 +10,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ================= CONFIG =================
 const PORT = 3000;
 const NAMESPACE = "default";
-// Use the latest versatile Llama model
 const LLM_MODEL = "llama-3.3-70b-versatile"; 
 
-// ================= SERVICES =================
 const pinecone = new Pinecone({
   apiKey: process.env.PINECONE_API_KEY,
 });
@@ -25,7 +23,7 @@ const groq = new Groq({
     apiKey: process.env.GROQ_API_KEY
 });
 
-// ================= LOCAL EMBEDDING LOGIC =================
+
 let embedder = null;
 
 async function loadModel() {
@@ -40,27 +38,21 @@ async function getEmbedding(text) {
   return Array.from(output.data);
 }
 
-// ================= ROUTER =================
 const router = express.Router();
 
-// 1. ASK ROUTE (With Language Support)
 router.post("/ask", async (req, res) => {
   try {
-    // 🟢 1. Accept 'language'
     const { query, language } = req.body;
     console.log(`📩 Query: ${query} | Lang: ${language}`);
 
     if (!query) return res.status(400).json({ error: "Query required" });
 
-    // 🟢 2. Define Language Rule
     const langInstruction = language === "hindi" 
-        ? "CRITICAL RULE: Answer the user's question entirely in HINDI (Devanagari script). Use simple, clear legal Hindi." 
+        ? "CRITICAL RULE: Answer in HINDI (Devanagari script). Use simple legal Hindi." 
         : "Answer in English.";
 
-    // A. Embed
     const queryVector = await getEmbedding(query);
 
-    // B. Search
     const searchResult = await index.namespace(NAMESPACE).query({
       vector: queryVector,
       topK: 5,
@@ -69,21 +61,16 @@ router.post("/ask", async (req, res) => {
 
     const matches = searchResult.matches || [];
     
-    // C. Context
     const context = matches
       .map((m, i) => `Source ${i + 1}:\n${m.metadata?.text || ""}`)
       .join("\n\n");
 
-    // D. Generate
     const completion = await groq.chat.completions.create({
         messages: [
             {
                 role: "system",
-                // 🟢 3. Inject Language Instruction
                 content: `You are LawSphere, an expert legal AI for Bharatiya Nyaya Sanhita (BNS). 
-                
                 ${langInstruction}
-
                 STRICT RULES:
                 1. Answer ONLY using the provided context.
                 2. Cite relevant Section numbers.
@@ -99,8 +86,6 @@ router.post("/ask", async (req, res) => {
     });
 
     const answer = completion.choices[0]?.message?.content || "No answer generated.";
-
-    console.log("✅ Answer sent.");
 
     res.json({
       formattedAnswer: answer,
@@ -118,7 +103,6 @@ router.post("/ask", async (req, res) => {
   }
 });
 
-// 2. COMPARE ROUTE
 router.post("/compare", async (req, res) => {
   try {
     const { section1, section2 } = req.body;
@@ -128,11 +112,9 @@ router.post("/compare", async (req, res) => {
       return res.status(400).json({ error: "Both sections required" });
     }
 
-    // Embed BOTH
     const vec1 = await getEmbedding(section1);
     const vec2 = await getEmbedding(section2);
 
-    // Search BOTH
     const [result1, result2] = await Promise.all([
         index.namespace(NAMESPACE).query({ vector: vec1, topK: 3, includeMetadata: true }),
         index.namespace(NAMESPACE).query({ vector: vec2, topK: 3, includeMetadata: true })
@@ -145,26 +127,15 @@ router.post("/compare", async (req, res) => {
         return res.json({ formattedAnswer: "I could not find these sections in the uploaded BNS PDF.", retrievedSources: [] });
     }
 
-    // Generate Comparison
     const completion = await groq.chat.completions.create({
         messages: [
             {
                 role: "system",
-                content: `You are a strict legal expert for the Bharatiya Nyaya Sanhita (BNS) of India.
-                CRITICAL RULES:
-                1. Use ONLY the provided CONTEXT.
-                2. Do NOT use outside knowledge (IPC/Bangladesh).
-                3. Output a Markdown Table.`
+                content: `You are a strict legal expert for BNS India. Use ONLY context. Output Markdown Table.`
             },
             {
                 role: "user",
-                content: `
-                CONTEXT FROM PDF:
-                ${uniqueContext}
-
-                TASK: Compare "${section1}" and "${section2}".
-                Rows: Definition, Punishment, Cognizable status.
-                `
+                content: `CONTEXT: ${uniqueContext}\nTASK: Compare "${section1}" and "${section2}".`
             }
         ],
         model: LLM_MODEL,
@@ -175,15 +146,42 @@ router.post("/compare", async (req, res) => {
 
     res.json({
       formattedAnswer: answer,
-      reasoning: "Comparison based on BNS PDF",
-      semanticTags: ["Compare", "BNS"],
+      reasoning: "RAG Comparison",
+      semanticTags: ["Compare"],
       retrievedSources: []
     });
 
   } catch (error) {
     console.error("❌ Compare Error:", error);
-    res.status(500).json({ formattedAnswer: "Comparison Error: " + error.message, retrievedSources: [] });
+    res.status(500).json({ formattedAnswer: "Error: " + error.message, retrievedSources: [] });
   }
+});
+
+router.get("/news", async (req, res) => {
+    try {
+        const apiKey = process.env.NEWS_API_KEY;
+        
+        const url = `https://gnews.io/api/v4/search?q=Supreme%20Court%20India%20OR%20Bharatiya%20Nyaya%20Sanhita&lang=en&country=in&max=10&apikey=${apiKey}`;
+
+        const response = await axios.get(url);
+        
+        const articles = response.data.articles.map(article => ({
+            title: article.title,
+            description: article.description || "Click to read full story...",
+            source: article.source.name,
+            date: new Date(article.publishedAt).toDateString()
+        }));
+
+        res.json(articles);
+
+    } catch (error) {
+        console.error("News Error:", error.message);
+       
+        res.json([
+            { title: "Supreme Court Updates", description: "Real-time news unavailable. Please check internet.", source: "System", date: "Today" },
+            { title: "BNS Implementation", description: "New criminal laws effective from July 1st 2024.", source: "LawSphere", date: "2024" }
+        ]);
+    }
 });
 
 app.use("/api", router);
