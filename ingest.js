@@ -10,20 +10,17 @@ if (typeof pdfParse !== "function" && pdfParse.default) {
 const { Pinecone } = require("@pinecone-database/pinecone");
 const { pipeline } = require("@xenova/transformers");
 
-// ================= CONFIG =================
 const CHUNK_SIZE = 1000;
 const OVERLAP = 200;
 const BATCH_SIZE = 20;
 const NAMESPACE = "default";
 
-// ================= INIT =================
 const pinecone = new Pinecone({
   apiKey: process.env.PINECONE_API_KEY,
 });
 
 const index = pinecone.index(process.env.PINECONE_INDEX);
 
-// ================= LOAD LOCAL EMBEDDING MODEL =================
 let embedder;
 
 async function loadModel() {
@@ -35,7 +32,6 @@ async function loadModel() {
   console.log("✅ Model loaded.");
 }
 
-// ================= GET EMBEDDING =================
 async function getEmbedding(text) {
   const output = await embedder(text, {
     pooling: "mean",
@@ -45,7 +41,6 @@ async function getEmbedding(text) {
   return Array.from(output.data);
 }
 
-// ================= UPSERT =================
 async function safeUpsert(records) {
   if (!records.length) return;
 
@@ -55,7 +50,6 @@ async function safeUpsert(records) {
   });
 }
 
-// ================= MAIN =================
 async function main() {
   console.log("------------------------------------------------");
   console.log("🚀 STARTING LAWSPHERE INGESTION (LOCAL EMBEDDINGS)");
@@ -63,7 +57,7 @@ async function main() {
 
   await loadModel();
 
-  const filePath = path.join(__dirname, "data", "bns_book.pdf");
+  const filePath = path.join(__dirname, "data", "LAWS.pdf");
 
   if (!fs.existsSync(filePath)) {
     console.error("❌ PDF NOT FOUND");
@@ -97,7 +91,7 @@ async function main() {
       values: embedding,
       metadata: {
         text: chunks[i],
-        source: "BNS PDF"
+        source: "LAWS PDF"
       }
     });
 
