@@ -13,6 +13,7 @@ const PORT = 3000;
 const NAMESPACE = "default";
 const LLM_MODEL = "llama-3.3-70b-versatile"; 
 
+
 const pinecone = new Pinecone({
   apiKey: process.env.PINECONE_API_KEY,
 });
@@ -26,8 +27,9 @@ let embedder = null;
 
 async function loadModel() {
   console.log("🧠 Loading local embedding model (Xenova)...");
+
   embedder = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2");
-  console.log("✅ Model loaded.");
+  console.log("✅ Embedding Model loaded.");
 }
 
 async function getEmbedding(text) {
@@ -38,29 +40,27 @@ async function getEmbedding(text) {
 
 const router = express.Router();
 
-// 1. ASK ROUTE
 router.post("/ask", async (req, res) => {
   try {
     const { query, language } = req.body;
-    console.log(`📩 Query: ${query} | Lang: ${language}`);
+    console.log(`📩 Query: "${query}" | Language: ${language}`);
 
     if (!query) return res.status(400).json({ error: "Query required" });
 
     const langInstruction = language === "hindi" 
-        ? "CRITICAL RULE: Answer in HINDI (Devanagari script)." 
+        ? "CRITICAL RULE: Answer the user's question entirely in HINDI (Devanagari script). Use simple, clear legal Hindi." 
         : "Answer in English.";
 
     const queryVector = await getEmbedding(query);
 
     const searchResult = await index.namespace(NAMESPACE).query({
       vector: queryVector,
-      topK: 6, 
+      topK: 12, 
       includeMetadata: true,
     });
 
     const matches = searchResult.matches || [];
-    
-  
+ 
     const context = matches
       .map((m, i) => `[Source: ${m.metadata?.source || "Legal Doc"}] Section ${m.metadata?.section}:\n${m.metadata?.text || ""}`)
       .join("\n\n");
@@ -69,15 +69,17 @@ router.post("/ask", async (req, res) => {
         messages: [
             {
                 role: "system",
-                content: `You are LawSphere, a Universal Legal AI for India.
+                content: `You are LawSphere, a Universal Legal AI for India covering BNS, BNSS, BSA, IT Act, and other Indian Laws.
                 
                 ${langInstruction}
 
                 STRICT INSTRUCTIONS:
-                1. You have access to multiple Indian Laws (BNS, BNSS, BSA, IT Act, etc.).
-                2. Answer ONLY using the provided context.
-                3. **Explicitly mention the Act/Law Name** from the context (e.g. "According to BNS Section...").
-                4. Format in Markdown.`
+                1. You have access to a database containing various Indian Laws.
+                2. Answer ONLY using the provided 'Context'.
+                3. **Explicitly mention the Act/Law Name** from the [Source: ...] tag (e.g. "According to Section 43 of BNSS...").
+                4. If the user asks about Procedure, look for BNSS. If they ask about Offences/Punishment, look for BNS.
+                5. Do not hallucinate. If info is missing, state it clearly.
+                6. Format in Markdown (Bold, Lists).`
             },
             {
                 role: "user",
@@ -85,16 +87,18 @@ router.post("/ask", async (req, res) => {
             }
         ],
         model: LLM_MODEL,
-        temperature: 0.1, 
+        temperature: 0.1,
     });
 
     const answer = completion.choices[0]?.message?.content || "No answer generated.";
 
+    console.log("✅ Chat Answer Sent.");
+
     res.json({
       formattedAnswer: answer,
       reasoning: "Universal Vector Search",
-      semanticTags: matches.map(m => m.metadata?.source || "Law"), 
-      retrievedSources: matches.map((m, i) => ({
+      semanticTags: matches.map(m => m.metadata?.source || "Law").slice(0, 3), // Tags
+      retrievedSources: matches.slice(0, 5).map((m, i) => ({
         sourceNumber: i + 1,
         snippet: `[${m.metadata?.source}] ${m.metadata?.text?.substring(0, 150)}...`
       }))
@@ -109,44 +113,65 @@ router.post("/ask", async (req, res) => {
 router.post("/compare", async (req, res) => {
   try {
     const { section1, section2 } = req.body;
-    
+    console.log(`⚖️ Comparing: ${section1} vs ${section2}`);
+
+    if (!section1 || !section2) {
+      return res.status(400).json({ error: "Both sections required" });
+    }
+
     const vec1 = await getEmbedding(section1);
     const vec2 = await getEmbedding(section2);
 
     const [result1, result2] = await Promise.all([
-        index.namespace(NAMESPACE).query({ vector: vec1, topK: 3, includeMetadata: true }),
-        index.namespace(NAMESPACE).query({ vector: vec2, topK: 3, includeMetadata: true })
+        index.namespace(NAMESPACE).query({ vector: vec1, topK: 4, includeMetadata: true }),
+        index.namespace(NAMESPACE).query({ vector: vec2, topK: 4, includeMetadata: true })
     ]);
+
 
     const matches = [...(result1.matches || []), ...(result2.matches || [])];
     const uniqueContext = Array.from(new Set(matches.map(m => `[${m.metadata.source}] ${m.metadata.text}`))).join("\n\n---\n\n");
+
+    if (!uniqueContext || uniqueContext.length < 50) {
+        return res.json({ formattedAnswer: "I could not find relevant sections in the database to compare.", retrievedSources: [] });
+    }
 
     const completion = await groq.chat.completions.create({
         messages: [
             {
                 role: "system",
-                content: `You are an expert Indian Legal AI. Compare the two requested topics using the provided context from various Indian Acts.`
+                content: `You are an expert Indian Legal AI.
+                Compare the two requested topics using ONLY the provided Context.
+                Output a clean **Markdown Table** comparing:
+                - Definition
+                - Punishment
+                - Nature (Cognizable/Bailable)
+                
+                Follow the table with a brief summary.`
             },
             {
                 role: "user",
-                content: `CONTEXT: ${uniqueContext}\nTASK: Compare "${section1}" and "${section2}" (Table Format).`
+                content: `CONTEXT: ${uniqueContext}\nTASK: Compare "${section1}" and "${section2}".`
             }
         ],
         model: LLM_MODEL,
         temperature: 0.1,
     });
 
+    const answer = completion.choices[0]?.message?.content || "Comparison failed.";
+    console.log("✅ Comparison Sent.");
+
     res.json({
-        formattedAnswer: completion.choices[0]?.message?.content || "Comparison failed.",
-        semanticTags: ["Comparison"],
-        retrievedSources: []
+      formattedAnswer: answer,
+      reasoning: "RAG Comparison",
+      semanticTags: ["Comparison"],
+      retrievedSources: []
     });
 
   } catch (error) {
-    res.status(500).json({ formattedAnswer: "Error: " + error.message, retrievedSources: [] });
+    console.error("❌ Compare Error:", error);
+    res.status(500).json({ formattedAnswer: "Comparison Error: " + error.message, retrievedSources: [] });
   }
 });
-
 
 app.use("/api", router);
 
