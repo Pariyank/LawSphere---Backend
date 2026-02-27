@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const axios = require("axios"); 
 const { Pinecone } = require("@pinecone-database/pinecone");
 const { pipeline } = require("@xenova/transformers");
 const Groq = require("groq-sdk");
@@ -157,32 +156,6 @@ router.post("/compare", async (req, res) => {
   }
 });
 
-router.get("/news", async (req, res) => {
-    try {
-        const apiKey = process.env.NEWS_API_KEY;
-        
-        const url = `https://gnews.io/api/v4/search?q=Supreme%20Court%20India%20OR%20Bharatiya%20Nyaya%20Sanhita&lang=en&country=in&max=10&apikey=${apiKey}`;
-
-        const response = await axios.get(url);
-        
-        const articles = response.data.articles.map(article => ({
-            title: article.title,
-            description: article.description || "Click to read full story...",
-            source: article.source.name,
-            date: new Date(article.publishedAt).toDateString()
-        }));
-
-        res.json(articles);
-
-    } catch (error) {
-        console.error("News Error:", error.message);
-       
-        res.json([
-            { title: "Supreme Court Updates", description: "Real-time news unavailable. Please check internet.", source: "System", date: "Today" },
-            { title: "BNS Implementation", description: "New criminal laws effective from July 1st 2024.", source: "LawSphere", date: "2024" }
-        ]);
-    }
-});
 
 app.use("/api", router);
 
