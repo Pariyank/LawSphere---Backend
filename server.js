@@ -22,7 +22,6 @@ const groq = new Groq({
     apiKey: process.env.GROQ_API_KEY
 });
 
-
 let embedder = null;
 
 async function loadModel() {
@@ -39,6 +38,7 @@ async function getEmbedding(text) {
 
 const router = express.Router();
 
+// 1. ASK ROUTE
 router.post("/ask", async (req, res) => {
   try {
     const { query, language } = req.body;
@@ -47,33 +47,37 @@ router.post("/ask", async (req, res) => {
     if (!query) return res.status(400).json({ error: "Query required" });
 
     const langInstruction = language === "hindi" 
-        ? "CRITICAL RULE: Answer in HINDI (Devanagari script). Use simple legal Hindi." 
+        ? "CRITICAL RULE: Answer in HINDI (Devanagari script)." 
         : "Answer in English.";
 
     const queryVector = await getEmbedding(query);
 
     const searchResult = await index.namespace(NAMESPACE).query({
       vector: queryVector,
-      topK: 5,
+      topK: 6, 
       includeMetadata: true,
     });
 
     const matches = searchResult.matches || [];
     
+  
     const context = matches
-      .map((m, i) => `Source ${i + 1}:\n${m.metadata?.text || ""}`)
+      .map((m, i) => `[Source: ${m.metadata?.source || "Legal Doc"}] Section ${m.metadata?.section}:\n${m.metadata?.text || ""}`)
       .join("\n\n");
 
     const completion = await groq.chat.completions.create({
         messages: [
             {
                 role: "system",
-                content: `You are LawSphere, an expert legal AI for Bharatiya Nyaya Sanhita (BNS). 
+                content: `You are LawSphere, a Universal Legal AI for India.
+                
                 ${langInstruction}
-                STRICT RULES:
-                1. Answer ONLY using the provided context.
-                2. Cite relevant Section numbers.
-                3. Format in Markdown.`
+
+                STRICT INSTRUCTIONS:
+                1. You have access to multiple Indian Laws (BNS, BNSS, BSA, IT Act, etc.).
+                2. Answer ONLY using the provided context.
+                3. **Explicitly mention the Act/Law Name** from the context (e.g. "According to BNS Section...").
+                4. Format in Markdown.`
             },
             {
                 role: "user",
@@ -88,11 +92,11 @@ router.post("/ask", async (req, res) => {
 
     res.json({
       formattedAnswer: answer,
-      reasoning: "Vector Search",
-      semanticTags: ["BNS", "Legal"],
+      reasoning: "Universal Vector Search",
+      semanticTags: matches.map(m => m.metadata?.source || "Law"), 
       retrievedSources: matches.map((m, i) => ({
         sourceNumber: i + 1,
-        snippet: (m.metadata?.text || "").substring(0, 200) + "..."
+        snippet: `[${m.metadata?.source}] ${m.metadata?.text?.substring(0, 150)}...`
       }))
     });
 
@@ -105,12 +109,7 @@ router.post("/ask", async (req, res) => {
 router.post("/compare", async (req, res) => {
   try {
     const { section1, section2 } = req.body;
-    console.log(`⚖️ Comparing: ${section1} vs ${section2}`);
-
-    if (!section1 || !section2) {
-      return res.status(400).json({ error: "Both sections required" });
-    }
-
+    
     const vec1 = await getEmbedding(section1);
     const vec2 = await getEmbedding(section2);
 
@@ -120,38 +119,30 @@ router.post("/compare", async (req, res) => {
     ]);
 
     const matches = [...(result1.matches || []), ...(result2.matches || [])];
-    const uniqueContext = Array.from(new Set(matches.map(m => m.metadata?.text))).join("\n\n---\n\n");
-
-    if (!uniqueContext || uniqueContext.length < 50) {
-        return res.json({ formattedAnswer: "I could not find these sections in the uploaded BNS PDF.", retrievedSources: [] });
-    }
+    const uniqueContext = Array.from(new Set(matches.map(m => `[${m.metadata.source}] ${m.metadata.text}`))).join("\n\n---\n\n");
 
     const completion = await groq.chat.completions.create({
         messages: [
             {
                 role: "system",
-                content: `You are a strict legal expert for BNS India. Use ONLY context. Output Markdown Table.`
+                content: `You are an expert Indian Legal AI. Compare the two requested topics using the provided context from various Indian Acts.`
             },
             {
                 role: "user",
-                content: `CONTEXT: ${uniqueContext}\nTASK: Compare "${section1}" and "${section2}".`
+                content: `CONTEXT: ${uniqueContext}\nTASK: Compare "${section1}" and "${section2}" (Table Format).`
             }
         ],
         model: LLM_MODEL,
         temperature: 0.1,
     });
 
-    const answer = completion.choices[0]?.message?.content || "Comparison failed.";
-
     res.json({
-      formattedAnswer: answer,
-      reasoning: "RAG Comparison",
-      semanticTags: ["Compare"],
-      retrievedSources: []
+        formattedAnswer: completion.choices[0]?.message?.content || "Comparison failed.",
+        semanticTags: ["Comparison"],
+        retrievedSources: []
     });
 
   } catch (error) {
-    console.error("❌ Compare Error:", error);
     res.status(500).json({ formattedAnswer: "Error: " + error.message, retrievedSources: [] });
   }
 });

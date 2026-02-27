@@ -1,115 +1,146 @@
-const fs = require("fs");
-const path = require("path");
-require("dotenv").config();
+const fs = require('fs');
+const path = require('path');
+require('dotenv').config();
 
-let pdfParse = require("pdf-parse");
-if (typeof pdfParse !== "function" && pdfParse.default) {
-  pdfParse = pdfParse.default;
+let pdfParse = require('pdf-parse');
+if (typeof pdfParse !== 'function' && pdfParse.default) {
+    pdfParse = pdfParse.default;
 }
 
-const { Pinecone } = require("@pinecone-database/pinecone");
+const { Pinecone } = require('@pinecone-database/pinecone');
+const { RecursiveCharacterTextSplitter } = require("@langchain/textsplitters");
 const { pipeline } = require("@xenova/transformers");
 
-const CHUNK_SIZE = 1000;
-const OVERLAP = 200;
-const BATCH_SIZE = 20;
+const DATA_DIR = path.join(__dirname, 'data');
 const NAMESPACE = "default";
+const CHUNK_SIZE = 1000;
+const CHUNK_OVERLAP = 200;
+const BATCH_SIZE = 50; 
 
 const pinecone = new Pinecone({
   apiKey: process.env.PINECONE_API_KEY,
 });
-
 const index = pinecone.index(process.env.PINECONE_INDEX);
 
-let embedder;
+let embedder = null;
 
 async function loadModel() {
-  console.log("🧠 Loading local embedding model...");
-  embedder = await pipeline(
-    "feature-extraction",
-    "Xenova/all-MiniLM-L6-v2"
-  );
+  console.log("🧠 Loading local embedding model (Xenova)...");
+  embedder = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2");
   console.log("✅ Model loaded.");
 }
 
 async function getEmbedding(text) {
-  const output = await embedder(text, {
-    pooling: "mean",
-    normalize: true,
-  });
-
+  if (!embedder) await loadModel();
+  const output = await embedder(text, { pooling: "mean", normalize: true });
   return Array.from(output.data);
 }
 
-async function safeUpsert(records) {
-  if (!records.length) return;
+async function processFile(fileName) {
+    const filePath = path.join(DATA_DIR, fileName);
+    console.log(`\n📄 Processing: ${fileName}...`);
 
-  await index.upsert({
-    namespace: NAMESPACE,
-    records: records,
-  });
+    try {
+        const dataBuffer = fs.readFileSync(filePath);
+        const pdfData = await pdfParse(dataBuffer);
+        
+      
+        const rawText = pdfData.text.replace(/\s+/g, " ").trim();
+
+        if (rawText.length < 100) {
+            console.log(`⚠️ Skipped ${fileName} (Text too short or Scanned Image)`);
+            return 0;
+        }
+
+        console.log(`   Text Length: ${rawText.length} chars`);
+
+        const splitter = new RecursiveCharacterTextSplitter({
+            chunkSize: CHUNK_SIZE,
+            chunkOverlap: CHUNK_OVERLAP,
+            separators: ["\n\n", "Section", "Article", "CHAPTER", "\n", ". ", " "] 
+        });
+
+        const outputDocuments = await splitter.createDocuments([rawText]);
+        const chunks = outputDocuments.map(doc => doc.pageContent);
+
+        console.log(`   🧩 Split into ${chunks.length} chunks.`);
+
+        let vectors = [];
+        let count = 0;
+        const sourceName = fileName.replace('.pdf', '').replace(/_/g, ' '); 
+
+        for (let i = 0; i < chunks.length; i++) {
+            const chunkText = chunks[i];
+            
+        
+            const sectionMatch = chunkText.match(/(Section|Article)\s+(\d+[A-Z]*)/i);
+            const sectionLabel = sectionMatch ? `${sectionMatch[1]} ${sectionMatch[2]}` : "General";
+
+            const embedding = await getEmbedding(chunkText);
+
+            vectors.push({
+                id: `${fileName}-${i}`, 
+                values: embedding,
+                metadata: {
+                    text: chunkText,
+                    section: sectionLabel,
+                    source: sourceName 
+                }
+            });
+
+            process.stdout.write("."); // Progress dot
+            if (vectors.length >= BATCH_SIZE) {
+                await index.namespace(NAMESPACE).upsert(vectors);
+                count += vectors.length;
+                vectors = [];
+            }
+        }
+        if (vectors.length > 0) {
+            await index.namespace(NAMESPACE).upsert(vectors);
+            count += vectors.length;
+        }
+
+        console.log(`\n   ✅ Uploaded ${count} vectors for ${fileName}`);
+        return count;
+
+    } catch (e) {
+        console.error(`\n❌ Error processing ${fileName}:`, e.message);
+        return 0;
+    }
 }
 
 async function main() {
-  console.log("------------------------------------------------");
-  console.log("🚀 STARTING LAWSPHERE INGESTION (LOCAL EMBEDDINGS)");
-  console.log("------------------------------------------------");
+    console.log("------------------------------------------------");
+    console.log("🚀 STARTING UNIVERSAL LAW INGESTION");
+    console.log("------------------------------------------------");
 
-  await loadModel();
-
-  const filePath = path.join(__dirname, "data", "LAWS.pdf");
-
-  if (!fs.existsSync(filePath)) {
-    console.error("❌ PDF NOT FOUND");
-    return;
-  }
-
-  const dataBuffer = fs.readFileSync(filePath);
-  const pdfData = await pdfParse(dataBuffer);
-  let rawText = pdfData.text.replace(/\s+/g, " ").trim();
-
-  console.log(`📄 PDF Loaded. Characters: ${rawText.length}`);
-
-  let chunks = [];
-
-  for (let i = 0; i < rawText.length; i += (CHUNK_SIZE - OVERLAP)) {
-    const chunk = rawText.substring(i, i + CHUNK_SIZE);
-    if (chunk.length > 100) chunks.push(chunk);
-  }
-
-  console.log(`🧩 Created ${chunks.length} chunks.`);
-  console.log("⚡ Generating LOCAL embeddings & uploading...\n");
-
-  let batch = [];
-  let total = 0;
-
-  for (let i = 0; i < chunks.length; i++) {
-    const embedding = await getEmbedding(chunks[i]);
-
-    batch.push({
-      id: `chunk-${i}`,
-      values: embedding,
-      metadata: {
-        text: chunks[i],
-        source: "LAWS PDF"
-      }
-    });
-
-    process.stdout.write(".");
-
-    if (batch.length >= BATCH_SIZE) {
-      await safeUpsert(batch);
-      total += batch.length;
-      batch = [];
+    if (!fs.existsSync(DATA_DIR)) {
+        console.error("❌ 'data' directory missing! Create it and add PDFs.");
+        return;
     }
-  }
 
-  if (batch.length > 0) {
-    await safeUpsert(batch);
-    total += batch.length;
-  }
+    await loadModel();
 
-  console.log(`\n\n✅ SUCCESS: Uploaded ${total} chunks.`);
+    const files = fs.readdirSync(DATA_DIR).filter(file => file.toLowerCase().endsWith('.pdf'));
+
+    if (files.length === 0) {
+        console.error("❌ No PDF files found in 'data' folder!");
+        return;
+    }
+
+    console.log(`📚 Found ${files.length} Legal Documents:`, files);
+
+    let totalVectors = 0;
+    
+  
+    for (const file of files) {
+        totalVectors += await processFile(file);
+    }
+
+    console.log("------------------------------------------------");
+    console.log(`🎉 GRAND TOTAL: ${totalVectors} chunks uploaded.`);
+    console.log("🧠 LawSphere is now trained on ALL provided laws.");
+    console.log("------------------------------------------------");
 }
 
 main();
