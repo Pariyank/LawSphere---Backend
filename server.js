@@ -9,9 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 const NAMESPACE = "default";
 const LLM_MODEL = "llama-3.3-70b-versatile"; 
+
 
 const pinecone = new Pinecone({ apiKey: process.env.PINECONE_API_KEY });
 const index = pinecone.index(process.env.PINECONE_INDEX);
@@ -31,78 +32,75 @@ async function loadModel() {
 
 async function getEmbedding(text) {
   if (!embedder) await loadModel();
-  const output = await embedder(text, { pooling: "mean", normalize: true });
-  return Array.from(output.data).map(Number);
-}
 
-async function optimizeQuery(userQuery) {
-    try {
-        const completion = await groq.chat.completions.create({
-            messages:[
-                {
-                    role: "system",
-                    content: `You are a Legal Search Optimizer. Convert the user's query into the Full Official Legal Act Name. Output ONLY the refined query.`
-                },
-                { role: "user", content: userQuery }
-            ],
-            model: LLM_MODEL,
-            temperature: 0,
-        });
-        return completion.choices[0]?.message?.content?.trim() || userQuery;
-    } catch (e) {
-        return userQuery;
-    }
+  const output = await embedder(text, { pooling: "mean", normalize: true });
+  return Array.from(output.data);
 }
 
 const router = express.Router();
 router.get("/", (req, res) => res.send("🚀 LawSphere Brain is Active"));
 
-// 1. ASK ROUTE
+
+router.get("/", (req, res) => {
+    res.send("🚀 LawSphere Brain is Active");
+});
+
+
 router.post("/ask", async (req, res) => {
   try {
     const { query, language } = req.body;
-    console.log(`\n📩 Chat Query: "${query}"`);
+    console.log(`📩 Query: ${query} | Lang: ${language}`);
+
     if (!query) return res.status(400).json({ error: "Query required" });
 
     const langInstruction = language === "hindi" 
-        ? "CRITICAL RULE: Answer in HINDI (Devanagari script). Use simple legal Hindi." 
+        ? "CRITICAL RULE: Answer in HINDI (Devanagari script)." 
         : "Answer in English.";
 
     const queryVector = await getEmbedding(query);
 
     const searchResult = await index.namespace(NAMESPACE).query({
       vector: queryVector,
-      topK: 5,
+      topK: 6, 
       includeMetadata: true,
     });
 
     const matches = searchResult.matches || [];
     
+  
     const context = matches
-      .map((m, i) => `Source ${i + 1}:\n${m.metadata?.text || ""}`)
+      .map((m, i) => `[Source: ${m.metadata?.source || "Legal Doc"}] Section ${m.metadata?.section}:\n${m.metadata?.text || ""}`)
       .join("\n\n");
 
     const completion = await groq.chat.completions.create({
         messages:[
             {
                 role: "system",
-                content: `You are LawSphere, an expert legal AI for Bharatiya Nyaya Sanhita (BNS). 
+                content: `You are LawSphere, a Universal Legal AI for India.
+                
                 ${langInstruction}
-                STRICT RULES:
-                1. Answer ONLY using the provided context.
-                2. Cite relevant Section numbers.
-                3. Format in Markdown.`
+
+                STRICT INSTRUCTIONS:
+                1. You have access to multiple Indian Laws (BNS, BNSS, BSA, IT Act, etc.).
+                2. Answer ONLY using the provided context.
+                3. **Explicitly mention the Act/Law Name** from the context (e.g. "According to BNS Section...").
+                4. Format in Markdown.`
             },
-            { role: "user", content: `CONTEXT FOUND IN DATABASE:\n${context}\n\nUSER QUESTION:\n${query}` }
+            {
+                role: "user",
+                content: `Context:\n${context}\n\nQuestion:\n${query}`
+            }
         ],
         model: LLM_MODEL,
         temperature: 0.1, 
     });
 
+    const answer = completion.choices[0]?.message?.content || "No answer generated.";
+
     res.json({
       formattedAnswer: answer,
-      reasoning: "Vector Search",
-      semanticTags: ["BNS", "Legal"],
+      reasoning: "Universal Vector Search",
+      semanticTags: matches.map(m => m.metadata?.source || "Law"), 
       retrievedSources: matches.map((m, i) => ({
         sourceNumber: i + 1,
         snippet: `[${m.metadata?.source}] ${m.metadata?.text?.substring(0, 150)}...`
@@ -126,22 +124,19 @@ router.post("/compare", async (req, res) => {
     const vec2 = await getEmbedding(section2);
 
     const [result1, result2] = await Promise.all([
-        index.namespace(NAMESPACE).query({ vector: vec1, topK: 3, includeMetadata: true }),
-        index.namespace(NAMESPACE).query({ vector: vec2, topK: 3, includeMetadata: true })
+        index.namespace(NAMESPACE).query({ vector: vec1, topK: 5, includeMetadata: true }),
+        index.namespace(NAMESPACE).query({ vector: vec2, topK: 5, includeMetadata: true })
     ]);
 
-    const matches = [...(result1.matches || []), ...(result2.matches || [])];
-    const uniqueContext = Array.from(new Set(matches.map(m => m.metadata?.text))).join("\n\n---\n\n");
 
-    if (!uniqueContext || uniqueContext.length < 50) {
-        return res.json({ formattedAnswer: "I could not find these sections in the uploaded BNS PDF.", retrievedSources: [] });
-    }
+    const matches = [...(result1.matches || []), ...(result2.matches || [])];
+    const uniqueContext = Array.from(new Set(matches.map(m => `[${m.metadata.source}] ${m.metadata.text}`))).join("\n\n---\n\n");
 
     const completion = await groq.chat.completions.create({
         messages: [
             {
                 role: "system",
-                content: `You are a strict legal expert for BNS India. Use ONLY context. Output Markdown Table.`
+                content: `You are an expert Indian Legal AI. Compare the two requested topics using the provided context from various Indian Acts.`
             },
             {
                 role: "user",
@@ -152,13 +147,10 @@ router.post("/compare", async (req, res) => {
         temperature: 0.1,
     });
 
-    const answer = completion.choices[0]?.message?.content || "Comparison failed.";
-
     res.json({
-      formattedAnswer: answer,
-      reasoning: "RAG Comparison",
-      semanticTags: ["Compare"],
-      retrievedSources: []
+        formattedAnswer: completion.choices[0]?.message?.content || "Comparison failed.",
+        semanticTags: ["Comparison"],
+        retrievedSources: []
     });
 
   } catch (error) {
@@ -172,6 +164,6 @@ router.post("/compare", async (req, res) => {
 app.use("/api", router);
 
 app.listen(PORT, "0.0.0.0", async () => {
-  await loadModel();
+  await loadModel(); 
   console.log(`🚀 LawSphere Backend running on port ${PORT}`);
 });
