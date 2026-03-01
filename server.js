@@ -9,7 +9,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = 3000;
+
+const PORT = process.env.PORT || 3000;
 const NAMESPACE = "default";
 const LLM_MODEL = "llama-3.3-70b-versatile"; 
 
@@ -27,17 +28,23 @@ let embedder = null;
 async function loadModel() {
   console.log("🧠 Loading local embedding model (Xenova)...");
   embedder = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2");
-  console.log("✅ Model loaded.");
+  console.log("✅ Embedding Model loaded.");
 }
 
 async function getEmbedding(text) {
   if (!embedder) await loadModel();
+
   const output = await embedder(text, { pooling: "mean", normalize: true });
-  return Array.from(output.data);
+ 
+  return Array.from(output.data).map(Number);
 }
 
-
 const router = express.Router();
+
+router.get("/", (req, res) => {
+    res.send("🚀 LawSphere Brain is Active");
+});
+
 
 router.post("/ask", async (req, res) => {
   try {
@@ -47,7 +54,7 @@ router.post("/ask", async (req, res) => {
     if (!query) return res.status(400).json({ error: "Query required" });
 
     const langInstruction = language === "hindi" 
-        ? "CRITICAL RULE: Answer in HINDI (Devanagari script)." 
+        ? "CRITICAL RULE: Answer the user's question entirely in HINDI (Devanagari script). Use simple, clear legal Hindi." 
         : "Answer in English.";
 
     const queryVector = await getEmbedding(query);
@@ -59,12 +66,10 @@ router.post("/ask", async (req, res) => {
     });
 
     const matches = searchResult.matches || [];
-    
-    
+ 
     const context = matches
-      .map((m, i) => `[Source Document: ${m.metadata?.source}] \nContent: ${m.metadata?.text}`)
+      .map((m, i) => `[Source Document: ${m.metadata?.source || "Legal Doc"}] \nContent: ${m.metadata?.text || ""}`)
       .join("\n\n----------------\n\n");
-
 
     const completion = await groq.chat.completions.create({
         messages: [
@@ -75,13 +80,12 @@ router.post("/ask", async (req, res) => {
                 ${langInstruction}
 
                 CRITICAL INSTRUCTIONS:
-                1. You have access to a database of 50+ Indian Laws (Acts, Rules, Codes).
-                2. Your job is to find the answer to the user's question from the provided 'Context'.
-                3. **IDENTIFY THE SOURCE:** Look at the '[Source Document: ...]' tag in the context. Tell the user which Act/Law you are quoting from.
-                4. **DO NOT LIMIT TO BNS:** If the context comes from "Minimum Wages Act", quote that. If it comes from "IT Act", quote that.
-                5. If the user asks about "Central Act 11 of 1948", look through the context to find which Act corresponds to that year/number.
-                6. If the answer is NOT in the context, explicitly say: "I could not find information regarding this specific Act in my database."
-                7. Format in clean Markdown.`
+                1. You have access to a database of 50+ Indian Laws (Acts, Rules, Codes like BNS, BNSS, BSA, etc.).
+                2. Answer ONLY using the provided 'Context'.
+                3. **IDENTIFY THE SOURCE:** Look at the '[Source Document: ...]' tag. Explicitly mention which Act you are quoting (e.g. "According to the Minimum Wages Act...").
+                4. If the user asks about a specific Act (e.g. "Act 11 of 1948"), scan the context for that specific detail.
+                5. Do not hallucinate. If the answer is not in the text, say: "I could not find information regarding this specific query in the database."
+                6. Format in Markdown (Bold key terms, Bullet points).`
             },
             {
                 role: "user",
@@ -99,7 +103,7 @@ router.post("/ask", async (req, res) => {
     res.json({
       formattedAnswer: answer,
       reasoning: "Universal Vector Search",
-      semanticTags: matches.slice(0, 3).map(m => m.metadata?.source || "Law"),
+      semanticTags: matches.slice(0, 3).map(m => m.metadata?.source || "Law"), 
       retrievedSources: matches.slice(0, 5).map((m, i) => ({
         sourceNumber: i + 1,
         snippet: `[${m.metadata?.source}] ${m.metadata?.text?.substring(0, 150)}...`
@@ -112,10 +116,16 @@ router.post("/ask", async (req, res) => {
   }
 });
 
+
 router.post("/compare", async (req, res) => {
   try {
     const { section1, section2 } = req.body;
-    
+    console.log(`⚖️ Comparing: ${section1} vs ${section2}`);
+
+    if (!section1 || !section2) {
+      return res.status(400).json({ error: "Both sections required" });
+    }
+
     const vec1 = await getEmbedding(section1);
     const vec2 = await getEmbedding(section2);
 
@@ -125,31 +135,46 @@ router.post("/compare", async (req, res) => {
     ]);
 
     const matches = [...(result1.matches || []), ...(result2.matches || [])];
-    const uniqueContext = matches.map(m => `[Source: ${m.metadata.source}] ${m.metadata.text}`).join("\n\n");
+    const uniqueContext = Array.from(new Set(matches.map(m => `[Source: ${m.metadata?.source}] ${m.metadata?.text}`))).join("\n\n");
+
+    if (!uniqueContext || uniqueContext.length < 50) {
+        return res.json({ formattedAnswer: "I could not find relevant sections in the database to compare.", retrievedSources: [] });
+    }
 
     const completion = await groq.chat.completions.create({
         messages: [
             {
                 role: "system",
-                content: `You are an expert Indian Legal AI. Compare the two requested topics using ONLY the provided Context.
-                Mention which Act/Law the sections belong to.`
+                content: `You are an expert Indian Legal AI.
+                Compare the two requested topics using ONLY the provided Context.
+                Mention which Act/Law each section belongs to.
+                
+                Output a clean **Markdown Table** comparing:
+                - Definition
+                - Punishment
+                - Nature (Cognizable/Bailable)`
             },
             {
                 role: "user",
-                content: `CONTEXT: ${uniqueContext}\nTASK: Compare "${section1}" and "${section2}" (Table Format).`
+                content: `CONTEXT: ${uniqueContext}\nTASK: Compare "${section1}" and "${section2}".`
             }
         ],
         model: LLM_MODEL,
         temperature: 0.1,
     });
 
+    const answer = completion.choices[0]?.message?.content || "Comparison failed.";
+    console.log("✅ Comparison Sent.");
+
     res.json({
-      formattedAnswer: completion.choices[0]?.message?.content || "Comparison failed.",
+      formattedAnswer: answer,
+      reasoning: "RAG Comparison",
       semanticTags: ["Comparison"],
       retrievedSources: []
     });
 
   } catch (error) {
+    console.error("❌ Compare Error:", error);
     res.status(500).json({ formattedAnswer: "Error: " + error.message, retrievedSources: [] });
   }
 });
@@ -158,6 +183,6 @@ router.post("/compare", async (req, res) => {
 app.use("/api", router);
 
 app.listen(PORT, "0.0.0.0", async () => {
-  await loadModel();
+  await loadModel(); 
   console.log(`🚀 LawSphere Backend running on port ${PORT}`);
 });
