@@ -13,13 +13,11 @@ const { pipeline } = require("@xenova/transformers");
 
 const DATA_DIR = path.join(__dirname, 'data');
 const NAMESPACE = "default";
-const CHUNK_SIZE = 800;
-const CHUNK_OVERLAP = 150;
+const CHUNK_SIZE = 1000;
+const CHUNK_OVERLAP = 200;
 const BATCH_SIZE = 50;
 
-const pinecone = new Pinecone({
-  apiKey: process.env.PINECONE_API_KEY,
-});
+const pinecone = new Pinecone({ apiKey: process.env.PINECONE_API_KEY });
 const index = pinecone.index(process.env.PINECONE_INDEX);
 
 let embedder = null;
@@ -43,13 +41,17 @@ async function processFile(fileName) {
     try {
         const dataBuffer = fs.readFileSync(filePath);
         const pdfData = await pdfParse(dataBuffer);
-    
-        const rawText = pdfData.text.replace(/\s+/g, " ").trim();
+      
+        let rawText = pdfData.text.replace(/\s+/g, " ").trim();
 
-        if (rawText.length < 100) {
-            console.log(`⚠️ Skipped ${fileName} (Empty)`);
+        if (rawText.length < 200) {
+            console.log(`⚠️ Skipped ${fileName} (Text too short/scanned).`);
             return 0;
         }
+
+        const sourceName = fileName.replace('.pdf', '').replace(/_/g, ' ');
+
+        rawText = `[Law: ${sourceName}] ${rawText}`;
 
         const splitter = new RecursiveCharacterTextSplitter({
             chunkSize: CHUNK_SIZE,
@@ -64,26 +66,20 @@ async function processFile(fileName) {
 
         let vectors = [];
         let count = 0;
-        
-
-        const sourceName = fileName.replace('.pdf', '').toUpperCase(); 
 
         for (let i = 0; i < chunks.length; i++) {
             const chunkText = chunks[i];
-       
+           
             const sectionMatch = chunkText.match(/(Section|Article)\s+(\d+[A-Z]*)/i);
             const sectionLabel = sectionMatch ? `${sectionMatch[1]} ${sectionMatch[2]}` : "General";
 
-         
-            const textToEmbed = `[Law: ${sourceName}] ${chunkText}`;
-
-            const embedding = await getEmbedding(textToEmbed);
+            const embedding = await getEmbedding(chunkText);
 
             vectors.push({
-                id: `${sourceName}-${i}`,
+                id: `${fileName}-${i}`,
                 values: embedding,
                 metadata: {
-                    text: chunkText, 
+                    text: chunkText,
                     section: sectionLabel,
                     source: sourceName 
                 }
@@ -114,7 +110,7 @@ async function processFile(fileName) {
 
 async function main() {
     console.log("------------------------------------------------");
-    console.log("🚀 STARTING UNIVERSAL LAW INGESTION");
+    console.log("🚀 STARTING MASS INGESTION (50+ PDFs)");
     console.log("------------------------------------------------");
 
     if (!fs.existsSync(DATA_DIR)) {
@@ -125,13 +121,7 @@ async function main() {
     await loadModel();
 
     const files = fs.readdirSync(DATA_DIR).filter(file => file.toLowerCase().endsWith('.pdf'));
-
-    if (files.length === 0) {
-        console.error("❌ No PDF files found in 'data' folder!");
-        return;
-    }
-
-    console.log(`📚 Found ${files.length} Documents:`, files);
+    console.log(`📚 Found ${files.length} Legal Documents.`);
 
     let totalVectors = 0;
     for (const file of files) {
@@ -140,7 +130,7 @@ async function main() {
 
     console.log("------------------------------------------------");
     console.log(`🎉 GRAND TOTAL: ${totalVectors} chunks uploaded.`);
-    console.log("🧠 LawSphere Brain is updated.");
+    console.log("🧠 LawSphere is now a Universal Legal Expert.");
     console.log("------------------------------------------------");
 }
 
