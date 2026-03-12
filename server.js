@@ -196,7 +196,7 @@ router.post("/lookup", async (req, res) => {
         // Take top 5 best matches to build context
         const context = actMatches.slice(0, 5).map(m => `[Doc: ${m.metadata.source}] ${m.metadata.text}`).join("\n\n");
 
-        if (!context || context.length < 20) {
+        if (!context) {
              return res.json({
                 section: section, title: act, description: "This specific section could not be found in the provided Act.", punishment: "N/A", cognizable: "N/A", bailable: "N/A", chapter: "N/A", cases:[]
             });
