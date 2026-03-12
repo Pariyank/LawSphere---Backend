@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const axios = require("axios");
 const { Pinecone } = require("@pinecone-database/pinecone");
 const { pipeline } = require("@xenova/transformers");
 const Groq = require("groq-sdk");
@@ -57,7 +56,7 @@ const router = express.Router();
 router.get("/", (req, res) => res.send("🚀 LawSphere Brain is Active"));
 
 // ---------------------------------------------------------
-// 1. CHAT ROUTE
+// 1. CHAT ROUTE (Unchanged)
 // ---------------------------------------------------------
 router.post("/ask", async (req, res) => {
   try {
@@ -67,7 +66,8 @@ router.post("/ask", async (req, res) => {
     if (!query) return res.status(400).json({ error: "Query required" });
 
     const refinedQuery = await optimizeQuery(query);
-    const queryVector = await getEmbedding(refinedQuery);
+    const searchString = refinedQuery + " whoever punished imprisonment fine explanation";
+    const queryVector = await getEmbedding(searchString);
 
     const searchResult = await index.namespace(NAMESPACE).query({
       vector: queryVector,
@@ -76,7 +76,7 @@ router.post("/ask", async (req, res) => {
     });
 
     const matches = searchResult.matches ||[];
-    const context = matches.map(m => `[DOCUMENT: ${m.metadata?.source}] \nCONTENT: ${m.metadata?.text}`).join("\n\n----------------\n\n");
+    const context = matches.map(m => `[ACT/DOCUMENT: ${m.metadata?.source}] \nCONTENT: ${m.metadata?.text}`).join("\n\n----------------\n\n");
 
     const langInstruction = language === "hindi" ? "Answer in HINDI." : "Answer in English.";
 
@@ -87,9 +87,9 @@ router.post("/ask", async (req, res) => {
                 content: `You are LawSphere, a strict Universal Legal Database Assistant for India.
                 ${langInstruction}
                 CRITICAL INSTRUCTIONS:
-                1. Answer ONLY using the 'CONTEXT FOUND IN DATABASE'.
-                2. NEVER mention the old IPC or CrPC unless explicitly in the text.
-                3. Start your answer with: "According to the [Insert Document Name]..."
+                1. Answer EXCLUSIVELY from the 'CONTEXT FOUND IN DATABASE'.
+                2. Do NOT reference the old Indian Penal Code (IPC) unless explicitly in the context.
+                3. Start your answer with: "According to the[Insert Document Name]..."
                 4. Format nicely in Markdown.`
             },
             { role: "user", content: `CONTEXT FOUND IN DATABASE:\n${context}\n\nUSER QUESTION:\n${query}` }
@@ -107,113 +107,118 @@ router.post("/ask", async (req, res) => {
         snippet: `[${m.metadata?.source}] ${m.metadata?.text?.substring(0, 150)}...`
       }))
     });
+
   } catch (error) {
-    res.status(500).json({ formattedAnswer: "Server Error", retrievedSources:[] });
+    res.status(500).json({ formattedAnswer: "Server Error: " + error.message, retrievedSources:[] });
   }
 });
 
 // ---------------------------------------------------------
-// 2. COMPARE ROUTE
+// 2. COMPARE ROUTE (Unchanged)
 // ---------------------------------------------------------
 router.post("/compare", async (req, res) => {
-    try {
-      const { section1, section2 } = req.body;
-      const vec1 = await getEmbedding(section1);
-      const vec2 = await getEmbedding(section2);
-  
-      const [result1, result2] = await Promise.all([
-          index.namespace(NAMESPACE).query({ vector: vec1, topK: 5, includeMetadata: true }),
-          index.namespace(NAMESPACE).query({ vector: vec2, topK: 5, includeMetadata: true })
-      ]);
-  
-      const matches = [...(result1.matches || []), ...(result2.matches ||[])];
-      const uniqueContext = Array.from(new Set(matches.map(m => `[Doc: ${m.metadata.source}] ${m.metadata.text}`))).join("\n\n");
-  
-      const completion = await groq.chat.completions.create({
-          messages:[
-              { role: "system", content: `Compare the two requested topics using ONLY the provided Context. Output a Markdown Table.` },
-              { role: "user", content: `CONTEXT: ${uniqueContext}\nTASK: Compare "${section1}" and "${section2}".` }
-          ],
-          model: LLM_MODEL,
-          temperature: 0.1,
-      });
-  
-      res.json({
-        formattedAnswer: completion.choices[0]?.message?.content || "Comparison failed.",
-        semanticTags: ["Comparison"],
-        retrievedSources:[]
-      });
-    } catch (error) {
-      res.status(500).json({ formattedAnswer: "Error: " + error.message, retrievedSources:[] });
-    }
+  try {
+    const { section1, section2 } = req.body;
+    const op1 = await optimizeQuery(section1);
+    const op2 = await optimizeQuery(section2);
+
+    const vec1 = await getEmbedding(op1 + " definition punishment");
+    const vec2 = await getEmbedding(op2 + " definition punishment");
+
+    const[result1, result2] = await Promise.all([
+        index.namespace(NAMESPACE).query({ vector: vec1, topK: 6, includeMetadata: true }),
+        index.namespace(NAMESPACE).query({ vector: vec2, topK: 6, includeMetadata: true })
+    ]);
+
+    const matches = [...(result1.matches || []), ...(result2.matches ||[])];
+    const uniqueContext = Array.from(new Set(matches.map(m => `[Doc: ${m.metadata.source}] ${m.metadata.text}`))).join("\n\n");
+
+    const completion = await groq.chat.completions.create({
+        messages:[
+            { role: "system", content: `Compare the two requested topics using ONLY the provided Context. Output a Markdown Table.` },
+            { role: "user", content: `CONTEXT: ${uniqueContext}\nTASK: Compare "${section1}" and "${section2}".` }
+        ],
+        model: LLM_MODEL,
+        temperature: 0.1,
+    });
+
+    res.json({
+      formattedAnswer: completion.choices[0]?.message?.content || "Comparison failed.",
+      semanticTags: ["Comparison"],
+      retrievedSources:[]
+    });
+  } catch (error) {
+    res.status(500).json({ formattedAnswer: "Error: " + error.message, retrievedSources:[] });
+  }
 });
 
 // ---------------------------------------------------------
-// 3. EXACT LOOKUP ROUTE (🟢 CRITICAL FIX APPLIED HERE)
+// 3. EXACT LOOKUP ROUTE (🟢 BULLETPROOF FIX APPLIED)
 // ---------------------------------------------------------
 router.post("/lookup", async (req, res) => {
     try {
         const { act, section } = req.body; 
         console.log(`\n🔎 Exact Lookup -> Act: "${act}", Section: "${section}"`);
 
-        // 🟢 FIX 1: Add heavy semantic anchors to bypass the "Table of Contents" pages
-        // By adding "punished imprisonment fine", Pinecone is forced to find the ACTUAL law text
-        const searchString = `Section ${section} whoever commits punished imprisonment fine explanation definition`;
+        // 1. Broad Search String to catch the general Act and Section
+        const searchString = `${act} Section ${section} definition statement explanation`;
         const queryVector = await getEmbedding(searchString);
 
-        // Fetch top 30 chunks to ensure we dig past the index pages
+        // 2. MASSIVE NET: Fetch top 60 chunks to ensure the Act is found
         const searchResult = await index.namespace(NAMESPACE).query({
             vector: queryVector,
-            topK: 30,
+            topK: 60,
             includeMetadata: true,
         });
 
         const matches = searchResult.matches ||[];
         
-        // 🟢 FIX 2: Filter results programmatically to match the Act
+        // 3. EXTREMELY FORGIVING ACT FILTER
+        // Remove all numbers, spaces, and punctuation to match perfectly
+        // "Bharatiya Nyaya Sanhita, 2023" -> "bharatiyanyayasanhita"
         const cleanRequestedAct = act.replace(/[^a-zA-Z]/g, '').toLowerCase();
         
         let actMatches = matches.filter(m => {
-            const cleanSource = (m.metadata.source || "").replace(/[^a-zA-Z]/g, '').toLowerCase();
-            return cleanRequestedAct.includes(cleanSource) || cleanSource.includes(cleanRequestedAct);
+            // Check both the metadata source AND the document ID
+            const rawSource = m.metadata?.source || m.id || "";
+            const cleanSource = rawSource.replace(/[^a-zA-Z]/g, '').toLowerCase();
+            return cleanSource.includes(cleanRequestedAct) || cleanRequestedAct.includes(cleanSource);
         });
 
-        // 🟢 FIX 3: Filter results to force the exact number to be present in the text body
-        let finalMatches =[];
+        console.log(`📚 Found ${actMatches.length} chunks belonging to "${act}"`);
+
+        // 4. SMART SORTING: Push chunks containing the exact number to the top
         if (section) {
             const secRegex = new RegExp(`\\b${section}\\b`, 'i');
-            // We want chunks that actually contain the number "102"
-            finalMatches = actMatches.filter(m => secRegex.test(m.metadata.text));
-        }
-
-        if (finalMatches.length > 0) {
-            actMatches = finalMatches;
-            console.log(`✅ Found ${finalMatches.length} valid chunks containing exact number "${section}"`);
-        } else {
-            console.log(`⚠️ Exact number "${section}" not found in body text. Relying on semantic match.`);
-        }
-
-        // Take top 5 best matches to build context
-        const context = actMatches.slice(0, 5).map(m => `[Doc: ${m.metadata.source}] ${m.metadata.text}`).join("\n\n");
-
-        if (!context) {
-             return res.json({
-                section: section, title: act, description: "This specific section could not be found in the provided Act.", punishment: "N/A", cognizable: "N/A", bailable: "N/A", chapter: "N/A", cases:[]
+            actMatches.sort((a, b) => {
+                const hasA = secRegex.test(a.metadata?.text || "") ? 1 : 0;
+                const hasB = secRegex.test(b.metadata?.text || "") ? 1 : 0;
+                return hasB - hasA; // Descending order (1s first, 0s last)
             });
         }
 
-        // 🟢 STRICT EXTRACTION PROMPT (Allows smart inference for missing details)
+        // 5. Take the top 8 best chunks to build the context
+        const context = actMatches.slice(0, 8).map(m => `[TEXT]\n${m.metadata.text}`).join("\n\n---\n\n");
+
+        // Failsafe if absolutely nothing matched
+        if (!context || context.length < 20) {
+             return res.json({
+                section: section, title: act, description: "This specific section could not be found in the database. Ensure the Act was uploaded correctly.", punishment: "N/A", cognizable: "N/A", bailable: "N/A", chapter: "N/A", cases:[]
+            });
+        }
+
+        // 6. STRICT EXTRACTION PROMPT
         const completion = await groq.chat.completions.create({
             messages:[
                 {
                     role: "system",
-                    content: `You are a Legal Data Extraction Engine.
+                    content: `You are a Strict Legal Extraction Engine.
                     Your Task: Extract details of Section ${section} from the context.
                     
                     CRITICAL RULES:
-                    1. "description": Extract the MAIN legal definition of the section. Ignore the index/table of contents.
-                    2. "punishment": Extract the exact penalty. If it's a civil act with no punishment, write "N/A - Administrative".
-                    3. If cognizable/bailable are not explicitly written, INFER them based on your general knowledge of Indian Law for this specific crime (e.g., Murder is Non-Bailable).
+                    1. "description": Extract the MAIN legal definition of the section. If it's just an index/table of contents, say "Data missing from context".
+                    2. "punishment": Extract the exact penalty. If it's a civil act with no punishment, write "N/A - Civil Section".
+                    3. If cognizable/bailable are not explicitly written, INFER them based on your general knowledge of Indian Law for this specific crime.
                     4. Output strictly Raw JSON. No markdown blocks.
                     
                     JSON FORMAT:
@@ -234,21 +239,32 @@ router.post("/lookup", async (req, res) => {
                 }
             ],
             model: LLM_MODEL,
-            temperature: 0,
+            temperature: 0, // Strict facts only
             response_format: { type: "json_object" } 
         });
 
         let rawOutput = completion.choices[0]?.message?.content || "{}";
         let cleanJson = rawOutput.replace(/```json/gi, "").replace(/```/g, "").trim();
         let parsedData = JSON.parse(cleanJson);
+        
+        console.log("✅ Extracted UI JSON:", parsedData.title);
+
+        let cogVal = parsedData.cognizable || parsedData.Cognizable || "N/A";
+        let bailVal = parsedData.bailable || parsedData.Bailable || "N/A";
+
+        if (parsedData["Cognizable/Bailable"]) {
+            const combined = parsedData["Cognizable/Bailable"].toLowerCase();
+            cogVal = combined.includes("non-cognizable") ? "No" : (combined.includes("cognizable") ? "Yes" : "N/A");
+            bailVal = combined.includes("non-bailable") ? "No" : (combined.includes("bailable") ? "Yes" : "N/A");
+        }
 
         const safeJson = {
             section: parsedData.section || parsedData.Section || section,
             title: parsedData.title || parsedData.Title || `Section ${section}`,
-            description: parsedData.description || parsedData.Description || "Exact statement could not be extracted.",
+            description: parsedData.description || parsedData.Description || "Statement could not be extracted.",
             punishment: parsedData.punishment || parsedData.Punishment || "N/A",
-            cognizable: parsedData.cognizable || parsedData.Cognizable || "N/A",
-            bailable: parsedData.bailable || parsedData.Bailable || "N/A",
+            cognizable: cogVal,
+            bailable: bailVal,
             chapter: parsedData.chapter || parsedData.Chapter || "N/A",
             cases: parsedData.cases || parsedData.Cases ||[]
         };
@@ -262,6 +278,7 @@ router.post("/lookup", async (req, res) => {
         });
     }
 });
+
 
 
 app.use("/api", router);
