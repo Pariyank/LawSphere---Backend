@@ -13,7 +13,7 @@ const { pipeline } = require("@xenova/transformers");
 
 const DATA_DIR = path.join(__dirname, 'data');
 const NAMESPACE = "default";
-const CHUNK_SIZE = 1000;
+const CHUNK_SIZE = 1500;
 const CHUNK_OVERLAP = 200;
 const BATCH_SIZE = 50; 
 const INDEX_NAME = process.env.PINECONE_INDEX || "lawsphere-index";
