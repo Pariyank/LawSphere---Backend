@@ -37,7 +37,9 @@ async function optimizeQuery(userQuery) {
             messages:[
                 {
                     role: "system",
-                    content: `You are a Legal Search Optimizer. Convert the user's query into the Full Official Legal Act Name. Output ONLY the refined query.`
+                    content: `You are a Legal Search Optimizer. Convert the user's query into the Full Official Legal Act Name.
+                    Input: "Act No 4 of 1936" -> Output: "Payment of Wages Act, 1936"
+                    Output ONLY the refined query.`
                 },
                 { role: "user", content: userQuery }
             ],
@@ -53,11 +55,11 @@ async function optimizeQuery(userQuery) {
 const router = express.Router();
 router.get("/", (req, res) => res.send("🚀 LawSphere Brain is Active"));
 
-
 router.post("/ask", async (req, res) => {
   try {
     const { query, language } = req.body;
     console.log(`\n📩 Chat Query: "${query}"`);
+
     if (!query) return res.status(400).json({ error: "Query required" });
 
     const refinedQuery = await optimizeQuery(query);
@@ -83,7 +85,7 @@ router.post("/ask", async (req, res) => {
                 CRITICAL INSTRUCTIONS:
                 1. Answer ONLY using the 'CONTEXT FOUND IN DATABASE'.
                 2. NEVER mention the old IPC or CrPC unless explicitly in the text.
-                3. Start your answer with: "According to the [Insert Document Name]..."
+                3. Start your answer with: "According to the[Insert Document Name]..."
                 4. Format nicely in Markdown.`
             },
             { role: "user", content: `CONTEXT FOUND IN DATABASE:\n${context}\n\nUSER QUESTION:\n${query}` }
@@ -113,12 +115,12 @@ router.post("/compare", async (req, res) => {
       const vec1 = await getEmbedding(section1);
       const vec2 = await getEmbedding(section2);
   
-      const [result1, result2] = await Promise.all([
+      const[result1, result2] = await Promise.all([
           index.namespace(NAMESPACE).query({ vector: vec1, topK: 5, includeMetadata: true }),
           index.namespace(NAMESPACE).query({ vector: vec2, topK: 5, includeMetadata: true })
       ]);
   
-      const matches = [...(result1.matches || []), ...(result2.matches ||[])];
+      const matches =[...(result1.matches || []), ...(result2.matches ||[])];
       const uniqueContext = Array.from(new Set(matches.map(m => `[Doc: ${m.metadata.source}] ${m.metadata.text}`))).join("\n\n");
   
       const completion = await groq.chat.completions.create({
@@ -146,26 +148,35 @@ router.post("/lookup", async (req, res) => {
         const { act, section } = req.body; 
         console.log(`\n🔎 Exact Lookup -> Act: "${act}", Section: "${section}"`);
 
-        const searchString = `Section ${section} definition statement explanation`;
+        const searchString = `Document: ${act} Section ${section} definition punishment statement`;
         const queryVector = await getEmbedding(searchString);
 
-  
         const searchResult = await index.namespace(NAMESPACE).query({
             vector: queryVector,
             topK: 15,
-            filter: { source: { "$eq": act } }, 
             includeMetadata: true,
         });
 
         const matches = searchResult.matches ||[];
-        const context = matches.map(m => m.metadata.text).join("\n\n");
+        
+  
+        const cleanRequestedAct = act.replace(/[^a-zA-Z]/g, '').toLowerCase();
+        
+        const relevantMatches = matches.filter(m => {
+            const cleanSource = (m.metadata.source || "").replace(/[^a-zA-Z]/g, '').toLowerCase();
+            return cleanRequestedAct.includes(cleanSource) || cleanSource.includes(cleanRequestedAct);
+        });
 
-        if (matches.length === 0) {
+        const context = relevantMatches.map(m => m.metadata.text).join("\n\n");
+
+        if (!context || context.length < 20) {
              return res.json({
-                section: section, title: act, description: "Act not found in database or index empty.", punishment: "N/A", cognizable: "N/A", bailable: "N/A", chapter: "N/A", cases:[]
+                section: section, 
+                title: act, 
+                description: "This specific section could not be found in the provided Act.", 
+                punishment: "N/A", cognizable: "N/A", bailable: "N/A", chapter: "N/A", cases:[]
             });
         }
-
         const completion = await groq.chat.completions.create({
             messages:[
                 {
@@ -175,7 +186,7 @@ router.post("/lookup", async (req, res) => {
                     
                     CRITICAL RULES:
                     1. Do NOT hallucinate. If Section ${section} is NOT in the context, write "Not Found in Context".
-                    2. "description": This must be the EXACT STATEMENT/CONTENT of the section copied from the context.
+                    2. "description": This must be the EXACT STATEMENT/CONTENT of the section copied from the context. Do not paraphrase.
                     3. If punishment, bailable, or cognizable details are missing, output "N/A".
                     4. Output strictly Raw JSON. No markdown blocks.
                     
