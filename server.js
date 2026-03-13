@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const axios = require("axios");
 const { Pinecone } = require("@pinecone-database/pinecone");
 const { pipeline } = require("@xenova/transformers");
 const Groq = require("groq-sdk");
@@ -158,14 +157,14 @@ router.post("/compare", async (req, res) => {
 });
 
 // ---------------------------------------------------------
-// 3. EXACT LOOKUP ROUTE (🟢 ULTIMATE FILTER FIX)
+// 3. EXACT LOOKUP ROUTE (🟢 IMPROVED FOR MISSING DATA)
 // ---------------------------------------------------------
 router.post("/lookup", async (req, res) => {
     try {
         const { act, section } = req.body; 
-        console.log(`\n🔎 Lookup Query -> Act: "${act}", Section: "${section}"`);
+        console.log(`\n🔎 Exact Lookup -> Act: "${act}", Section: "${section}"`);
 
-        // 1. Broad Search String to catch the general Act and Section
+        // 1. Broad Search String
         const searchString = `${act} Section ${section} definition whoever commits punished imprisonment fine explanation`;
         const queryVector = await getEmbedding(searchString);
 
@@ -178,9 +177,7 @@ router.post("/lookup", async (req, res) => {
 
         let matches = searchResult.matches ||[];
 
-        // 3. EXTREMELY FORGIVING ACT FILTER
-        // Remove all numbers, spaces, and punctuation to match perfectly.
-        // e.g. "Bar Council of India Rule, 1975" -> "barcouncilofindiarule"
+        // 3. Attempt to Filter by Act Name
         const cleanRequestedAct = act.replace(/[^a-zA-Z]/g, '').toLowerCase();
         
         let actMatches = matches.filter(m => {
@@ -189,7 +186,7 @@ router.post("/lookup", async (req, res) => {
             return cleanSource.includes(cleanRequestedAct) || cleanRequestedAct.includes(cleanSource);
         });
 
-        // 🟢 FAILSAFE: If the PDF filename was totally different, ignore the filter and use all chunks
+        // Failsafe
         if (actMatches.length === 0) {
             console.log(`⚠️ Act Name mismatch. Falling back to semantic matches.`);
             actMatches = matches; 
@@ -202,43 +199,33 @@ router.post("/lookup", async (req, res) => {
             actMatches.sort((a, b) => {
                 const textA = a.metadata?.text || "";
                 const textB = b.metadata?.text || "";
-                
-                // Use word boundaries so "10" doesn't match "102"
-                const secRegex = new RegExp(`\\b${section}\\b`, 'i');
-                const hasA = secRegex.test(textA) ? 1 : 0;
-                const hasB = secRegex.test(textB) ? 1 : 0;
+                const hasA = textA.includes(section) ? 1 : 0;
+                const hasB = textB.includes(section) ? 1 : 0;
                 return hasB - hasA; 
             });
         }
 
-        // 5. Take the top 8 best chunks to build the context
+        // 5. Take the top 8 best chunks
         const context = actMatches.slice(0, 8).map(m => `[Doc: ${m.metadata?.source}] ${m.metadata?.text}`).join("\n\n---\n\n");
 
         if (!context || context.length < 20) {
              return res.json({
-                section: section, 
-                title: act, 
-                description: "This specific section could not be found in the database.", 
-                punishment: "N/A", 
-                cognizable: "N/A", 
-                bailable: "N/A", 
-                chapter: "N/A", 
-                cases:[]
+                section: section, title: act, description: "This specific section could not be found in the database.", punishment: "N/A", cognizable: "N/A", bailable: "N/A", chapter: "N/A", cases:[]
             });
         }
 
-        // 6. STRICT EXTRACTION PROMPT
+        // 6. 🟢 UPDATED STRICT EXTRACTION PROMPT
         const completion = await groq.chat.completions.create({
             messages:[
                 {
                     role: "system",
-                    content: `You are a Strict Legal Extraction Engine.
+                    content: `You are a Legal Data Extraction Engine.
                     Your Task: Extract details of Section ${section} from the context.
                     
                     CRITICAL RULES:
-                    1. "description": Extract the MAIN legal definition. If the context is just an index, say "Data missing from context".
-                    2. "punishment": Extract the exact penalty. If it's a civil act with no punishment, write "N/A - Civil Section".
-                    3. If cognizable/bailable are not explicitly written, INFER them based on your general knowledge of Indian Law.
+                    1. "description": Extract the MAIN legal definition. If the context contains ANY text related to the section, use it. Do NOT just say "Data missing".
+                    2. "punishment": Extract the exact penalty. If no specific punishment is listed in the context, write "Please refer to the Act for specific penalties".
+                    3. If cognizable/bailable are not explicitly written, INFER them based on your general knowledge of Indian Law for this specific crime.
                     4. Output strictly Raw JSON. No markdown blocks.
                     
                     JSON FORMAT:
@@ -246,7 +233,7 @@ router.post("/lookup", async (req, res) => {
                         "section": "${section}",
                         "title": "Heading of the section",
                         "description": "EXACT STATEMENT OR CONTENT",
-                        "punishment": "Exact penalty if mentioned, else 'N/A'",
+                        "punishment": "Exact penalty if mentioned, else 'Refer to Act'",
                         "cognizable": "Yes/No/N/A",
                         "bailable": "Yes/No/N/A",
                         "chapter": "Chapter name/number",
@@ -294,24 +281,12 @@ router.post("/lookup", async (req, res) => {
     } catch (error) {
         console.error("❌ Lookup Error:", error);
         res.status(200).json({ 
-            section: "Error", title: "Parsing Error", description: "Failed to extract exact text. Try searching in Chat.", punishment: "N/A", cognizable: "N/A", bailable: "N/A", chapter: "N/A", cases:[]
+            section: "Error", title: "Parsing Error", description: "Failed to extract exact text.", punishment: "N/A", cognizable: "N/A", bailable: "N/A", chapter: "N/A", cases:[]
         });
     }
 });
 
-// ---------------------------------------------------------
-// 4. NEWS ROUTE
-// ---------------------------------------------------------
-router.get("/news", async (req, res) => {
-    try {
-        const apiKey = process.env.NEWS_API_KEY;
-        const url = `https://gnews.io/api/v4/search?q=Supreme%20Court%20India%20OR%20Indian%20Laws&lang=en&country=in&max=10&apikey=${apiKey}`;
-        const response = await axios.get(url);
-        res.json(response.data.articles.map(a => ({ title: a.title, description: a.description, source: a.source.name, date: new Date(a.publishedAt).toDateString() })));
-    } catch (error) {
-        res.json([{ title: "News Unavailable", description: "Check internet/API.", source: "System", date: "Today" }]);
-    }
-});
+
 
 app.use("/api", router);
 
