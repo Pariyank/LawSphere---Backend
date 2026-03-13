@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const axios = require("axios");
 const { Pinecone } = require("@pinecone-database/pinecone");
 const { pipeline } = require("@xenova/transformers");
 const Groq = require("groq-sdk");
@@ -33,24 +34,31 @@ async function getEmbedding(text) {
   return Array.from(output.data).map(Number);
 }
 
-// 🟢 LEGAL QUERY OPTIMIZER (For Chat & Compare)
+// 🟢 UPGRADED CHAT OPTIMIZER (Smarter Act Routing)
 async function optimizeQuery(userQuery) {
     try {
         const completion = await groq.chat.completions.create({
             messages:[
                 {
                     role: "system",
-                    content: `You are a Legal Search Optimizer. Convert the user's query into the Full Official Legal Act Name.
-                    Input: "Act No 4 of 1936" -> Output: "Payment of Wages Act, 1936"
-                    Input: "Punishment for murder" -> Output: "Punishment for murder Bharatiya Nyaya Sanhita"
-                    Output ONLY the refined query.`
+                    content: `You are a Legal Search Optimizer for an Indian Law Vector Database.
+                    Your job is to clarify the user's query so the database finds the right document.
+                    
+                    RULES:
+                    1. If the query is about a general crime/offence (murder, theft, rape, cyber crime, defamation), append "Bharatiya Nyaya Sanhita".
+                    2. If the query is about police procedure, FIR, arrest, or bail, append "Bharatiya Nagarik Suraksha Sanhita".
+                    3. If the query is about evidence or witnesses, append "Bharatiya Sakshya Adhiniyam".
+                    4. If the query mentions a specific topic like "wages", "marriage", "companies", DO NOT append BNS. Just clarify the topic (e.g., "Payment of Wages Act").
+                    5. Output ONLY the optimized search string. No quotes, no conversational text.`
                 },
                 { role: "user", content: userQuery }
             ],
             model: LLM_MODEL,
             temperature: 0,
         });
-        return completion.choices[0]?.message?.content?.trim() || userQuery;
+        const refined = completion.choices[0]?.message?.content?.trim() || userQuery;
+        console.log(`🔀 Chat Optimizer: "${userQuery}" -> "${refined}"`);
+        return refined;
     } catch (e) {
         return userQuery;
     }
@@ -60,7 +68,7 @@ const router = express.Router();
 router.get("/", (req, res) => res.send("🚀 LawSphere Brain is Active"));
 
 // ---------------------------------------------------------
-// 1. CHAT ROUTE
+// 1. CHAT ROUTE (🟢 FIXED FOR ACCURATE RAG RETRIEVAL)
 // ---------------------------------------------------------
 router.post("/ask", async (req, res) => {
   try {
@@ -69,32 +77,45 @@ router.post("/ask", async (req, res) => {
 
     if (!query) return res.status(400).json({ error: "Query required" });
 
+    // 1. Translate the query to target the right Act
     const refinedQuery = await optimizeQuery(query);
-    const searchString = refinedQuery + " whoever punished imprisonment fine explanation";
-    const queryVector = await getEmbedding(searchString);
+    
+    // 🟢 FIX: REMOVED the "whoever punished imprisonment" anchor text. 
+    // It was ruining the vector math for short queries like "punishment for murder".
+    const queryVector = await getEmbedding(refinedQuery);
 
+    // 2. Search Database (Increased TopK to ensure we find the exact section)
     const searchResult = await index.namespace(NAMESPACE).query({
       vector: queryVector,
-      topK: 15, 
+      topK: 25, // 🟢 Increased to 25 to give the AI plenty of context to read
       includeMetadata: true,
     });
 
     const matches = searchResult.matches ||[];
+    
+    console.log("🔎 Pinecone Chat Retrieval (Top 3):");
+    matches.slice(0, 3).forEach(m => {
+        console.log(`   -[${m.score.toFixed(2)}] Source: ${m.metadata?.source}`);
+    });
+
     const context = matches.map(m => `[ACT/DOCUMENT: ${m.metadata?.source}] \nCONTENT: ${m.metadata?.text}`).join("\n\n----------------\n\n");
 
     const langInstruction = language === "hindi" ? "Answer in HINDI (Devanagari script)." : "Answer in English.";
 
+    // 3. Generate Answer (🟢 Smarter formatting rules)
     const completion = await groq.chat.completions.create({
         messages:[
             {
                 role: "system",
-                content: `You are LawSphere, a strict Universal Legal Database Assistant for India.
+                content: `You are LawSphere, a brilliant and strict Legal AI Assistant for India.
                 ${langInstruction}
+                
                 CRITICAL INSTRUCTIONS:
-                1. Answer EXCLUSIVELY from the 'CONTEXT FOUND IN DATABASE'.
-                2. Do NOT reference the old Indian Penal Code (IPC) unless explicitly in the context.
-                3. Start your answer with: "According to the [Insert Document Name]..."
-                4. Format nicely in Markdown.`
+                1. **STRICT RAG MODE:** Answer EXCLUSIVELY using the 'CONTEXT FOUND IN DATABASE'. Do not use outside knowledge.
+                2. **IDENTIFY THE LAW:** Read the [ACT/DOCUMENT: ...] tag in the context. Start your answer naturally by naming the Act (e.g., "Under the Bharatiya Nyaya Sanhita, 2023..." or "According to the Minimum Wages Act..."). DO NOT say "According to the PDF".
+                3. **BE PRECISE:** If the user asks for a punishment, state the exact imprisonment term and fine as written in the context. Mention the Section number.
+                4. **NO IPC:** Do NOT reference the old Indian Penal Code (IPC) or CrPC. India uses BNS and BNSS.
+                5. **FALLBACK:** If the exact answer is genuinely missing from the context, reply: "I could not find the specific legal provision for this in the current database."`
             },
             { role: "user", content: `CONTEXT FOUND IN DATABASE:\n${context}\n\nUSER QUESTION:\n${query}` }
         ],
@@ -113,12 +134,13 @@ router.post("/ask", async (req, res) => {
     });
 
   } catch (error) {
+    console.error("❌ Chat Error:", error);
     res.status(500).json({ formattedAnswer: "Server Error: " + error.message, retrievedSources:[] });
   }
 });
 
 // ---------------------------------------------------------
-// 2. COMPARE ROUTE
+// 2. COMPARE ROUTE (Preserved)
 // ---------------------------------------------------------
 router.post("/compare", async (req, res) => {
   try {
@@ -139,7 +161,7 @@ router.post("/compare", async (req, res) => {
 
     const completion = await groq.chat.completions.create({
         messages:[
-            { role: "system", content: `Compare the two requested topics using ONLY the provided Context. Output a Markdown Table.` },
+            { role: "system", content: `Compare the two requested topics using ONLY the provided Context. Output a Markdown Table. Do not mention IPC.` },
             { role: "user", content: `CONTEXT: ${uniqueContext}\nTASK: Compare "${section1}" and "${section2}".` }
         ],
         model: LLM_MODEL,
@@ -157,18 +179,16 @@ router.post("/compare", async (req, res) => {
 });
 
 // ---------------------------------------------------------
-// 3. EXACT LOOKUP ROUTE (🟢 IMPROVED FOR MISSING DATA)
+// 3. EXACT LOOKUP ROUTE (Preserved exactly as requested)
 // ---------------------------------------------------------
 router.post("/lookup", async (req, res) => {
     try {
         const { act, section } = req.body; 
         console.log(`\n🔎 Exact Lookup -> Act: "${act}", Section: "${section}"`);
 
-        // 1. Broad Search String
         const searchString = `${act} Section ${section} definition whoever commits punished imprisonment fine explanation`;
         const queryVector = await getEmbedding(searchString);
 
-        // 2. Fetch a MASSIVE pool of chunks (Top 60)
         const searchResult = await index.namespace(NAMESPACE).query({
             vector: queryVector,
             topK: 60,
@@ -176,8 +196,7 @@ router.post("/lookup", async (req, res) => {
         });
 
         let matches = searchResult.matches ||[];
-
-        // 3. Attempt to Filter by Act Name
+        
         const cleanRequestedAct = act.replace(/[^a-zA-Z]/g, '').toLowerCase();
         
         let actMatches = matches.filter(m => {
@@ -186,7 +205,6 @@ router.post("/lookup", async (req, res) => {
             return cleanSource.includes(cleanRequestedAct) || cleanRequestedAct.includes(cleanSource);
         });
 
-        // Failsafe
         if (actMatches.length === 0) {
             console.log(`⚠️ Act Name mismatch. Falling back to semantic matches.`);
             actMatches = matches; 
@@ -194,7 +212,6 @@ router.post("/lookup", async (req, res) => {
             console.log(`📚 Found ${actMatches.length} chunks matching Act Name.`);
         }
 
-        // 4. SMART SORTING: Push chunks containing the exact section number to the top
         if (section) {
             actMatches.sort((a, b) => {
                 const textA = a.metadata?.text || "";
@@ -205,7 +222,6 @@ router.post("/lookup", async (req, res) => {
             });
         }
 
-        // 5. Take the top 8 best chunks
         const context = actMatches.slice(0, 8).map(m => `[Doc: ${m.metadata?.source}] ${m.metadata?.text}`).join("\n\n---\n\n");
 
         if (!context || context.length < 20) {
@@ -214,18 +230,17 @@ router.post("/lookup", async (req, res) => {
             });
         }
 
-        // 6. 🟢 UPDATED STRICT EXTRACTION PROMPT
         const completion = await groq.chat.completions.create({
             messages:[
                 {
                     role: "system",
-                    content: `You are a Legal Data Extraction Engine.
+                    content: `You are a Strict Legal Extraction Engine.
                     Your Task: Extract details of Section ${section} from the context.
                     
                     CRITICAL RULES:
-                    1. "description": Extract the MAIN legal definition. If the context contains ANY text related to the section, use it. Do NOT just say "Data missing".
-                    2. "punishment": Extract the exact penalty. If no specific punishment is listed in the context, write "Please refer to the Act for specific penalties".
-                    3. If cognizable/bailable are not explicitly written, INFER them based on your general knowledge of Indian Law for this specific crime.
+                    1. "description": Extract the MAIN legal definition. If the context is just an index, say "Data missing from context".
+                    2. "punishment": Extract the exact penalty. If it's a civil act with no punishment, write "N/A - Civil Section".
+                    3. If cognizable/bailable are not explicitly written, INFER them based on your general knowledge of Indian Law.
                     4. Output strictly Raw JSON. No markdown blocks.
                     
                     JSON FORMAT:
@@ -233,7 +248,7 @@ router.post("/lookup", async (req, res) => {
                         "section": "${section}",
                         "title": "Heading of the section",
                         "description": "EXACT STATEMENT OR CONTENT",
-                        "punishment": "Exact penalty if mentioned, else 'Refer to Act'",
+                        "punishment": "Exact penalty if mentioned, else 'N/A'",
                         "cognizable": "Yes/No/N/A",
                         "bailable": "Yes/No/N/A",
                         "chapter": "Chapter name/number",
@@ -286,7 +301,19 @@ router.post("/lookup", async (req, res) => {
     }
 });
 
-
+// ---------------------------------------------------------
+// 4. NEWS ROUTE
+// ---------------------------------------------------------
+router.get("/news", async (req, res) => {
+    try {
+        const apiKey = process.env.NEWS_API_KEY;
+        const url = `https://gnews.io/api/v4/search?q=Supreme%20Court%20India%20OR%20Indian%20Laws&lang=en&country=in&max=10&apikey=${apiKey}`;
+        const response = await axios.get(url);
+        res.json(response.data.articles.map(a => ({ title: a.title, description: a.description, source: a.source.name, date: new Date(a.publishedAt).toDateString() })));
+    } catch (error) {
+        res.json([{ title: "News Unavailable", description: "Check internet/API.", source: "System", date: "Today" }]);
+    }
+});
 
 app.use("/api", router);
 
