@@ -1,3 +1,9 @@
 node_modules
 .env
-data/*.pdf
+firebase-service-account.json
+.vscode/
+new_raw_pdfs/
+renamed_json/
+create_index.js
+master_act_list.json
+convert_new_pdfs.js

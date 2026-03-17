@@ -20,7 +20,7 @@
     "cors": "^2.8.6",
     "dotenv": "^17.2.4",
     "express": "^5.2.1",
-    "firebase-admin": "^13.6.1",
+    "firebase-admin": "^13.7.0",
     "groq-sdk": "^0.37.0",
     "langchain": "^1.2.23",
     "pdf-parse": "^1.1.1"
