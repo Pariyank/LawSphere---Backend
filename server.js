@@ -10,22 +10,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ================= 1. FIREBASE ADMIN SETUP (RENDER COMPATIBLE) =================
+// ================= 1. FIREBASE ADMIN SETUP =================
 let serviceAccount;
 try {
     if (process.env.FIREBASE_SERVICE_ACCOUNT) {
-        // Reads from Render Environment Variable
         serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
     } else {
-        // Reads from local file
         serviceAccount = require("./firebase-service-account.json");
     }
-
     if (!admin.apps.length) {
         admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
     }
 } catch (e) {
-    console.error("❌ Firebase Initialization Error:", e.message);
+    console.error("❌ Firebase Error:", e.message);
 }
 const db = admin.firestore();
 
@@ -38,7 +35,6 @@ const pinecone = new Pinecone({ apiKey: process.env.PINECONE_API_KEY });
 const index = pinecone.index(process.env.PINECONE_INDEX || "lawsphere-index");
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
-// ================= 3. LOCAL EMBEDDING ENGINE =================
 let embedder = null;
 async function loadModel() {
     embedder = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2");
@@ -50,21 +46,13 @@ async function getEmbedding(text) {
     return Array.from(output.data).map(Number);
 }
 
-// 🟢 SMART QUERY OPTIMIZER
-async function optimizeQuery(userQuery) {
-    try {
-        const completion = await groq.chat.completions.create({
-            messages: [{
-                role: "system",
-                content: "You are a Legal Search Optimizer. Convert query to Official Act Name keywords. Example: 'Act 4 of 1936' -> 'Payment of Wages Act 1936'. Return ONLY keywords."
-            }, { role: "user", content: userQuery }],
-            model: LLM_MODEL, temperature: 0
-        });
-        return completion.choices[0]?.message?.content?.trim() || userQuery;
-    } catch (e) { return userQuery; }
-}
+// Helper to clean strings for comparison (Removes everything except letters and numbers)
+// Example: "Section 9." -> "section9" | "9" -> "9"
+const normalize = (str) => String(str).replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
 
+// ================= 3. ROUTES =================
 const router = express.Router();
+
 router.get("/", (req, res) => res.send("🚀 LawSphere Engine Active"));
 
 // ---------------------------------------------------------
@@ -73,8 +61,7 @@ router.get("/", (req, res) => res.send("🚀 LawSphere Engine Active"));
 router.post("/ask", async (req, res) => {
     try {
         const { query, language } = req.body;
-        const refinedQuery = await optimizeQuery(query);
-        const queryVector = await getEmbedding(refinedQuery);
+        const queryVector = await getEmbedding(query);
 
         const result = await index.namespace(NAMESPACE).query({ vector: queryVector, topK: 10, includeMetadata: true });
         
@@ -94,7 +81,7 @@ router.post("/ask", async (req, res) => {
         const completion = await groq.chat.completions.create({
             messages: [{
                 role: "system",
-                content: `You are LawSphere AI. ${lang} Answer ONLY using provided Context. Use simple words. If not found, say 'This is not present in the database.'`
+                content: `You are LawSphere AI. ${lang} Answer ONLY using provided Context. Use simple words. Cite Act and Section.`
             }, { role: "user", content: `CONTEXT:\n${contextText}\n\nQUESTION: ${query}` }],
             model: LLM_MODEL, temperature: 0.1
         });
@@ -104,44 +91,52 @@ router.post("/ask", async (req, res) => {
 });
 
 // ---------------------------------------------------------
-// 🟢 ROUTE 2: LIBRARY LOOKUP (/api/lookup) - DETERMINISTIC
+// 🟢 ROUTE 2: LIBRARY LOOKUP (FIXED NORMALIZATION)
 // ---------------------------------------------------------
 router.post("/lookup", async (req, res) => {
     try {
         const { act, section } = req.body;
-        console.log(`🔎 Lookup -> Act: ${act}, Sec: ${section}`);
+        console.log(`🔎 Lookup -> Act: ${act}, SearchTerm: ${section}`);
 
-        // 🟢 FIX: Clean the search section to match numeric format
-        const cleanSearchSec = section.replace(/[^0-9A-Z]/ig, '');
-
-        // 1. Try exact match first
-        let snapshot = await db.collection("legal_sections")
+        // 1. Get all entries for this specific Act from Firestore
+        const snapshot = await db.collection("legal_sections")
             .where("act_name", "==", act)
-            .where("section_number", "==", cleanSearchSec)
-            .limit(1).get();
+            .get();
 
-        // 2. If fails, try matching the start of act name (Fuzzy match for commas/years)
         if (snapshot.empty) {
-            console.log("   ➤ No exact match, trying fuzzy act match...");
-            snapshot = await db.collection("legal_sections")
-                .where("section_number", "==", cleanSearchSec)
-                .limit(20).get();
+            return res.json({ title: "Act Not Found", description: "This Act is not in the database." });
         }
 
-        // Filter the results in JS to ensure the correct Act is chosen
+        // 2. 🟢 SMART MATCHING LOGIC
+        // We look through the results and normalize the numbers to find a match.
+        // This handles "9" vs "Section 9" vs "Section9" vs "Article 9"
+        const searchNorm = normalize(section);
+        
         const doc = snapshot.docs.find(d => {
-            const dbAct = d.data().act_name.replace(/[^a-zA-Z]/g, '').toLowerCase();
-            const reqAct = act.replace(/[^a-zA-Z]/g, '').toLowerCase();
-            return dbAct.includes(reqAct) || reqAct.includes(dbAct);
+            const data = d.data();
+            const dbSecNumNorm = normalize(data.section_number || "");
+            const dbSecRawNorm = normalize(data.section_raw || "");
+            
+            // Match if "section9" contains "9" or if "9" equals "9"
+            return dbSecNumNorm === searchNorm || 
+                   dbSecRawNorm === searchNorm || 
+                   dbSecNumNorm === `section${searchNorm}` ||
+                   dbSecNumNorm === `article${searchNorm}`;
         });
 
         if (!doc) {
-            return res.json({ section: "N/A", title: "Not Found", description: "This specific section was not found in the selected Act.", punishment: "N/A" });
+            return res.json({ 
+                section: section, 
+                title: "Section Not Found", 
+                description: `We found the Act, but could not find '${section}' inside it. Please check the number.`, 
+                punishment: "N/A" 
+            });
         }
 
         const data = doc.data();
+        console.log(`✅ Match Found: ${data.title}`);
 
-        // Use AI to extract UI tags
+        // 3. AI Extraction for UI Tags
         const completion = await groq.chat.completions.create({
             messages: [{
                 role: "system",
@@ -161,7 +156,11 @@ router.post("/lookup", async (req, res) => {
             bailable: tags.bailable || "N/A",
             chapter: data.chapter_name || "General"
         });
-    } catch (e) { res.status(500).json({ description: "Lookup Error" }); }
+
+    } catch (e) { 
+        console.error("Lookup Error:", e);
+        res.status(500).json({ description: "Lookup Error: " + e.message }); 
+    }
 });
 
 // ---------------------------------------------------------
@@ -184,7 +183,14 @@ router.post("/compare", async (req, res) => {
     } catch (e) { res.json({ formattedAnswer: "Comparison failed." }); }
 });
 
-
+router.get("/news", async (req, res) => {
+    try {
+        const apiKey = process.env.NEWS_API_KEY;
+        const url = `https://gnews.io/api/v4/search?q=Supreme%20Court%20India&lang=en&country=in&max=10&apikey=${apiKey}`;
+        const response = await axios.get(url);
+        res.json(response.data.articles.map(a => ({ title: a.title, description: a.description, source: a.source.name, date: new Date(a.publishedAt).toDateString() })));
+    } catch (error) { res.json([{ title: "News Unavailable", description: "Check API limit.", source: "System", date: "Now" }]); }
+});
 
 app.use("/api", router);
-app.listen(PORT, "0.0.0.0", async () => { await loadModel(); console.log(`🚀 LawSphere Active on Port ${PORT}`); });
+app.listen(PORT, "0.0.0.0", async () => { await loadModel(); console.log(`🚀 Server on Port ${PORT}`); });
