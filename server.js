@@ -10,52 +10,53 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ================= FIREBASE ADMIN SETUP =================
+// ================= 1. FIREBASE ADMIN SETUP (RENDER COMPATIBLE) =================
 let serviceAccount;
+try {
+    if (process.env.FIREBASE_SERVICE_ACCOUNT) {
+        // Reads from Render Environment Variable
+        serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+    } else {
+        // Reads from local file
+        serviceAccount = require("./firebase-service-account.json");
+    }
 
-if (process.env.FIREBASE_SERVICE_ACCOUNT) {
-    serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
-} else {
-    serviceAccount = require("./firebase-service-account.json");
-}
-
-if (!admin.apps.length) {
-    admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount)
-    });
+    if (!admin.apps.length) {
+        admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
+    }
+} catch (e) {
+    console.error("❌ Firebase Initialization Error:", e.message);
 }
 const db = admin.firestore();
 
-// ================= CONFIG & SERVICES =================
+// ================= 2. CONFIG & SERVICES =================
 const PORT = process.env.PORT || 3000;
 const NAMESPACE = "default";
 const LLM_MODEL = "llama-3.3-70b-versatile"; 
 
 const pinecone = new Pinecone({ apiKey: process.env.PINECONE_API_KEY });
-const index = pinecone.index(process.env.PINECONE_INDEX);
+const index = pinecone.index(process.env.PINECONE_INDEX || "lawsphere-index");
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
+// ================= 3. LOCAL EMBEDDING ENGINE =================
 let embedder = null;
 async function loadModel() {
-  console.log("🧠 Loading local embedding model...");
-  embedder = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2");
-  console.log("✅ Model loaded.");
+    embedder = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2");
 }
 
 async function getEmbedding(text) {
-  if (!embedder) await loadModel();
-  const output = await embedder(text, { pooling: "mean", normalize: true });
-  return Array.from(output.data).map(Number);
+    if (!embedder) await loadModel();
+    const output = await embedder(text, { pooling: "mean", normalize: true });
+    return Array.from(output.data).map(Number);
 }
 
-// 🟢 STEP 1: LAYMAN TO LEGAL OPTIMIZER
+// 🟢 SMART QUERY OPTIMIZER
 async function optimizeQuery(userQuery) {
     try {
         const completion = await groq.chat.completions.create({
             messages: [{
                 role: "system",
-                content: `You are an Indian Legal Search Optimizer. Translate layman terms to formal legal terminology used in Bare Acts. 
-                Identify the relevant Act (BNS, BNSS, IT Act, etc.). Return ONLY the optimized query keywords.`
+                content: "You are a Legal Search Optimizer. Convert query to Official Act Name keywords. Example: 'Act 4 of 1936' -> 'Payment of Wages Act 1936'. Return ONLY keywords."
             }, { role: "user", content: userQuery }],
             model: LLM_MODEL, temperature: 0
         });
@@ -64,83 +65,87 @@ async function optimizeQuery(userQuery) {
 }
 
 const router = express.Router();
-router.get("/", (req, res) => res.send("🚀 LawSphere Hybrid Engine Online"));
+router.get("/", (req, res) => res.send("🚀 LawSphere Engine Active"));
 
 // ---------------------------------------------------------
-// 🟢 CHAT ROUTE (RAG with Firestore Grounding)
+// 🟢 ROUTE 1: CHATBOT (/api/ask)
 // ---------------------------------------------------------
 router.post("/ask", async (req, res) => {
     try {
         const { query, language } = req.body;
-        console.log(`📩 Chat: ${query}`);
-
         const refinedQuery = await optimizeQuery(query);
         const queryVector = await getEmbedding(refinedQuery);
 
-        const searchResult = await index.namespace(NAMESPACE).query({
-            vector: queryVector, topK: 8, includeMetadata: true
-        });
-
-        const matches = searchResult.matches || [];
+        const result = await index.namespace(NAMESPACE).query({ vector: queryVector, topK: 10, includeMetadata: true });
+        
         let contextText = "";
         let sources = [];
 
-        for (const m of matches) {
-            const docId = m.metadata.firestore_id;
-            const doc = await db.collection("legal_sections").doc(docId).get();
+        for (const match of result.matches) {
+            const doc = await db.collection("legal_sections").doc(match.metadata.firestore_id).get();
             if (doc.exists) {
                 const d = doc.data();
-                contextText += `[LAW: ${d.act_name} | SEC: ${d.section_raw}]\nTEXT: ${d.content}\n\n`;
-                sources.push(`[${d.act_name}] ${d.section_raw}`);
+                contextText += `[ACT: ${d.act_name} | SEC: ${d.section_raw}]\nTEXT: ${d.content}\n\n`;
+                sources.push({ sourceNumber: sources.length + 1, snippet: `[${d.act_name}] ${d.section_raw}` });
             }
         }
 
-        const langRule = language === "hindi" ? "Answer in HINDI (Devanagari)." : "Answer in English.";
+        const lang = language === "hindi" ? "Answer in HINDI." : "Answer in English.";
         const completion = await groq.chat.completions.create({
             messages: [{
                 role: "system",
-                content: `You are LawSphere AI. ${langRule}
-                1. Answer ONLY using the provided Context. 
-                2. Explain in simple, non-legalese language.
-                3. Cite Act and Section names.
-                4. If not in context, say 'Information not present in database.'`
-            }, { role: "user", content: `CONTEXT:\n${contextText}\n\nUSER QUESTION: ${query}` }],
+                content: `You are LawSphere AI. ${lang} Answer ONLY using provided Context. Use simple words. If not found, say 'This is not present in the database.'`
+            }, { role: "user", content: `CONTEXT:\n${contextText}\n\nQUESTION: ${query}` }],
             model: LLM_MODEL, temperature: 0.1
         });
 
-        res.json({
-            formattedAnswer: completion.choices[0].message.content,
-            retrievedSources: sources.slice(0, 5).map((s, i) => ({ sourceNumber: i + 1, snippet: s }))
-        });
-    } catch (error) {
-        res.status(500).json({ formattedAnswer: "Connection error with AI brain." });
-    }
+        res.json({ formattedAnswer: completion.choices[0].message.content, retrievedSources: sources.slice(0, 5) });
+    } catch (error) { res.status(500).json({ formattedAnswer: "Brain connection error." }); }
 });
 
 // ---------------------------------------------------------
-// 🟢 LIBRARY LOOKUP (Direct Firestore - 100% Accurate)
+// 🟢 ROUTE 2: LIBRARY LOOKUP (/api/lookup) - DETERMINISTIC
 // ---------------------------------------------------------
 router.post("/lookup", async (req, res) => {
     try {
         const { act, section } = req.body;
-        const cleanSec = section.replace(/[^0-9A-Z]/ig, '');
-        
-        const snapshot = await db.collection("legal_sections")
+        console.log(`🔎 Lookup -> Act: ${act}, Sec: ${section}`);
+
+        // 🟢 FIX: Clean the search section to match numeric format
+        const cleanSearchSec = section.replace(/[^0-9A-Z]/ig, '');
+
+        // 1. Try exact match first
+        let snapshot = await db.collection("legal_sections")
             .where("act_name", "==", act)
-            .where("section_number", "==", cleanSec)
+            .where("section_number", "==", cleanSearchSec)
             .limit(1).get();
 
+        // 2. If fails, try matching the start of act name (Fuzzy match for commas/years)
         if (snapshot.empty) {
-            return res.json({ section: "N/A", title: "Not Found", description: "This section was not found in our database.", punishment: "N/A" });
+            console.log("   ➤ No exact match, trying fuzzy act match...");
+            snapshot = await db.collection("legal_sections")
+                .where("section_number", "==", cleanSearchSec)
+                .limit(20).get();
         }
 
-        const data = snapshot.docs[0].data();
-        
-        // Use AI only to extract the tags for the UI Card
+        // Filter the results in JS to ensure the correct Act is chosen
+        const doc = snapshot.docs.find(d => {
+            const dbAct = d.data().act_name.replace(/[^a-zA-Z]/g, '').toLowerCase();
+            const reqAct = act.replace(/[^a-zA-Z]/g, '').toLowerCase();
+            return dbAct.includes(reqAct) || reqAct.includes(dbAct);
+        });
+
+        if (!doc) {
+            return res.json({ section: "N/A", title: "Not Found", description: "This specific section was not found in the selected Act.", punishment: "N/A" });
+        }
+
+        const data = doc.data();
+
+        // Use AI to extract UI tags
         const completion = await groq.chat.completions.create({
             messages: [{
                 role: "system",
-                content: `Extract from text and return JSON only: {"punishment":"...", "cognizable":"Yes/No/NA", "bailable":"Yes/No/NA"}`
+                content: 'Return JSON only: {"punishment":"...", "cognizable":"Yes/No/NA", "bailable":"Yes/No/NA"}. Infer from text.'
             }, { role: "user", content: data.content }],
             model: LLM_MODEL, temperature: 0, response_format: { type: "json_object" }
         });
@@ -150,35 +155,36 @@ router.post("/lookup", async (req, res) => {
         res.json({
             section: data.section_raw,
             title: data.title,
-            description: data.content, // 100% Original Text
+            description: data.content,
             punishment: tags.punishment || "N/A",
             cognizable: tags.cognizable || "N/A",
             bailable: tags.bailable || "N/A",
             chapter: data.chapter_name || "General"
         });
-    } catch (e) { res.status(500).send("Error"); }
+    } catch (e) { res.status(500).json({ description: "Lookup Error" }); }
 });
 
 // ---------------------------------------------------------
-// 🟢 COMPARE ROUTE
+// 🟢 ROUTE 3: COMPARE & NEWS
 // ---------------------------------------------------------
 router.post("/compare", async (req, res) => {
     try {
         const { section1, section2 } = req.body;
         const v1 = await getEmbedding(section1), v2 = await getEmbedding(section2);
         const [r1, r2] = await Promise.all([
-            index.query({ vector: v1, topK: 3, includeMetadata: true }),
-            index.query({ vector: v2, topK: 3, includeMetadata: true })
+            index.namespace(NAMESPACE).query({ vector: v1, topK: 3, includeMetadata: true }),
+            index.namespace(NAMESPACE).query({ vector: v2, topK: 3, includeMetadata: true })
         ]);
-
         const context = [...r1.matches, ...r2.matches].map(m => m.metadata.text).join("\n\n");
         const completion = await groq.chat.completions.create({
-            messages: [{ role: "system", content: "Compare using ONLY context. Output Markdown Table." }, { role: "user", content: `CONTEXT:\n${context}\n\nCOMPARE: ${section1} vs ${section2}` }],
+            messages: [{ role: "system", content: "Compare these two laws. Output Markdown Table." }, { role: "user", content: `CONTEXT:\n${context}\n\nCOMPARE: ${section1} vs ${section2}` }],
             model: LLM_MODEL, temperature: 0.1
         });
         res.json({ formattedAnswer: completion.choices[0].message.content });
     } catch (e) { res.json({ formattedAnswer: "Comparison failed." }); }
 });
 
+
+
 app.use("/api", router);
-app.listen(PORT, "0.0.0.0", async () => { await loadModel(); console.log(`🚀 Server on port ${PORT}`); });
+app.listen(PORT, "0.0.0.0", async () => { await loadModel(); console.log(`🚀 LawSphere Active on Port ${PORT}`); });
