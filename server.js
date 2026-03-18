@@ -10,7 +10,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ================= 1. FIREBASE ADMIN SETUP =================
 let serviceAccount;
 try {
     if (process.env.FIREBASE_SERVICE_ACCOUNT) {
@@ -26,7 +25,6 @@ try {
 }
 const db = admin.firestore();
 
-// ================= 2. CONFIG & SERVICES =================
 const PORT = process.env.PORT || 3000;
 const NAMESPACE = "default";
 const LLM_MODEL = "llama-3.3-70b-versatile"; 
@@ -46,18 +44,12 @@ async function getEmbedding(text) {
     return Array.from(output.data).map(Number);
 }
 
-// Helper to clean strings for comparison (Removes everything except letters and numbers)
-// Example: "Section 9." -> "section9" | "9" -> "9"
 const normalize = (str) => String(str).replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
 
-// ================= 3. ROUTES =================
 const router = express.Router();
 
 router.get("/", (req, res) => res.send("🚀 LawSphere Engine Active"));
 
-// ---------------------------------------------------------
-// 🟢 ROUTE 1: CHATBOT (/api/ask)
-// ---------------------------------------------------------
 router.post("/ask", async (req, res) => {
     try {
         const { query, language } = req.body;
@@ -90,15 +82,10 @@ router.post("/ask", async (req, res) => {
     } catch (error) { res.status(500).json({ formattedAnswer: "Brain connection error." }); }
 });
 
-// ---------------------------------------------------------
-// 🟢 ROUTE 2: LIBRARY LOOKUP (FIXED NORMALIZATION)
-// ---------------------------------------------------------
 router.post("/lookup", async (req, res) => {
     try {
         const { act, section } = req.body;
         console.log(`🔎 Lookup -> Act: ${act}, SearchTerm: ${section}`);
-
-        // 1. Get all entries for this specific Act from Firestore
         const snapshot = await db.collection("legal_sections")
             .where("act_name", "==", act)
             .get();
@@ -106,18 +93,13 @@ router.post("/lookup", async (req, res) => {
         if (snapshot.empty) {
             return res.json({ title: "Act Not Found", description: "This Act is not in the database." });
         }
-
-        // 2. 🟢 SMART MATCHING LOGIC
-        // We look through the results and normalize the numbers to find a match.
-        // This handles "9" vs "Section 9" vs "Section9" vs "Article 9"
         const searchNorm = normalize(section);
         
         const doc = snapshot.docs.find(d => {
             const data = d.data();
             const dbSecNumNorm = normalize(data.section_number || "");
             const dbSecRawNorm = normalize(data.section_raw || "");
-            
-            // Match if "section9" contains "9" or if "9" equals "9"
+       
             return dbSecNumNorm === searchNorm || 
                    dbSecRawNorm === searchNorm || 
                    dbSecNumNorm === `section${searchNorm}` ||
@@ -163,34 +145,63 @@ router.post("/lookup", async (req, res) => {
     }
 });
 
-// ---------------------------------------------------------
-// 🟢 ROUTE 3: COMPARE & NEWS
-// ---------------------------------------------------------
+
 router.post("/compare", async (req, res) => {
     try {
-        const { section1, section2 } = req.body;
-        const v1 = await getEmbedding(section1), v2 = await getEmbedding(section2);
-        const [r1, r2] = await Promise.all([
-            index.namespace(NAMESPACE).query({ vector: v1, topK: 3, includeMetadata: true }),
-            index.namespace(NAMESPACE).query({ vector: v2, topK: 3, includeMetadata: true })
+        const { act1, sec1, act2, sec2 } = req.body;
+        console.log(`⚖️ Comparing: [${act1} - ${sec1}] VS [${act2} - ${sec2}]`);
+
+        const cleanSec1 = normalize(sec1);
+        const cleanSec2 = normalize(sec2);
+
+        const [snap1, snap2] = await Promise.all([
+            db.collection("legal_sections").where("act_name", "==", act1).get(),
+            db.collection("legal_sections").where("act_name", "==", act2).get()
         ]);
-        const context = [...r1.matches, ...r2.matches].map(m => m.metadata.text).join("\n\n");
-        const completion = await groq.chat.completions.create({
-            messages: [{ role: "system", content: "Compare these two laws. Output Markdown Table." }, { role: "user", content: `CONTEXT:\n${context}\n\nCOMPARE: ${section1} vs ${section2}` }],
-            model: LLM_MODEL, temperature: 0.1
+
+        const findMatch = (snap, searchNorm) => snap.docs.find(d => {
+            const data = d.data();
+            return normalize(data.section_number || "") === searchNorm || 
+                   normalize(data.section_raw || "") === searchNorm;
         });
-        res.json({ formattedAnswer: completion.choices[0].message.content });
-    } catch (e) { res.json({ formattedAnswer: "Comparison failed." }); }
+
+        const doc1 = findMatch(snap1, cleanSec1);
+        const doc2 = findMatch(snap2, cleanSec2);
+
+        if (!doc1 || !doc2) {
+            return res.json({ 
+                formattedAnswer: `❌ **Error:** Could not find one or both sections.\n\n- Found ${act1} Sec ${sec1}: ${!!doc1}\n- Found ${act2} Sec ${sec2}: ${!!doc2}` 
+            });
+        }
+
+        const data1 = doc1.data();
+        const data2 = doc2.data();
+        const completion = await groq.chat.completions.create({
+            messages: [
+                {
+                    role: "system",
+                    content: "You are a Legal Analyst. Compare the two provided legal provisions based ONLY on the text. Provide a Markdown table with columns: Feature, Provision 1, Provision 2. Include: Title, Definition, and Punishment."
+                },
+                {
+                    role: "user",
+                    content: `PROVISION 1: (From ${act1})\n${data1.content}\n\nPROVISION 2: (From ${act2})\n${data2.content}`
+                }
+            ],
+            model: LLM_MODEL,
+            temperature: 0.1
+        });
+
+        res.json({ 
+            formattedAnswer: completion.choices[0].message.content,
+            semanticTags: ["Comparison", "Side-by-Side"] 
+        });
+
+    } catch (error) {
+        console.error("Compare Error:", error);
+        res.status(500).json({ formattedAnswer: "Comparison process failed." });
+    }
 });
 
-router.get("/news", async (req, res) => {
-    try {
-        const apiKey = process.env.NEWS_API_KEY;
-        const url = `https://gnews.io/api/v4/search?q=Supreme%20Court%20India&lang=en&country=in&max=10&apikey=${apiKey}`;
-        const response = await axios.get(url);
-        res.json(response.data.articles.map(a => ({ title: a.title, description: a.description, source: a.source.name, date: new Date(a.publishedAt).toDateString() })));
-    } catch (error) { res.json([{ title: "News Unavailable", description: "Check API limit.", source: "System", date: "Now" }]); }
-});
 
 app.use("/api", router);
 app.listen(PORT, "0.0.0.0", async () => { await loadModel(); console.log(`🚀 Server on Port ${PORT}`); });
