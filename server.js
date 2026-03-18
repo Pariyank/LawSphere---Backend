@@ -10,10 +10,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ================= FIREBASE ADMIN =================
-const serviceAccount = require("./firebase-service-account.json");
+// ================= FIREBASE ADMIN SETUP =================
+let serviceAccount;
+
+if (process.env.FIREBASE_SERVICE_ACCOUNT) {
+    serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+} else {
+    serviceAccount = require("./firebase-service-account.json");
+}
+
 if (!admin.apps.length) {
-    admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
+    admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount)
+    });
 }
 const db = admin.firestore();
 
