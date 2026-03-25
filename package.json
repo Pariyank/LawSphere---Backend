@@ -23,6 +23,7 @@
     "firebase-admin": "^13.7.0",
     "groq-sdk": "^0.37.0",
     "langchain": "^1.2.23",
+    "pdf-lib": "^1.17.1",
     "pdf-parse": "^1.1.4"
   }
 }

@@ -74,11 +74,13 @@ async function convertFile(fileName) {
     resultJson["Chapters"] = {};
 
     // Step B: Split into Chapters
-    // Regex identifies "CHAPTER I", "CHAPTER II", etc.
-    const chapterSplits = fullText.split(/(?=CHAPTER\s+[IVXLCDM]+)/gi);
+    // 🟢 UPDATED LOGIC: Removed 'i' flag to ensure only "CHAPTER" in ALL CAPS is matched.
+    // This prevents splitting on "Chapter" or "chapter" within sentences.
+    const chapterSplits = fullText.split(/(?=CHAPTER\s+[IVXLCDM]+\b)/g);
     
-    let actualChapters = chapterSplits.filter(c => c.toLowerCase().includes("chapter"));
-    console.log(`   Found ${actualChapters.length} chapters.`);
+    // 🟢 UPDATED LOGIC: Filter to ensure we only pick parts starting with "CHAPTER"
+    let actualChapters = chapterSplits.filter(c => c.startsWith("CHAPTER"));
+    console.log(`   Found ${actualChapters.length} valid uppercase CHAPTER segments.`);
 
     // Step C: Process Chapters
     for (let i = 0; i < actualChapters.length; i++) {
