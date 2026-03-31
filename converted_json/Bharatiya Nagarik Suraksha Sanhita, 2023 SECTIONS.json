@@ -208,7 +208,23 @@
                             "1": "(2) The Central Government may appoint one or more Assistant Public Prosecutors for the purpose of conducting any case or class of cases in the Courts of Magistrates.",
                             "2": "(3) Without prejudice to provisions contained in sub-sections (1) and (2), where no Assistant Public Prosecutor is available for the purposes of any particular case, the District Magistrate may appoint any other person to be the Assistant Public Prosecutor in charge of that case after giving notice of fourteen days to the State Government: Provided that no police officer shall be eligible to be appointed as an Assistant Public Prosecutor, if he— (a) has taken any part in the investigation into the offence with respect to which the accused is being prosecuted; or (b) is below the rank of Inspector."
                         }
-                    }
+                    },
+                    "Section 20.": {
+                        "heading": "Directorate of Prosecution.",
+                        "paragraphs": {
+                            "0": "(1) The State Government may establish,— (a) a Directorate of Prosecution in the State consisting of a Director of Prosecution and as many Deputy Directors of Prosecution as it thinks fit; and (b) a District Directorate of Prosecution in every district consisting of as many Deputy Directors and Assistant Directors of Prosecution, as it thinks fit. ",
+                            "1": "(2) A person shall be eligible to be appointed,— (a) as a Director of Prosecution or a Deputy Director of Prosecution, if he has been in practice as an advocate for not less than fifteen years or is or has been a Sessions Judge; (b) as an Assistant Director of Prosecution, if he has been in practice as an advocate for not less than seven years or has been a Magistrate of the first class. ",
+                            "2": "(3) The Directorate of Prosecution shall be headed by the Director of Prosecution, who shall function under the administrative control of the Home Department in the State. ",
+                            "3": "(4) Every Deputy Director of Prosecution or Assistant Director of Prosecution shall be subordinate to the Director of Prosecution; and every Assistant Director of Prosecution shall be subordinate to the Deputy Director of Prosecution. ",
+                            "4": "(5) Every Public Prosecutor, Additional Public Prosecutor and Special Public Prosecutor appointed by the State Government under sub-section (1) or sub-section (8) of section 18 to conduct cases in the High Court shall be subordinate to the Director of Prosecution. ",
+                            "5": "(6) Every Public Prosecutor, Additional Public Prosecutor and Special Public Prosecutor appointed by the State Government under sub-section (3) or sub-section (8) of section 18 to conduct cases in District Courts and every Assistant Public Prosecutor appointed under sub-section (1) of section 19 shall be subordinate to the Deputy Director of Prosecution or the Assistant Director of Prosecution. ",
+                            "6": "(7) The powers and functions of the Director of Prosecution shall be to monitor cases in which offences are punishable for ten years or more, or with life imprisonment, or with death; to expedite the proceedings and to give opinion on filing of appeals. ",
+                            "7": "(8) The powers and functions of the Deputy Director of Prosecution shall be to examine and scrutinise police report and monitor the cases in which offences are punishable for seven years or more, but less than ten years, for ensuring their expeditious disposal. ",
+                            "8": "(9) The functions of the Assistant Director of Prosecution shall be to monitor cases in which offences are punishable for less than seven years. ",
+                            "9": "(10) Notwithstanding anything contained in sub-sections (7), (8) and (9), the Director, Deputy Director or Assistant Director of Prosecution shall have the power to deal with and be responsible for all proceedings under this Sanhita. ",
+                            "10": "(11) The other powers and functions of the Director of Prosecution, Deputy Directors of Prosecution and Assistant Directors of Prosecution and the areas for which each of the Deputy Directors of Prosecution or Assistant Directors of Prosecution have been appointed shall be such as the State Government may, by notification, specify. ",
+                            "11": "(12) The provisions of this section shall not apply to the Advocate General for the State while performing the functions of a Public Prosecutor. "
+                        }
                 }
             },
             "2": {
@@ -526,6 +542,62 @@
                             "2": "Provided further that where the arrested person is a female, the examination of the body shall be made only by or under the supervision of a female medical officer, and in case the female medical officer is not available, by a female registered medical practitioner.",
                             "3": "(2) The medical officer or a registered medical practitioner so examining the arrested person shall prepare the record of such examination, mentioning therein any injuries or marks of violence upon the person arrested, and the approximate time when such injuries or marks may have been inflicted.",
                             "4": "(3) Where an examination is made under sub-section (1), a copy of the report of such examination shall be furnished by the medical officer or registered medical practitioner, as the case may be, to the arrested person or the person nominated by such arrested person"
+                        }
+                    },
+                    "Section 54.": {
+                        "heading": "Identification of person arrested",
+                        "paragraphs": {
+                            "0": "Where a person is arrested on a charge of committing an offence and his identification by any other person or persons is considered necessary for the purpose of investigation of such offence, the Court, having jurisdiction may, on the request of the officer in charge of a police station, direct the person so arrested to subject himself to identification by any person or persons in such manner as the Court may deem fit: Provided that if the person identifying the person arrested is mentally or physically disabled, such process of identification shall take place under the supervision of a Magistrate who shall take appropriate steps to ensure that such person identifies the person arrested using methods that person is comfortable with and the identification process shall be recorded by any audio-video electronic means."
+                        }
+                    },
+                    "Section 55.": {
+                        "heading": "Procedure when police officer deputes subordinate to arrest without warrant",
+                        "paragraphs": {
+                            "0": "(1) When any officer in charge of a police station or any police officer making an investigation under Chapter XIII requires any officer subordinate to him to arrest without a warrant (otherwise than in his presence) any person who may lawfully be arrested without a warrant, he shall deliver to the officer required to make the arrest an order in writing, specifying the person to be arrested and the offence or other cause for which the arrest is to be made and the officer so required shall, before making the arrest, notify to the person to be arrested the substance of the order and, if so required by such person, shall show him the order.",
+                            "1": "(2) Nothing in sub-section (1) shall affect the power of a police officer to arrest a person under section 35."
+                        }
+                    },
+                    "Section 56.": {
+                        "heading": "Health and safety of arrested person",
+                        "paragraphs": {
+                            "0": "It shall be the duty of the person having the custody of an accused to take reasonable care of the health and safety of the accused."
+                        }
+                    },
+                    "Section 57.": {
+                        "heading": "Person arrested to be taken before Magistrate or officer in charge of police station",
+                        "paragraphs": {
+                            "0": "A police officer making an arrest without warrant shall, without unnecessary delay and subject to the provisions herein contained as to bail, take or send the person arrested before a Magistrate having jurisdiction in the case, or before the officer in charge of a police station."
+                        }
+                    },
+                    "Section 58.": {
+                        "heading": "Person arrested not to be detained more than twenty-four hours",
+                        "paragraphs": {
+                            "0": "Officers in charge of police stations shall report to the District Magistrate, or, if he so directs, to the Sub-divisional Magistrate, the cases of all persons arrested without warrant, within the limits of their respective stations, whether such persons have been admitted to bail or otherwise."
+                        }
+                    },
+                    "Section 59.": {
+                        "heading": "Police to report apprehensions",
+                        "paragraphs": {
+                            "0": "Officers in charge of police stations shall report to the District Magistrate, or, if he so directs, to the Sub-divisional Magistrate, the cases of all persons arrested without warrant, within the limits of their respective stations, whether such persons have been admitted to bail or otherwise."
+                        }
+                    },
+                    "Section 60.": {
+                        "heading": "Discharge of person apprehended",
+                        "paragraphs": {
+                            "0": "No person who has been arrested by a police officer shall be discharged except on his bond, or bail bond, or under the special order of a Magistrate."
+                        }
+                    },
+                    "Section 61.": {
+                        "heading": "Power, on escape, to pursue and retake",
+                        "paragraphs": {
+                            "0": "(1) If a person in lawful custody escapes or is rescued, the person from whose custody he escaped or was rescued may immediately pursue and arrest him in any place in India.",
+                            "1": "(2) The provisions of section 44 shall apply to arrests under sub-section (1) although the person making any such arrest is not acting under a warrant and is not a police officer having authority to arrest."
+                        }
+                    },
+                    "Section 62.": {
+                        "heading": "Arrest to be made strictly according to Sanhita",
+                        "paragraphs": {
+                            "0": "No arrest shall be made except in accordance with the provisions of this Sanhita or any other law for the time being in force providing for arrest."
                         }
                     }
                 }
@@ -857,6 +929,52 @@
                             "1": "(2) Such police officer, if subordinate to the officer in charge of a police station, shall forthwith report the seizure to that officer.",
                             "2": "(3) Every police officer acting under sub-section (1) shall forthwith report the seizure to the Magistrate having jurisdiction and where the property seized is such that it cannot be conveniently transported to the Court, or where there is difficulty in securing proper accommodation for the custody of such property, or where the continued retention of the property in police custody may not be considered necessary for the purpose of investigation, he may give custody thereof to any person on his executing a bond undertaking to produce the property before the Court as and when required and to give effect to the further orders of the Court as to the disposal of the same: Provided that where the property seized under sub-section (1) is subject to speedy and natural decay and if the person entitled to the possession of such property is unknown or absent and the value of such property is less than five hundred rupees, it may forthwith be sold by auction under the orders of the Superintendent of Police and the provisions of sections 503 and 504 shall, as nearly as may be practicable, apply to the net proceeds of such sale."
                         }
+                    },
+                    "Section 107.": {
+                        "heading": "Attachment, forfeiture or restoration of property",
+                        "paragraphs": {
+                            "0": "(1) Where a police officer making an investigation has reason to believe that any property is derived or obtained, directly or indirectly, as a result of a criminal activity or from the commission of any offence, he may, with the approval of the Superintendent of Police or Commissioner of Police, make an application to the Court or the Magistrate exercising jurisdiction to take cognizance of the offence or commit for trial or try the case, for the attachment of such property.",
+                            "1": "(2) If the Court or the Magistrate has reasons to believe, whether before or after taking evidence, that all or any of such properties are proceeds of crime, the Court or the Magistrate may issue a notice upon such person calling upon him to show cause within a period of fourteen days as to why an order of attachment shall not be made.",
+                            "2": "(3) Where the notice issued to any person under sub-section (2) specifies any property as being held by any other person on behalf of such person, a copy of the notice shall also be served upon such other person.",
+                            "3": "(4) The Court or the Magistrate may, after considering the explanation, if any, to the show-cause notice issued under sub-section (2) and the material fact available before such Court or Magistrate and after giving a reasonable opportunity of being heard to such person or persons, may pass an order of attachment, in respect of those properties which are found to be the proceeds of crime: Provided that if such person does not appear before the Court or the Magistrate or represent his case before the Court or Magistrate within a period of fourteen days specified in the show-cause notice, the Court or the Magistrate may proceed to pass the ex parte order.",
+                            "4": "(5) Notwithstanding anything contained in sub-section (2), if the Court or the Magistrate is of the opinion that issuance of notice under the said sub-section would defeat the object of attachment or seizure, the Court or Magistrate may by an interim order passed ex parte direct attachment or seizure of such property, and such order shall remain in force till an order under sub-section (6) is passed.",
+                            "5": "(6) If the Court or the Magistrate finds the attached or seized properties to be the proceeds of crime, the Court or the Magistrate shall by order direct the District Magistrate to rateably distribute such proceeds of crime to the persons who are affected by such crime.",
+                            "6": "(7) On receipt of an order passed under sub-section (6), the District Magistrate shall, within a period of sixty days distribute the proceeds of crime either by himself or authorise any officer subordinate to him to effect such distribution.",
+                            "7": "(8) If there are no claimants to receive such proceeds or no claimant is ascertainable or there is any surplus after satisfying the claimants, such proceeds of crime shall stand forfeited to the Government."
+                        }
+                    },
+                    "Section 108.": {
+                        "heading": "Magistrate may direct search in his presence",
+                        "paragraphs": {
+                            "0": "Any Magistrate may direct a search to be made in his presence of any place for the search of which he is competent to issue a search-warrant."
+                        }
+                    },
+                    "Section 109.": {
+                        "heading": "Power to impound document, etc., produced",
+                        "paragraphs": {
+                            "0": "Any Court may, if it thinks fit, impound any document or thing produced before it under this Sanhita."
+                        }
+                    },
+                    "Section 110.": {
+                        "heading": "Reciprocal arrangements regarding processes",
+                        "paragraphs": {
+                            "0": "(1) Where a Court in the territories to which this Sanhita extends (hereafter in this section referred to as the said territories) desires that—",
+                            "1": "(a) a summons to an accused person; or",
+                            "2": "(b) a warrant for the arrest of an accused person; or",
+                            "3": "(c) a summons to any person requiring him to attend and produce a document or other thing, or to produce it; or",
+                            "4": "(d) a search-warrant, issued by it shall be served or executed at any place,—",
+                            "5": "(i) within the local jurisdiction of a Court in any State or area in India outside the said territories, it may send such summons or warrant in duplicate by post or otherwise, to the presiding officer of that Court to be served or executed; and where any summons referred to in clause (a) or clause (c) has been so served, the provisions of section 70 shall apply in relation to such summons as if the presiding officer of the Court to whom it is sent were a Magistrate in the said territories;",
+                            "6": "(ii) in any country or place outside India in respect of which arrangements have been made by the Central Government with the Government of such country or place for service or execution of summons or warrant in relation to criminal matters (hereafter in this section referred to as the contracting State), it may send such summons or warrant in duplicate in such form, directed to such Court, Judge or Magistrate, and send to such authority for transmission, as the Central Government may, by notification, specify in this behalf.",
+                            "7": "(2) Where a Court in the said territories has received for service or execution—",
+                            "8": "(a) a summons to an accused person; or",
+                            "9": "(b) a warrant for the arrest of an accused person; or",
+                            "10": "(c) a summons to any person requiring him to attend and produce a document or other thing, or to produce it; or",
+                            "11": "(d) a search-warrant, issued by—",
+                            "12": "(I) a Court in any State or area in India outside the said territories;",
+                            "13": "(II) a Court, Judge or Magistrate in a contracting State, it shall cause the same to be served or executed as if it were a summons or warrant received by it from another Court in the said territories for service or execution within its local jurisdiction; and where—",
+                            "14": "(i) a warrant of arrest has been executed, the person arrested shall, so far as possible, be dealt with in accordance with the procedure specified by sections 82 and 83;",
+                            "15": "(ii) a search-warrant has been executed, the things found in the search shall, so far as possible, be dealt with in accordance with the procedure specified by section 104: Provided that in a case where a summons or search-warrant received from a contracting State has been executed, the documents or things produced or things found in the search shall be forwarded to the Court issuing the summons or search-warrant through such authority as the Central Government may, by notification, specify in this behalf."
+                        }
                     }
                 }
             },
@@ -1090,6 +1208,42 @@
                             "1": "(2) Such Magistrate shall, before holding the inquiry, give reasonable notice to the surety and to the person by whom the surety was offered and shall, in making the inquiry, record the substance of the evidence adduced before him.",
                             "2": "(3) If the Magistrate is satisfied, after considering the evidence so adduced either before him or before a Magistrate deputed under sub-section (1), and the report of such Magistrate (if any), that the surety is an unfit person for the purposes of the bail bond, he shall make an order refusing to accept or rejecting, as the case may be, such surety and recording his reasons for so doing: Provided that before making an order rejecting any surety who has previously been accepted, the Magistrate shall issue his summons or warrant, as he thinks fit, and cause the person for whom the surety is bound to appear or to be brought before him."
                         }
+                    },
+                    "Section 141.": {
+                        "heading": "Imprisonment in default of security.—",
+                        "paragraphs": {
+                            "0": "(1) (a) If any person ordered to give security under section 125 or section 136 does not give such security on or before the date on which the period for which such security is to be given commences, he shall, except in the case next hereinafter mentioned, be committed to prison, or, if he is already in prison, be detained in prison until such period expires or until within such period he gives the security to the Court or Magistrate who made the order requiring it;",
+                            "1": "(b) if any person after having executed a bond or bail bond for keeping the peace in pursuance of an order of a Magistrate under section 136, is proved, to the satisfaction of such Magistrate or his successor-in-office, to have committed breach of the bond or bail bond, such Magistrate or successor-in-office may, after recording the grounds of such proof, order that the person be arrested and detained in prison until the expiry of the period of the bond or bail bond and such order shall be without prejudice to any other punishment or forfeiture to which the said person may be liable in accordance with law.",
+                            "2": "(2) When such person has been ordered by a Magistrate to give security for a period exceeding one year, such Magistrate shall, if such person does not give such security as aforesaid, issue a warrant directing him to be detained in prison pending the orders of the Sessions Judge and the proceedings shall be laid, as soon as conveniently may be, before such Court.",
+                            "3": "(3) Such Court, after examining such proceedings and requiring from the Magistrate any further information or evidence which it thinks necessary, and after giving the concerned person a reasonable opportunity of being heard, may pass such order on the case as it thinks fit: Provided that the period (if any) for which any person is imprisoned for failure to give security shall not exceed three years.",
+                            "4": "(4) If security has been required in the course of the same proceeding from two or more persons in respect of any one of whom the proceedings are referred to the Sessions Judge under sub-section (2) such reference shall also include the case of any other of such persons who has been ordered to give security, and the provisions of sub-sections (2) and (3) shall, in that event, apply to the case of such other person also, except that the period (if any) for which he may be imprisoned, shall not exceed the period for which he was ordered to give security.",
+                            "5": "(5) A Sessions Judge may in his discretion transfer any proceedings laid before him under sub-section (2) or sub-section (4) to an Additional Sessions Judge and upon such transfer, such Additional Sessions Judge may exercise the powers of a Sessions Judge under this section in respect of such proceedings.",
+                            "6": "(6) If the security is tendered to the officer in charge of the jail, he shall forthwith refer the matter to the Court or Magistrate who made the order, and shall await the orders of such Court or Magistrate.",
+                            "7": "(7) Imprisonment for failure to give security for keeping the peace shall be simple.",
+                            "8": "(8) Imprisonment for failure to give security for good behaviour shall, where the proceedings have been taken under section 127, be simple, and, where the proceedings have been taken under section 128 or section 129, be rigorous or simple as the Court or Magistrate in each case directs."
+                        }
+                    },
+                    "Section 142.": {
+                        "heading": "Power to release persons imprisoned for failing to give security.—",
+                        "paragraphs": {
+                            "0": "(1) Whenever the District Magistrate in the case of an order passed by an Executive Magistrate under section 136, or the Chief Judicial Magistrate in any other case is of opinion that any person imprisoned for failing to give security under this Chapter may be released without hazard to the community or to any other person, he may order such person to be discharged.",
+                            "1": "(2) Whenever any person has been imprisoned for failing to give security under this Chapter, the High Court or Court of Session, or, where the order was made by any other Court, District Magistrate, in the case of an order passed by an Executive Magistrate under section 136, or the Chief Judicial Magistrate in any other case, may make an order reducing the amount of the security or the number of sureties or the time for which security has been required.",
+                            "2": "(3) An order under sub-section (1) may direct the discharge of such person either without conditions or upon any conditions which such person accepts: Provided that any condition imposed shall cease to be operative when the period for which such person was ordered to give security has expired.",
+                            "3": "(4) The State Government may prescribe, by rules, the conditions upon which a conditional discharge may be made.",
+                            "4": "(5) If any condition upon which any person has been discharged is, in the opinion of District Magistrate, in the case of an order passed by an Executive Magistrate under section 136, or the Chief Judicial Magistrate in any other case by whom the order of discharge was made or of his successor, not fulfilled, he may cancel the same.",
+                            "5": "(6) When a conditional order of discharge has been cancelled under sub-section (5), such person may be arrested by any police officer without warrant, and shall thereupon be produced before the District Magistrate, in the case of an order passed by an Executive Magistrate under section 136, or the Chief Judicial Magistrate in any other case.",
+                            "6": "(7) Unless such person gives security in accordance with the terms of the original order for the unexpired portion of the term for which he was in the first instance committed or ordered to be detained (such portion being deemed to be a period equal to the period between the date of the breach of the conditions of discharge and the date on which, except for such conditional discharge, he would have been entitled to release), District Magistrate, in the case of an order passed by an Executive Magistrate under section 136, or the Chief Judicial Magistrate in any other case may remand such person to prison to undergo such unexpired portion.",
+                            "7": "(8) A person remanded to prison under sub-section (7) shall, subject to the provisions of section 141, be released at any time on giving security in accordance with the terms of the original order for the unexpired portion aforesaid to the Court or Magistrate by whom such order was made, or to its or his successor.",
+                            "8": "(9) The High Court or Court of Session may at any time, for sufficient reasons to be recorded in writing, cancel any bond for keeping the peace or for good behaviour executed under this Chapter by any order made by it, and District Magistrate, in the case of an order passed by an Executive Magistrate under section 136, or the Chief Judicial Magistrate in any other case may make such cancellation where such bond was executed under his order or under the order of any other Court in his district.",
+                            "9": "(10) Any surety for the peaceable conduct or good behaviour of another person ordered to execute a bond under this Chapter may at any time apply to the Court making such order to cancel the bond and on such application being made, the Court shall issue a summons or warrant, as it thinks fit, requiring the person for whom such surety is bound to appear or to be brought before it."
+                        }
+                    },
+                    "Section 143.": {
+                        "heading": "Security for unexpired period of bond.—",
+                        "paragraphs": {
+                            "0": "(1) When a person for whose appearance a summons or warrant has been issued under the proviso to sub-section (3) of section 140 or under sub-section (10) of section 142, appears or is brought before the Magistrate or Court, the Magistrate or Court shall cancel the bond or bail bond executed by such person and shall order such person to give, for the unexpired portion of the term of such bond, fresh security of the same description as the original security.",
+                            "1": "(2) Every such order shall, for the purposes of sections 139 to 142 (both inclusive) be deemed to be an order made under section 125 or section 136, as the case may be."
+                        }
                     }
                 }
             },
@@ -1255,6 +1409,46 @@
                             "5": "(6) The State Government may, either on its own motion or on the application of any person aggrieved, rescind or alter any order made by it under the proviso to sub-section (4).",
                             "6": "(7) Where an application under sub-section (5) or sub-section (6) is received, the Magistrate, or the State Government, as the case may be, shall afford to the applicant an early opportunity of appearing before him or it, either in person or by an advocate and showing cause against the order; and if the Magistrate or the State Government, as the case may be, rejects the application wholly or in part, he or it shall record in writing the reasons for so doing."
                         }
+                    },
+                    "Section 164.": {
+                        "heading": "Procedure where dispute concerning land or water is likely to cause breach of peace",
+                        "paragraphs": {
+                            "0": "(1) Whenever an Executive Magistrate is satisfied from a report of a police officer or upon other information that a dispute likely to cause a breach of the peace exists concerning any land or water or the boundaries thereof, within his local jurisdiction, he shall make an order in writing, stating the grounds of his being so satisfied, and requiring the parties concerned in such dispute to attend his Court in person or by an advocate on a specified date and time, and to put in written statements of their respective claims as respects the fact of actual possession of the subject of dispute.",
+                            "1": "(2) For the purposes of this section, the expression “land or water” includes buildings, markets, fisheries, crops or other produce of land, and the rents or profits of any such property.",
+                            "2": "(3) A copy of the order shall be served in the manner provided by this Sanhita for the service of summons upon such person or persons as the Magistrate may direct, and at least one copy shall be published by being affixed to some conspicuous place at or near the subject of dispute.",
+                            "3": "(4) The Magistrate shall, without reference to the merits or the claims of any of the parties to a right to possess the subject of dispute, peruse the statements so put in, hear the parties, receive all such evidence as may be produced by them, take such further evidence, if any, as he thinks necessary, and, if possible, decide whether any and which of the parties was, at the date of the order made by him under sub-section (1), in possession of the subject of dispute: Provided that if it appears to the Magistrate that any party has been forcibly and wrongfully dispossessed within two months next before the date on which the report of a police officer or other information was received by the Magistrate, or after that date and before the date of his order under sub-section (1), he may treat the party so dispossessed as if that party had been in possession on the date of his order under sub-section (1).",
+                            "4": "(5) Nothing in this section shall preclude any party so required to attend, or any other person interested, from showing that no such dispute as aforesaid exists or has existed; and in such case the Magistrate shall cancel his said order, and all further proceedings thereon shall be stayed, but, subject to such cancellation, the order of the Magistrate under sub-section (1) shall be final.",
+                            "5": "(6) (a) If the Magistrate decides that one of the parties was, or should under the proviso to sub-section (4) be treated as being, in such possession of the said subject of dispute, he shall issue an order declaring such party to be entitled to possession thereof until evicted therefrom in due course of law, and forbidding all disturbance of such possession until such eviction; and when he proceeds under the proviso to sub-section (4), may restore to possession the party forcibly and wrongfully dispossessed; (b) the order made under this sub-section shall be served and published in the manner laid down in sub- section (3).",
+                            "6": "(7) When any party to any such proceeding dies, the Magistrate may cause the legal representative of the deceased party to be made a party to the proceeding and shall thereupon continue the inquiry, and if any question arises as to who the legal representative of a deceased party for the purposes of such proceeding is, all persons claiming to be representatives of the deceased party shall be made parties thereto.",
+                            "7": "(8) If the Magistrate is of opinion that any crop or other produce of the property, the subject of dispute in a proceeding under this section pending before him, is subject to speedy and natural decay, he may make an order for the proper custody or sale of such property, and, upon the completion of the inquiry, shall make such order for the disposal of such property, or the sale-proceeds thereof, as he thinks fit.",
+                            "8": "(9) The Magistrate may, if he thinks fit, at any stage of the proceedings under this section, on the application of either party, issue a summons to any witness directing him to attend or to produce any document or thing.",
+                            "9": "(10) Nothing in this section shall be deemed to be in derogation of powers of the Magistrate to proceed under section 126."
+                        }
+                    },
+                    "Section 165.": {
+                        "heading": "Power to attach subject of dispute and to appoint receiver",
+                        "paragraphs": {
+                            "0": "(1) If the Magistrate at any time after making the order under sub-section (1) of section 164 considers the case to be one of emergency, or if he decides that none of the parties was then in such possession as is referred to in section 164, or if he is unable to satisfy himself as to which of them was then in such possession of the subject of dispute, he may attach the subject of dispute until a competent Court has determined the rights of the parties thereto with regard to the person entitled to the possession thereof: Provided that such Magistrate may withdraw the attachment at any time if he is satisfied that there is no longer any likelihood of breach of the peace with regard to the subject of dispute.",
+                            "1": "(2) When the Magistrate attaches the subject of dispute, he may, if no receiver in relation to such subject of dispute has been appointed by any Civil Court, make such arrangements as he considers proper for looking after the property or if he thinks fit, appoint a receiver thereof, who shall have, subject to the control of the Magistrate, all the powers of a receiver appointed under the Code of Civil Procedure, 1908 (5 of 1908): Provided that in the event of a receiver being subsequently appointed in relation to the subject of dispute by any Civil Court, the Magistrate— (a) shall order the receiver appointed by him to hand over the possession of the subject of dispute to the receiver appointed by the Civil Court and shall thereafter discharge the receiver appointed by him; (b) may make such other incidental or consequential orders as may be just."
+                        }
+                    },
+                    "Section 166.": {
+                        "heading": "Dispute concerning right of use of land or water",
+                        "paragraphs": {
+                            "0": "(1) Whenever an Executive Magistrate is satisfied from the report of a police officer or upon other information, that a dispute likely to cause a breach of the peace exists regarding any alleged right of user of any land or water within his local jurisdiction, whether such right be claimed as an easement or otherwise, he shall make an order in writing, stating the grounds of his being so satisfied and requiring the parties concerned in such dispute to attend his Court in person or by an advocate on a specified date and time and to put in written statements of their respective claims.",
+                            "1": "Explanation.—For the purposes of this sub-section, the expression “land or water” has the meaning given to it in sub-section (2) of section 164.",
+                            "2": "(2) The Magistrate shall peruse the statements so put in, hear the parties, receive all such evidence as may be produced by them respectively, consider the effect of such evidence, take such further evidence, if any, as he thinks necessary and, if possible, decide whether such right exists; and the provisions of section 164 shall, so far as may be, apply in the case of such inquiry.",
+                            "3": "(3) If it appears to such Magistrate that such rights exist, he may make an order prohibiting any interference with the exercise of such right, including, in a proper case, an order for the removal of any obstruction in the exercise of any such right: Provided that no such order shall be made where the right is exercisable at all times of the year, unless such right has been exercised within three months next before the receipt under sub-section (1) of the report of a police officer or other information leading to the institution of the inquiry, or where the right is exercisable only at particular seasons or on particular occasions, unless the right has been exercised during the last of such seasons or on the last of such occasions before such receipt.",
+                            "4": "(4) When in any proceedings commenced under sub-section (1) of section 164 the Magistrate finds that the dispute is as regards an alleged right of user of land or water, he may, after recording his reasons, continue with the proceedings as if they had been commenced under sub-section (1), and when in any proceedings commenced under sub-section (1) the Magistrate finds that the dispute should be dealt with under section 164, he may, after recording his reasons, continue with the proceedings as if they had been commenced under sub-section (1) of section 164."
+                        }
+                    },
+                    "Section 167.": {
+                        "heading": "Local inquiry",
+                        "paragraphs": {
+                            "0": "(1) Whenever a local inquiry is necessary for the purposes of section 164, section 165 or section 166, a District Magistrate or Sub-divisional Magistrate may depute any Magistrate subordinate to him to make the inquiry, and may furnish him with such written instructions as may seem necessary for his guidance, and may declare by whom the whole or any part of the necessary expenses of the inquiry shall be paid.",
+                            "1": "(2) The report of the person so deputed may be read as evidence in the case.",
+                            "2": "(3) When any costs have been incurred by any party to a proceeding under section 164, section 165 or section 166, the Magistrate passing a decision may direct by whom such costs shall be paid, whether by such party or by any other party to the proceeding, and whether in whole or in part or proportion and such costs may include any expenses incurred in respect of witnesses and of advocates' fees, which the Court may consider reasonable."
+                        }
                     }
                 }
             },
@@ -1402,6 +1596,64 @@
                             "0": "(1) No police officer or other person in authority shall offer or make, or cause to be offered or made, any such inducement, threat or promise as is mentioned in section 22 of the Bharatiya Sakshya Adhiniyam, 2023.",
                             "1": "(2) But no police officer or other person shall prevent, by any caution or otherwise, any person from making in the course of any investigation under this Chapter any statement which he may be disposed to make of his own free will:",
                             "2": "Provided that nothing in this sub-section shall affect the provisions of sub-section (4) of section 183."
+                        }
+                    },
+                    "Section 183.": {
+                        "heading": "Recording of confessions and statements",
+                        "paragraphs": {
+                            "0": "(1) Any Magistrate of the District in which the information about commission of any offence has been registered, may, whether or not he has jurisdiction in the case, record any confession or statement made to him in the course of an investigation under this Chapter or under any other law for the time being in force, or at any time afterwards but before the commencement of the inquiry or trial: Provided that any confession or statement made under this sub-section may also be recorded by audio- video electronic means in the presence of the advocate of the person accused of an offence: Provided further that no confession shall be recorded by a police officer on whom any power of a Magistrate has been conferred under any law for the time being in force.",
+                            "1": "(2) The Magistrate shall, before recording any such confession, explain to the person making it that he is not bound to make a confession and that, if he does so, it may be used as evidence against him; and the Magistrate shall not record any such confession unless, upon questioning the person making it, he has reason to believe that it is being made voluntarily.",
+                            "2": "(3) If at any time before the confession is recorded, the person appearing before the Magistrate states that he is not willing to make the confession, the Magistrate shall not authorise the detention of such person in police custody.",
+                            "3": "(4) Any such confession shall be recorded in the manner provided in section 316 for recording the examination of an accused person and shall be signed by the person making the confession; and the Magistrate shall make a memorandum at the foot of such record to the following effect:— “I have explained to (name) that he is not bound to make a confession and that, if he does so, any confession he may make may be used as evidence against him and I believe that this confession was voluntarily made.",
+                            "4": "(5) Any statement (other than a confession) made under sub-section (1) shall be recorded in such manner hereinafter provided for the recording of evidence as is, in the opinion of the Magistrate, best fitted to the circumstances of the case; and the Magistrate shall have power to administer oath to the person whose statement is so recorded.",
+                            "5": "(6) (a) In cases punishable under section 64, section 65, section 66, section 67, section 68, section 69, section 70, section 71, section 74, section 75, section 76, section 77, section 78, section 79 or section 124 of the Bharatiya Nyaya Sanhita, 2023, the Magistrate shall record the statement of the person against whom such offence has been committed in the manner specified in sub-section (5), as soon as the commission of the offence is brought to the notice of the police: Provided that such statement shall, as far as practicable, be recorded by a woman Magistrate and in her absence by a male Magistrate in the presence of a woman: Provided further that in cases relating to the offences punishable with imprisonment for ten years or more or with imprisonment for life or with death, the Magistrate shall record the statement of the witness brought before him by the police officer: Provided also that if the person making the statement is temporarily or permanently, mentally or physically disabled, the Magistrate shall take the assistance of an interpreter or a special educator in recording the statement: Provided also that if the person making the statement is temporarily or permanently, mentally or physically disabled, the statement made by the person, with the assistance of an interpreter or a special educator, shall be recorded through audio-video electronic means preferably by mobile phone;"
+                        }
+                    },
+                    "Section 184.": {
+                        "heading": "Medical examination of victim of rape",
+                        "paragraphs": {
+                            "0": "(1) Where, during the stage when an offence of committing rape or attempt to commit rape is under investigation, it is proposed to get the person of the woman with whom rape is alleged or attempted to have been committed or attempted, examined by a medical expert, such examination shall be conducted by a registered medical practitioner employed in a hospital run by the Government or a local authority and in the absence of such a practitioner, by any other registered medical practitioner, with the consent of such woman or of a person competent to give such consent on her behalf and such woman shall be sent to such registered medical practitioner within twenty-four hours from the time of receiving the information relating to the commission of such offence.",
+                            "1": "(2) The registered medical practitioner, to whom such woman is sent, shall, without delay, examine her person and prepare a report of his examination giving the following particulars, namely:— (i) the name and address of the woman and of the person by whom she was brought; (ii) the age of the woman; (iii) the description of material taken from the person of the woman for DNA profiling; (iv) marks of injury, if any, on the person of the woman; (v) general mental condition of the woman; and (vi) other material particulars in reasonable detail."
+                        }
+                    },
+                    "Section 185.": {
+                        "heading": "Search by police officer",
+                        "paragraphs": {
+                            "0": "(1) Whenever an officer in charge of a police station or a police officer making an investigation has reasonable grounds for believing that anything necessary for the purposes of an investigation into any offence which he is authorised to investigate may be found in any place within the limits of the police station of which he is in charge, or to which he is attached, and that such thing cannot in his opinion be otherwise obtained without undue delay, such officer may, after recording in writing the grounds of his belief in the case-diary and specifying in such writing, so far as possible, the thing for which search is to be made, search, or cause search to be made, for such thing in any place within the limits of such station.",
+                            "1": "(2) A police officer proceeding under sub-section (1), shall, if practicable, conduct the search in person: Provided that the search conducted under this section shall be recorded through audio-video electronic means preferably by mobile phone."
+                        }
+                    },
+                    "Section 186.": {
+                        "heading": "When officer in charge of police station may require another to issue search-warrant",
+                        "paragraphs": {
+                            "0": "(1) An officer in charge of a police station or a police officer not being below the rank of sub-inspector making an investigation may require an officer in charge of another police station, whether in the same or a different district, to cause a search to be made in any place, in any case in which the former officer might cause such search to be made, within the limits of his own station.",
+                            "1": "(2) Such officer, on being so required, shall proceed according to the provisions of section 185, and shall forward the thing found, if any, to the officer at whose request the search was made."
+                        }
+                    },
+                    "Section 187.": {
+                        "heading": "Procedure when investigation cannot be completed in twenty-four hours",
+                        "paragraphs": {
+                            "0": "(1) Whenever any person is arrested and detained in custody, and it appears that the investigation cannot be completed within the period of twenty-four hours fixed by section 58, and there are grounds for believing that the accusation or information is well-founded, the officer in charge of the police station or the police officer making the investigation, if he is not below the rank of sub-inspector, shall forthwith transmit to the nearest Magistrate a copy of the entries in the diary hereinafter specified relating to the case, and shall at the same time forward the accused to such Magistrate.",
+                            "1": "(2) The Magistrate to whom an accused person is forwarded under this section may, irrespective of whether he has or has no jurisdiction to try the case, after taking into consideration whether such person has not been released on bail or his bail has been cancelled, authorise, from time to time, the detention of the accused in such custody as such Magistrate thinks fit, for a term not exceeding fifteen days in the whole, or in parts, at any time during the initial forty days or sixty days out of detention period of sixty days or ninety days, as the case may be, as provided in sub-section (3), and if he has no jurisdiction to try the case or commit it for trial, and considers further detention unnecessary, he may order the accused to be forwarded to a Magistrate having such jurisdiction."
+                        }
+                    },
+                    "Section 188.": {
+                        "heading": "Report of investigation by subordinate police officer",
+                        "paragraphs": {
+                            "0": "When any subordinate police officer has made any investigation under this Chapter, he shall report the result of such investigation to the officer in charge of the police station."
+                        }
+                    },
+                    "Section 189.": {
+                        "heading": "Release of accused when evidence deficient",
+                        "paragraphs": {
+                            "0": "If, upon an investigation under this Chapter, it appears to the officer in charge of the police station that there is not sufficient evidence or reasonable round of suspicion to justify the forwarding of the accused to a Magistrate, such officer shall, if such person is in custody, release him on his executing a bond or bail bond, as such officer may direct, to appear, if and when so required, before a Magistrate empowered to take cognizance of the offence on a police report, and to try the accused or commit him for trial."
+                        }
+                    },
+                    "Section 190.": {
+                        "heading": "Cases to be sent to Magistrate, when evidence is sufficient",
+                        "paragraphs": {
+                            "0": "(1) If, upon an investigation under this Chapter, it appears to the officer in charge of the police station that there is sufficient evidence or reasonable ground as aforesaid, such officer shall forward the accused under custody to a Magistrate empowered to take cognizance of the offence upon a police report and to try the accused or commit him for trial, or, if the offence is bailable and the accused is able to give security, shall take security from him for his appearance before such Magistrate on a day fixed and for his attendance from day to day before such Magistrate until otherwise directed: Provided that if the accused is not in custody, the police officer shall take security from such person for his appearance before the Magistrate and the Magistrate to whom such report is forwarded shall not refuse to accept the same on the ground that the accused is not taken in custody.",
+                            "1": "(2) When the officer in charge of a police station forwards an accused person to a Magistrate, the Magistrate may, if he thinks fit, and shall, if the accused so requires, take security for the appearance of such person before himself or some other Magistrate on a day, hour and place to be then appointed for the purpose of enquiring into or trying the case."
                         }
                     }
                 }
@@ -2860,11 +3112,961 @@
                             "0": "(1) Whenever any complaint of a non-cognizable offence is made to a Court, the Court, if it convicts the accused, may, in addition to the penalty imposed upon him, order him to pay to the complainant, in whole or in part, the cost incurred by him in the prosecution, and may further order that in default of payment, the accused shall suffer simple imprisonment for a period not exceeding thirty days and such costs may include any expenses incurred in respect of process-fees, witnesses and advocate's fees which the Court may consider reasonable.",
                             "1": "(2) An order under this section may also be made by an Appellate Court or by the High Court or Court of Session when exercising its powers of revision."
                         }
+                    },
+                    "Section 401.": {
+                        "heading": "Order to release on probation of good conduct or after admonition",
+                        "paragraphs": {
+                            "0": "(1) When any person not under twenty-one years of age is convicted of an offence punishable with fine only or with imprisonment for a term of seven years or less, or when any person under twenty-one years of age or any woman is convicted of an offence not punishable with death or imprisonment for life, and no previous conviction is proved against the offender, if it appears to the Court before which he is convicted, regard being had to the age, character or antecedents of the offender, and to the circumstances in which the offence was committed, that it is expedient that the offender should be released on probation of good conduct, the Court may, instead of sentencing him at once to any punishment, direct that he be released on his entering into a bond or bail bond to appear and receive sentence when called upon during such period (not exceeding three years) as the Court may direct, and in the meantime to keep the peace and be of good behavior:",
+                            "1": "Provided that where any first offender is convicted by a Magistrate of the second class not specially empowered by the High Court, and the Magistrate is of opinion that the powers conferred by this section should be exercised, he shall record his opinion to that effect, and submit the proceedings to a Magistrate of the first class, forwarding the accused to, or taking bail for his appearance before, such Magistrate, who shall dispose of the case in the manner provided by sub-section (2).",
+                            "2": "(2) Where proceedings are submitted to a Magistrate of the first class as provided by sub-section (1), such Magistrate may thereupon pass such sentence or make such order as he might have passed or made if the case had originally been heard by him, and, if he thinks further inquiry or additional evidence on any point to be necessary, he may make such inquiry or take such evidence himself or direct such inquiry or evidence to be made or taken.",
+                            "3": "(3) In any case in which a person is convicted of theft, theft in a building, dishonest misappropriation, cheating or any offence under the Bharatiya Nyaya Sanhita, 2023, punishable with not more than two years’ imprisonment or any offence punishable with fine only and no previous conviction is proved against him, the Court before which he is so convicted may, if it thinks fit, having regard to the age, character, antecedents or physical or mental condition of the offender and to the trivial nature of the offence or any extenuating circumstances under which the offence was committed, instead of sentencing him to any punishment, release him after due admonition.",
+                            "4": "(4) An order under this section may be made by any Appellate Court or by the High Court or Court of Session when exercising its powers of revision.",
+                            "5": "(5) When an order has been made under this section in respect of any offender, the High Court or Court of Session may, on appeal when there is a right of appeal to such Court, or when exercising its powers of revision, set aside such order, and in lieu thereof pass sentence on such offender according to law:",
+                            "6": "Provided that the High Court or Court of Session shall not under this sub-section inflict a greater punishment than might have been inflicted by the Court by which the offender was convicted.",
+                            "7": "(6) The provisions of sections 140, 143 and 414 shall, so far as may be, apply in the case of sureties offered in pursuance of the provisions of this section.",
+                            "8": "(7) The Court, before directing the release of an offender under sub-section (1), shall be satisfied that an offender or his surety (if any) has a fixed place of abode or regular occupation in the place for which the Court acts or in which the offender is likely to live during the period named for the observance of the conditions.",
+                            "9": "(8) If the Court which convicted the offender, or a Court which could have dealt with the offender in respect of his original offence, is satisfied that the offender has failed to observe any of the conditions of his recognizance, it may issue a warrant for his apprehension.",
+                            "10": "(9) An offender, when apprehended on any such warrant, shall be brought forthwith before the Court issuing the warrant, and such Court may either remand him in custody until the case is heard or admit him to bail with a sufficient surety conditioned on his appearing for sentence and such Court may, after hearing the case, pass sentence.",
+                            "11": "(10) Nothing in this section shall affect the provisions of the Probation of Offenders Act, 1958 (20 of 1958), or the Juvenile Justice (Care and Protection of Children) Act, 2015 (2 of 2016) or any other law for the time being in force for the treatment, training or rehabilitation of youthful offenders."
+                        }
+                    },
+                    "Section 402.": {
+                        "heading": "Special reasons to be recorded in certain cases",
+                        "paragraphs": {
+                            "0": "Where in any case the Court could have dealt with,— (a) an accused person under section 401 or under the provisions of the Probation of Offenders Act, 1958 (20 of 1958); or (b) a youthful offender under the Juvenile Justice (Care and Protection of Children) Act, 2015 (2 of 2016) or any other law for the time being in force for the treatment, training or rehabilitation of youthful offenders, but has not done so, it shall record in its judgment the special reasons for not having done so."
+                        }
+                    },
+                    "Section 403.": {
+                        "heading": "Court not to alter judgment",
+                        "paragraphs": {
+                            "0": "Save as otherwise provided by this Sanhita or by any other law for the time being in force, no Court, when it has signed its judgment or final order disposing of a case, shall alter or review the same except to correct a clerical or arithmetical error."
+                        }
+                    },
+                    "Section 404.": {
+                        "heading": "Copy of judgment to be given to accused and other persons",
+                        "paragraphs": {
+                            "0": "(1) When the accused is sentenced to imprisonment, a copy of the judgment shall, immediately after the pronouncement of the judgment, be given to him free of cost.",
+                            "1": "(2) On the application of the accused, a certified copy of the judgment, or when he so desires, a translation in his own language if practicable or in the language of the Court, shall be given to him without delay, and such copy shall, in every case where the judgment is appealable by the accused, be given free of cost:",
+                            "2": "Provided that where a sentence of death is passed or confirmed by the High Court, a certified copy of the judgment shall be immediately given to the accused free of cost whether or not he applies for the same.",
+                            "3": "(3) The provisions of sub-section (2) shall apply in relation to an order under section 136 as they apply in relation to a judgment which is appealable by the accused.",
+                            "4": "(4) When the accused is sentenced to death by any Court and an appeal lies from such judgment as of right, the Court shall inform him of the period within which, if he wishes to appeal, his appeal should be preferred.",
+                            "5": "(5) Save as otherwise provided in sub-section (2), any person affected by a judgment or order passed by a Criminal Court shall, on an application made in this behalf and on payment of the prescribed charges, be given a copy of such judgment or order or of any deposition or other part of the record:",
+                            "6": "Provided that the Court may, if it thinks fit for some special reason, give it to him free of cost:",
+                            "7": "Provided further that the Court may, on an application made in this behalf by the Prosecuting Officer, provide to the Government, free of cost, a certified copy of such judgment, order, deposition or record.",
+                            "8": "(6) The High Court may, by rules, provide for the grant of copies of any judgment or order of a Criminal Court to any person who is not affected by a judgment or order, on payment, by such person, of such fees, and subject to such conditions, as the High Court may, by such rules, provide."
+                        }
+                    },
+                    "Section 405.": {
+                        "heading": "Judgment when to be translated",
+                        "paragraphs": {
+                            "0": "The original judgment shall be filed with the record of the proceedings and where the original is recorded in a language different from that of the Court, and if either party so requires, a translation thereof into the language of the Court shall be added to such record."
+                        }
+                    },
+                    "Section 406.": {
+                        "heading": "Court of Session to send copy of finding and sentence to District Magistrate",
+                        "paragraphs": {
+                            "0": "In cases tried by the Court of Session or a Chief Judicial Magistrate, the Court or such Magistrate, as the case may be, shall forward a copy of its or his finding and sentence (if any) to the District Magistrate within whose local jurisdiction the trial was held."
+                        }
+                    }
+                }
+            },
+            "28": {
+                "ID": "CHAPTER XXX",
+                "Name": "SUBMISSION OF DEATH SENTENCES FOR CONFIRMATION",
+                "Sections": {
+                    "Section 407.": {
+                        "heading": "Sentence of death to be submitted by Court of Session for confirmation.",
+                        "paragraphs": {
+                            "0": "(1) When the Court of Session passes a sentence of death, the proceedings shall forthwith be submitted to the High Court, and the sentence shall not be executed unless it is confirmed by the High Court.",
+                            "1": "(2) The Court passing the sentence shall commit the convicted person to jail custody under a warrant."
+                        }
+                    },
+                    "Section 408.": {
+                        "heading": "Power to direct further inquiry to be made or additional evidence to be taken.",
+                        "paragraphs": {
+                            "0": "(1) If, when such proceedings are submitted, the High Court thinks that a further inquiry should be made into, or additional evidence taken upon, any point bearing upon the guilt or innocence of the convicted person, it may make such inquiry or take such evidence itself, or direct it to be made or taken by the Court of Session.",
+                            "1": "(2) Unless the High Court otherwise directs, the presence of the convicted person may be dispensed with when such inquiry is made or such evidence is taken.",
+                            "2": "(3) When the inquiry or evidence (if any) is not made or taken by the High Court, the result of such inquiry or evidence shall be certified to such Court."
+                        }
+                    },
+                    "Section 409.": {
+                        "heading": "Power of High Court to confirm sentence or annul conviction.",
+                        "paragraphs": {
+                            "0": "In any case submitted under section 407, the High Court— (a) may confirm the sentence, or pass any other sentence warranted by law; or (b) may annul the conviction, and convict the accused of any offence of which the Court of Session might have convicted him, or order a new trial on the same or an amended charge; or (c) may acquit the accused person: Provided that no order of confirmation shall be made under this section until the period allowed for preferring an appeal has expired, or, if an appeal is presented within such period, until such appeal is disposed of."
+                        }
+                    },
+                    "Section 410.": {
+                        "heading": "Confirmation or new sentence to be signed by two Judges.",
+                        "paragraphs": {
+                            "0": "In every case so submitted, the confirmation of the sentence, or any new sentence or order passed by the High Court, shall, when such Court consists of two or more Judges, be made, passed and signed by at least two of them."
+                        }
+                    },
+                    "Section 411.": {
+                        "heading": "Procedure in case of difference of opinion.",
+                        "paragraphs": {
+                            "0": "Where any such case is heard before a Bench of Judges and such Judges are equally divided in opinion, the case shall be decided in the manner provided by section 433."
+                        }
+                    },
+                    "Section 412.": {
+                        "heading": "Procedure in cases submitted to High Court for confirmation.",
+                        "paragraphs": {
+                            "0": "In cases submitted by the Court of Session to the High Court for the confirmation of a sentence of death, the proper officer of the High Court shall, without delay, after the order of confirmation or other order has been made by the High Court, send either physically, or through electronic means, a copy of the order, under the seal of the High Court and attested with his official signature, to the Court of Session."
+                        }
+                    }
+                }
+            },
+            "29": {
+                "ID": "CHAPTER XXXI",
+                "Name": "APPEALS",
+                "Sections": {
+                    "Section 413.": {
+                        "heading": "No appeal to lie unless otherwise provided",
+                        "paragraphs": {
+                            "0": "No appeal shall lie from any judgment or order of a Criminal Court except as provided for by this Sanhita or by any other law for the time being in force",
+                            "1": "Provided that the victim shall have a right to prefer an appeal against any order passed by the Court acquitting the accused or convicting for a lesser offence or imposing inadequate compensation"
+                        }
+                    },
+                    "Section 414.": {
+                        "heading": "Appeal from orders requiring security or refusal to accept or rejecting surety for keeping peace or good behavior",
+                        "paragraphs": {
+                            "0": "Any person, who has been ordered under section 136 to give security for keeping the peace or for good behaviour, may appeal against such order to the Court of Session",
+                            "1": "Any person, who is aggrieved by any order refusing to accept or rejecting a surety under section 140, may appeal against such order to the Court of Session"
+                        }
+                    },
+                    "Section 415.": {
+                        "heading": "Appeals from convictions",
+                        "paragraphs": {
+                            "0": "Any person convicted on a trial held by a High Court in its extraordinary original criminal jurisdiction may appeal to the Supreme Court",
+                            "1": "Any person convicted on a trial held by a Sessions Judge or an Additional Sessions Judge or on a trial held by any other Court in which a sentence of imprisonment for more than seven years has been passed against him or against any other person convicted at the same trial, may appeal to the High Court",
+                            "2": "Save as otherwise provided in sub-section (2), any person, convicted on a trial held by Magistrate of the first class, or of the second class, may appeal to the Court of Session",
+                            "3": "When an appeal has been filed against a sentence passed under section 64, section 65, section 66, section 67, section 68, section 70 or section 71 of the Bharatiya Nyaya Sanhita, 2023, the appeal shall be disposed of within a period of six months from the date of filing of such appeal"
+                        }
+                    },
+                    "Section 416.": {
+                        "heading": "No appeal in certain cases when accused pleads guilty",
+                        "paragraphs": {
+                            "0": "Notwithstanding anything in section 415, where an accused person has pleaded guilty and has been convicted on such plea, there shall be no appeal",
+                            "1": "If the conviction is by a High Court, or if the conviction is by a Court of Session or Magistrate of the first or second class, except as to the extent or legality of the sentence"
+                        }
+                    },
+                    "Section 417.": {
+                        "heading": "No appeal in petty cases",
+                        "paragraphs": {
+                            "0": "Notwithstanding anything in section 415, there shall be no appeal by a convicted person in any of the following cases",
+                            "1": "Where a High Court passes only a sentence of imprisonment for a term not exceeding three months or of fine not exceeding one thousand rupees, or of both such imprisonment and fine",
+                            "2": "Where a Court of Session passes only a sentence of imprisonment for a term not exceeding three months or of fine not exceeding two hundred rupees, or of both such imprisonment and fine"
+                        }
+                    },
+                    "Section 418.": {
+                        "heading": "Appeal by State Government against sentence",
+                        "paragraphs": {
+                            "0": "The State Government may, in any case of conviction on a trial held by any Court other than a High Court, direct the Public Prosecutor to present an appeal against the sentence on the ground of its inadequacy",
+                            "1": "If such conviction is in a case in which the offence has been investigated by any agency empowered to make investigation into an offence under any Central Act other than this Sanhita, the Central Government may also direct the Public Prosecutor to present an appeal against the sentence on the ground of its inadequacy"
+                        }
+                    },
+                    "Section 419.": {
+                        "heading": "Appeal in case of acquittal",
+                        "paragraphs": {
+                            "0": "Save as otherwise provided in sub-section (2), and subject to the provisions of sub-sections (3) and (5), the District Magistrate may, in any case, direct the Public Prosecutor to present an appeal to the Court of Session from an order of acquittal passed by a Magistrate in respect of a cognizable and non-bailable offence",
+                            "1": "The State Government may, in any case, direct the Public Prosecutor to present an appeal to the High Court from an original or appellate order of acquittal passed by any Court other than a High Court not being an order under clause (a) or an order of acquittal passed by the Court of Session in revision"
+                        }
+                    },
+                    "Section 420.": {
+                        "heading": "Appeal against conviction by High Court in certain cases",
+                        "paragraphs": {
+                            "0": "Where the High Court has, on appeal, reversed an order of acquittal of an accused person and convicted him and sentenced him to death or to imprisonment for life or to imprisonment for a term of ten years or more, he may appeal to the Supreme Court"
+                        }
+                    },
+                    "Section 421.": {
+                        "heading": "Special right of appeal in certain cases",
+                        "paragraphs": {
+                            "0": "Notwithstanding anything in this Chapter, when more persons than one are convicted in one trial, and an appealable judgment or order has been passed in respect of any of such persons, all or any of the persons convicted at such trial shall have a right of appeal"
+                        }
+                    },
+                    "Section 422.": {
+                        "heading": "Appeal to Court of Session how heard",
+                        "paragraphs": {
+                            "0": "An appeal to the Court of Session or Sessions Judge shall be heard by the Sessions Judge or by an Additional Sessions Judge",
+                            "1": "An Additional Sessions Judge or a Chief Judicial Magistrate shall hear only such appeals as the Sessions Judge of the division may, by general or special order, make over to him or as the High Court may, by special order, direct him to hear"
+                        }
+                    },
+                    "Section 423.": {
+                        "heading": "Petition of appeal",
+                        "paragraphs": {
+                            "0": "Every appeal shall be made in the form of a petition in writing presented by the appellant or his advocate, and every such petition shall (unless the Court to which it is presented otherwise directs) be accompanied by a copy of the judgment or order appealed against"
+                        }
+                    },
+                    "Section 424.": {
+                        "heading": "Procedure when appellant in jail",
+                        "paragraphs": {
+                            "0": "If the appellant is in jail, he may present his petition of appeal and the copies accompanying the same to the officer in charge of the jail, who shall thereupon forward such petition and copies to the proper Appellate Court"
+                        }
+                    },
+                    "Section 425.": {
+                        "heading": "Summary dismissal of appeal",
+                        "paragraphs": {
+                            "0": "If upon examining the petition of appeal and copy of the judgment received under section 423 or section 424, the Appellate Court considers that there is no sufficient ground for interfering, it may dismiss the appeal summarily",
+                            "1": "No appeal presented under section 423 shall be dismissed unless the appellant or his advocate has had a reasonable opportunity of being heard in support of the same"
+                        }
+                    },
+                    "Section 426.": {
+                        "heading": "Procedure for hearing appeals not dismissed summarily",
+                        "paragraphs": {
+                            "0": "If the Appellate Court does not dismiss the appeal summarily, it shall cause notice of the time and place at which such appeal will be heard to be given to the appellant or his advocate",
+                            "1": "The Appellate Court shall then send for the record of the case, if such record is not already available in that Court, and hear the parties"
+                        }
+                    },
+                    "Section 427.": {
+                        "heading": "Powers of Appellate Court",
+                        "paragraphs": {
+                            "0": "After perusing such record and hearing the appellant or his advocate, if he appears, and the Public Prosecutor if he appears, and in case of an appeal under section 418 or section 419, the accused, if he appears, the Appellate Court may, if it considers that there is no sufficient ground for interfering, dismiss the appeal",
+                            "1": "The Appellate Court may reverse the finding and sentence and acquit or discharge the accused, or order him to be re-tried by a Court of competent jurisdiction subordinate to such Appellate Court or committed for trial"
+                        }
+                    },
+                    "Section 428.": {
+                        "heading": "Judgments of subordinate Appellate Court",
+                        "paragraphs": {
+                            "0": "The rules contained in Chapter XXIX as to the judgment of a Criminal Court of original jurisdiction shall apply, so far as may be practicable, to the judgment in appeal of a Court of Session or Chief Judicial Magistrate"
+                        }
+                    },
+                    "Section 429.": {
+                        "heading": "Order of High Court on appeal to be certified to lower Court",
+                        "paragraphs": {
+                            "0": "Whenever a case is decided on appeal by the High Court under this Chapter, it shall certify its judgment or order to the Court by which the finding, sentence or order appealed against was recorded or passed"
+                        }
+                    },
+                    "Section 430.": {
+                        "heading": "Suspension of sentence pending appeal; release of appellant on bail",
+                        "paragraphs": {
+                            "0": "Pending any appeal by a convicted person, the Appellate Court may, for reasons to be recorded by it in writing, order that the execution of the sentence or order appealed against be suspended and, also, if he is in confinement, that he be released on bail, or on his own bond or bail bond"
+                        }
+                    },
+                    "Section 431.": {
+                        "heading": "Arrest of accused in appeal from acquittal",
+                        "paragraphs": {
+                            "0": "When an appeal is presented under section 419, the High Court may issue a warrant directing that the accused be arrested and brought before it or any subordinate Court"
+                        }
+                    },
+                    "Section 432.": {
+                        "heading": "Appellate Court may take further evidence or direct it to be taken",
+                        "paragraphs": {
+                            "0": "In dealing with any appeal under this Chapter, the Appellate Court, if it thinks additional evidence to be necessary, shall record its reasons and may either take such evidence itself, or direct it to be taken by a Magistrate or, when the Appellate Court is a High Court, by a Court of Session or a Magistrate"
+                        }
+                    },
+                    "Section 433.": {
+                        "heading": "Procedure where Judges of Court of appeal are equally divided",
+                        "paragraphs": {
+                            "0": "When an appeal under this Chapter is heard by a High Court before a Bench of Judges and they are divided in opinion, the appeal, with their opinions, shall be laid before another Judge of that Court"
+                        }
+                    },
+                    "Section 434.": {
+                        "heading": "Finality of judgments and orders on appeal",
+                        "paragraphs": {
+                            "0": "Judgments and orders passed by an Appellate Court upon an appeal shall be final, except in the cases provided for in section 418, section 419, sub-section (4) of section 425 or Chapter XXXII"
+                        }
+                    },
+                    "Section 435.": {
+                        "heading": "Abatement of appeals",
+                        "paragraphs": {
+                            "0": "Every appeal under section 418 or section 419 shall finally abate on the death of the accused",
+                            "1": "Every other appeal under this Chapter (except an appeal from a sentence of fine) shall finally abate on the death of the appellant"
+                        }
+                    }
+                }
+            },
+            "30": {
+                "ID": "CHAPTER XXXII",
+                "Name": "REFERENCE AND REVISION",
+                "Sections": {
+                    "Section 436.": {
+                        "heading": "Reference to High Court",
+                        "paragraphs": {
+                            "0": "(1) Where any Court is satisfied that a case pending before it involves a question as to the validity of any Act, Ordinance or Regulation or of any provision contained in an Act, Ordinance or Regulation, the determination of which is necessary for the disposal of the case, and is of opinion that such Act, Ordinance, Regulation or provision is invalid or inoperative, but has not been so declared by the High Court to which that Court is subordinate or by the Supreme Court, the Court shall state a case setting out its opinion and the reasons therefor, and refer the same for the decision of the High Court.",
+                            "1": "Explanation.—In this section, “Regulation” means any Regulation as defined in the General Clauses Act, 1897 (10 of 1897), or in the General Clauses Act of a State.",
+                            "2": "(2) A Court of Session may, if it thinks fit in any case pending before it to which the provisions of sub- section (1) do not apply, refer for the decision of the High Court any question of law arising in the hearing of such case.",
+                            "3": "(3) Any Court making a reference to the High Court under sub-section (1) or sub-section (2) may, pending the decision of the High Court thereon, either commit the accused to jail or release him on bail to appear when called upon."
+                        }
+                    },
+                    "Section 437.": {
+                        "heading": "Disposal of case according to decision of High Court",
+                        "paragraphs": {
+                            "0": "(1) When a question has been so referred, the High Court shall pass such order thereon as it thinks fit, and shall cause a copy of such order to be sent to the Court by which the reference was made, which shall dispose of the case conformably to the said order.",
+                            "1": "(2) The High Court may direct by whom the costs of such reference shall be paid."
+                        }
+                    },
+                    "Section 438.": {
+                        "heading": "Calling for records to exercise powers of revision",
+                        "paragraphs": {
+                            "0": "(1) The High Court or any Sessions Judge may call for and examine the record of any proceeding before any inferior Criminal Court situate within its or his local jurisdiction for the purpose of satisfying itself or himself as to the correctness, legality or propriety of any finding, sentence or order, recorded or passed, and as to the regularity of any proceedings of such inferior Court, and may, when calling, for such record, direct that the execution of any sentence or order be suspended, and if the accused is in confinement that he be released on his own bond or bail bond pending the examination of the record.",
+                            "1": "Explanation.—All Magistrates, whether Executive or Judicial, and whether exercising original or appellate jurisdiction, shall be deemed to be inferior to the Sessions Judge for the purposes of this sub- section and of section 439.",
+                            "2": "(2) The powers of revision conferred by sub-section (1) shall not be exercised in relation to any interlocutory order passed in any appeal, inquiry, trial or other proceeding.",
+                            "3": "(3) If an application under this section has been made by any person either to the High Court or to the Sessions Judge, no further application by the same person shall be entertained by the other of them."
+                        }
+                    },
+                    "Section 439.": {
+                        "heading": "Power to order inquiry",
+                        "paragraphs": {
+                            "0": "On examining any record under section 438 or otherwise, the High Court or the Sessions Judge may direct the Chief Judicial Magistrate by himself or by any of the Magistrates subordinate to him to make, and the Chief Judicial Magistrate may himself make or direct any subordinate Magistrate to make, further inquiry into any complaint which has been dismissed under section 226 or sub- section (4) of section 227, or into the case of any person accused of an offence who has been discharged:",
+                            "1": "Provided that no Court shall make any direction under this section for inquiry into the case of any person who has been discharged unless such person has had an opportunity of showing cause why such direction should not be made."
+                        }
+                    },
+                    "Section 440.": {
+                        "heading": "Sessions Judge's powers of revision",
+                        "paragraphs": {
+                            "0": "(1) In the case of any proceeding the record of which has been called for by himself, the Sessions Judge may exercise all or any of the powers which may be exercised by the High Court under sub-section (1) of section 442.",
+                            "1": "(2) Where any proceeding by way of revision is commenced before a Sessions Judge under sub-section (1), the provisions of sub-sections (2), (3), (4) and (5) of section 442 shall, so far as may be, apply to such proceeding and references in the said sub-sections to the High Court shall be construed as references to the Sessions Judge.",
+                            "2": "(3) Where any application for revision is made by or on behalf of any person before the Sessions Judge, the decision of the Sessions Judge thereon in relation to such person shall be final and no further proceeding by way of revision at the instance of such person shall be entertained by the High Court or any other Court."
+                        }
+                    },
+                    "Section 441.": {
+                        "heading": "Power of Additional Sessions Judge",
+                        "paragraphs": {
+                            "0": "An Additional Sessions Judge shall have and may exercise all the powers of a Sessions Judge under this Chapter in respect of any case which may be transferred to him by or under any general or special order of the Sessions Judge."
+                        }
+                    },
+                    "Section 442.": {
+                        "heading": "High Court's powers of revision",
+                        "paragraphs": {
+                            "0": "(1) In the case of any proceeding the record of which has been called for by itself or which otherwise comes to its knowledge, the High Court may, in its discretion, exercise any of the powers conferred on a Court of Appeal by sections 427, 430, 431 and 432 or on a Court of Session by section 344, and, when the Judges composing the Court of revision are equally divided in opinion, the case shall be disposed of in the manner provided by section 433.",
+                            "1": "(2) No order under this section shall be made to the prejudice of the accused or other person unless he has had an opportunity of being heard either personally or by advocate in his own defence.",
+                            "2": "(3) Nothing in this section shall be deemed to authorise a High Court to convert a finding of acquittal into one of conviction.",
+                            "3": "(4) Where under this Sanhita an appeal lies and no appeal is brought, no proceeding by way of revision shall be entertained at the instance of the party who could have appealed.",
+                            "4": "(5) Where under this Sanhita an appeal lies but an application for revision has been made to the High Court by any person and the High Court is satisfied that such application was made under the erroneous belief that no appeal lies thereto and that it is necessary in the interests of justice so to do, the High Court may treat the application for revision as a petition of appeal and deal with the same accordingly."
+                        }
+                    },
+                    "Section 443.": {
+                        "heading": "Power of High Court to withdraw or transfer revision cases",
+                        "paragraphs": {
+                            "0": "(1) Whenever one or more persons convicted at the same trial makes or make application to a High Court for revision and any other person convicted at the same trial makes an application to the Sessions Judge for revision, the High Court shall decide, having regard to the general convenience of the parties and the importance of the questions involved, which of the two Courts should finally dispose of the applications for revision and when the High Court decides that all the applications for revision should be disposed of by itself, the High Court shall direct that the applications for revision pending before the Sessions Judge be transferred to itself and where the High Court decides that it is not necessary for it to dispose of the applications for revision, it shall direct that the applications for revision made to it be transferred to the Sessions Judge.",
+                            "1": "(2) Whenever any application for revision is transferred to the High Court, that Court shall deal with the same as if it were an application duly made before itself.",
+                            "2": "(3) Whenever any application for revision is transferred to the Sessions Judge, that Judge shall deal with the same as if it were an application duly made before himself.",
+                            "3": "(4) Where an application for revision is transferred by the High Court to the Sessions Judge, no further application for revision shall lie to the High Court or to any other Court at the instance of the person or persons whose applications for revision have been disposed of by the Sessions Judge."
+                        }
+                    },
+                    "Section 444.": {
+                        "heading": "Option of Court to hear parties",
+                        "paragraphs": {
+                            "0": "Save as otherwise expressly provided by this Sanhita, no party has any right to be heard either personally or by an advocate before any Court exercising its powers of revision; but the Court may, if it thinks fit, when exercising such powers, hear any party either personally or by an advocate."
+                        }
+                    },
+                    "Section 445.": {
+                        "heading": "High Court's order to be certified to lower Court",
+                        "paragraphs": {
+                            "0": "When a case is revised under this Chapter by the High Court or a Sessions Judge, it or he shall, in the manner provided by section 429, certify its decision or order to the Court by which the finding, sentence or order revised was recorded or passed, and the Court to which the decision or order is so certified shall thereupon make such orders as are conformable to the decision so certified, and, if necessary, the record shall be amended in accordance therewith."
+                        }
+                    }
+                }
+            },
+            "31": {
+                "ID": "CHAPTER XXXIII",
+                "Name": "TRANSFER OF CRIMINAL CASES",
+                "Sections": {
+                    "Section 446.": {
+                        "heading": "Power of Supreme Court to transfer cases and appeals.",
+                        "paragraphs": {
+                            "0": "(1) Whenever it is made to appear to the Supreme Court that an order under this section is expedient for the ends of justice, it may direct that any particular case or appeal be transferred from one High Court to another High Court or from a Criminal Court subordinate to one High Court to another Criminal Court of equal or superior jurisdiction subordinate to another High Court.",
+                            "1": "(2) The Supreme Court may act under this section only on the application of the Attorney-General of India or of a party interested, and every such application shall be made by motion, which shall, except when the applicant is the Attorney-General of India or the Advocate-General of the State, be supported by affidavit or affirmation.",
+                            "2": "(3) Where any application for the exercise of the powers conferred by this section is dismissed, the Supreme Court may, if it is of opinion that the application was frivolous or vexatious, order the applicant to pay by way of compensation to any person who has opposed the application such sum as it may consider appropriate in the circumstances of the case."
+                        }
+                    },
+                    "Section 447.": {
+                        "heading": "Power of High Court to transfer cases and appeals.",
+                        "paragraphs": {
+                            "0": "(1) Whenever it is made to appear to the High Court— (a) that a fair and impartial inquiry or trial cannot be had in any Criminal Court subordinate thereto; or (b) that some question of law of unusual difficulty is likely to arise; or (c) that an order under this section is required by any provision of this Sanhita, or will tend to the general convenience of the parties or witnesses, or is expedient for the ends of justice, it may order— (i) that any offence be inquired into or tried by any Court not qualified under sections 197 to 205 (both inclusive), but in other respects competent to inquire into or try such offence; (ii) that any particular case or appeal, or class of cases or appeals, be transferred from a Criminal Court subordinate to its authority to any other such Criminal Court of equal or superior jurisdiction; (iii) that any particular case be committed for trial to a Court of Session; or (iv) that any particular case or appeal be transferred to and tried before itself.",
+                            "1": "(2) The High Court may act either on the report of the lower Court, or on the application of a party interested, or on its own initiative: Provided that no application shall lie to the High Court for transferring a case from one Criminal Court to another Criminal Court in the same sessions division, unless an application for such transfer has been made to the Sessions Judge and rejected by him.",
+                            "2": "(3) Every application for an order under sub-section (1) shall be made by motion, which shall, except when the applicant is the Advocate-General of the State, be supported by affidavit or affirmation.",
+                            "3": "(4) When such application is made by an accused person, the High Court may direct him to execute a bond or bail bond for the payment of any compensation which the High Court may award under sub-section (7).",
+                            "4": "(5) Every accused person making such application shall give to the Public Prosecutor notice in writing of the application, together with a copy of the grounds on which it is made; and no order shall be made on the merits of the application unless at least twenty-four hours have elapsed between the giving of such notice and the hearing of the application.",
+                            "5": "(6) Where the application is for the transfer of a case or appeal from any subordinate Court, the High Court may, if it is satisfied that it is necessary so to do in the interest of justice, order that, pending the disposal of the application the proceedings in the subordinate Court shall be stayed, on such terms as the High Court may think fit to impose: Provided that such stay shall not affect the subordinate Court's power of remand under section 346.",
+                            "6": "(7) Where an application for an order under sub-section (1) is dismissed, the High Court may, if it is of opinion that the application was frivolous or vexatious, order the applicant to pay by way of compensation to any person who has opposed the application such sum as it may consider proper in the circumstances of the case.",
+                            "7": "(8) When the High Court orders under sub-section (1) that a case be transferred from any Court for trial before itself, it shall observe in such trial the same procedure which that Court would have observed if the case had not been so transferred.",
+                            "8": "(9) Nothing in this section shall be deemed to affect any order of the Government under section 218."
+                        }
+                    },
+                    "Section 448.": {
+                        "heading": "Power of Sessions Judge to transfer cases and appeals.",
+                        "paragraphs": {
+                            "0": "(1) Whenever it is made to appear to a Sessions Judge that an order under this sub-section is expedient for the ends of justice, he may order that any particular case be transferred from one Criminal Court to another Criminal Court in his sessions division.",
+                            "1": "(2) The Sessions Judge may act either on the report of the lower Court, or on the application of a party interested, or on his own initiative.",
+                            "2": "(3) The provisions of sub-sections (3), (4), (5), (6), (7) and (9) of section 447 shall apply in relation to an application to the Sessions Judge for an order under sub-section (1) as they apply in relation to an application to the High Court for an order under sub-section (1) of section 447, except that sub-section (7) of that section shall so apply as if for the word “sum” occurring therein, the words “sum not exceeding ten thousand rupees” were substituted."
+                        }
+                    },
+                    "Section 449.": {
+                        "heading": "Withdrawal of cases and appeals by Sessions Judges.",
+                        "paragraphs": {
+                            "0": "(1) A Sessions Judge may withdraw any case or appeal from, or recall any case or appeal which he has made over to a Chief Judicial Magistrate subordinate to him.",
+                            "1": "(2) At any time before the trial of the case or the hearing of the appeal has commenced before the Additional Sessions Judge, a Sessions Judge may recall any case or appeal which he has made over to any Additional Sessions Judge.",
+                            "2": "(3) Where a Sessions Judge withdraws or recalls case or appeal under sub-section (1) or sub-section (2), he may either try the case in his own Court or hear the appeal himself, or make it over in accordance with the provisions of this Sanhita to another Court for trial or hearing, as the case may be."
+                        }
+                    },
+                    "Section 450.": {
+                        "heading": "Withdrawal of cases by Judicial Magistrates.",
+                        "paragraphs": {
+                            "0": "(1) Any Chief Judicial Magistrate may withdraw any case from, or recall any case which he has made over to, any Magistrate subordinate to him, and may inquire into or try such case himself, or refer it for inquiry or trial to any other such Magistrate competent to inquire into or try the same.",
+                            "1": "(2) Any Judicial Magistrate may recall any case made over by him under sub-section (2) of section 212 to any other Magistrate and may inquire into or try such cases himself."
+                        }
+                    },
+                    "Section 451.": {
+                        "heading": "Making over or withdrawal of cases by Executive Magistrates.",
+                        "paragraphs": {
+                            "0": "(a) make over, for disposal, any proceeding which has been started before him, to any Magistrate subordinate to him;",
+                            "1": "(b) withdraw any case from, or recall any case which he has made over to, any Magistrate subordinate to him, and dispose of such proceeding himself or refer it for disposal to any other Magistrate."
+                        }
+                    },
+                    "Section 452.": {
+                        "heading": "Reasons to be recorded.",
+                        "paragraphs": {
+                            "0": "A Sessions Judge or Magistrate making an order under section 448, section 449, section 450 or section 451 shall record his reasons for making it."
+                        }
+                    }
+                }
+            },
+            "32": {
+                "ID": "CHAPTER XXXIV",
+                "Name": "EXECUTION, SUSPENSION, REMISSION AND COMMUTATION OF SENTENCES",
+                "Sections": {
+                    "Section 453.": {
+                        "heading": "Execution of order passed under section 409.",
+                        "paragraphs": {
+                            "0": "When in a case submitted to the High Court for the confirmation of a sentence of death, the Court of Session receives the order of confirmation or other order of the High Court thereon, it shall cause such order to be carried into effect by issuing a warrant or taking such other steps as may be necessary."
+                        }
+                    },
+                    "Section 454.": {
+                        "heading": "Execution of sentence of death passed by High Court.",
+                        "paragraphs": {
+                            "0": "When a sentence of death is passed by the High Court in appeal or in revision, the Court of Session shall, on receiving the order of the High Court, cause the sentence to be carried into effect by issuing a warrant."
+                        }
+                    },
+                    "Section 455.": {
+                        "heading": "Postponement of execution of sentence of death in case of appeal to Supreme Court.",
+                        "paragraphs": {
+                            "0": "(1) Where a person is sentenced to death by the High Court and an appeal from its judgment lies to the Supreme Court under sub-clause (a) or sub-clause (b) of clause (1) of article 134 of the Constitution, the High Court shall order the execution of the sentence to be postponed until the period allowed for preferring such appeal has expired, or if, an appeal is preferred within that period, until such appeal is disposed of.",
+                            "1": "(2) Where a sentence of death is passed or confirmed by the High Court, and the person sentenced makes an application to the High Court for the grant of a certificate under article 132 or under sub-clause (c) of clause (1) of article 134 of the Constitution, the High Court shall order the execution of the sentence to be postponed until such application is disposed of by the High Court, or if a certificate is granted on such application, until the period allowed for preferring an appeal to the Supreme Court on such certificate has expired.",
+                            "2": "(3) Where a sentence of death is passed or confirmed by the High Court, and the High Court is satisfied that the person sentenced intends to present a petition to the Supreme Court for the grant of special leave to appeal under article 136 of the Constitution, the High Court shall order the execution of the sentence to be postponed for such period as it considers sufficient to enable him to present such petition."
+                        }
+                    },
+                    "Section 456.": {
+                        "heading": "Commutation of sentence of death on pregnant woman.",
+                        "paragraphs": {
+                            "0": "If a woman sentenced to death is found to be pregnant, the High Court shall commute the sentence to imprisonment for life."
+                        }
+                    },
+                    "Section 457.": {
+                        "heading": "Power to appoint place of imprisonment.",
+                        "paragraphs": {
+                            "0": "(1) Except when otherwise provided by any law for the time being in force, the State Government may direct in what place any person liable to be imprisoned or committed to custody under this Sanhita shall be confined.",
+                            "1": "(2) If any person liable to be imprisoned or committed to custody under this Sanhita is in confinement in a civil jail, the Court or Magistrate ordering the imprisonment or committal may direct that the person be removed to a criminal jail.",
+                            "2": "(3) When a person is removed to a criminal jail under sub-section (2), he shall, on being released therefrom, be sent back to the civil jail, unless either— (a) three years have elapsed since he was removed to the criminal jail, in which case he shall be deemed to have been released from the civil jail under section 58 of the Code of Civil Procedure, 1908 (5 of 1908); or (b) the Court which ordered his imprisonment in the civil jail has certified to the officer in charge of the criminal jail that he is entitled to be released under section 58 of the Code of Civil Procedure, 1908 (5 of 1908)."
+                        }
+                    },
+                    "Section 458.": {
+                        "heading": "Execution of sentence of imprisonment.",
+                        "paragraphs": {
+                            "0": "(1) Where the accused is sentenced to imprisonment for life or to imprisonment for a term in cases other than those provided for by section 453, the Court passing the sentence shall forthwith forward a warrant to the jail or other place in which he is, or is to be, confined, and, unless the accused is already confined in such jail or other place, shall forward him to such jail or other place, with the warrant: Provided that where the accused is sentenced to imprisonment till the rising of the Court, it shall not be necessary to prepare or forward a warrant to a jail, and the accused may be confined in such place as the Court may direct.",
+                            "1": "(2) Where the accused is not present in Court when he is sentenced to such imprisonment as is mentioned in sub-section (1), the Court shall issue a warrant for his arrest for the purpose of forwarding him to the jail or other place in which he is to be confined; and in such case, the sentence shall commence on the date of his arrest."
+                        }
+                    },
+                    "Section 459.": {
+                        "heading": "Direction of warrant for execution.",
+                        "paragraphs": {
+                            "0": "Every warrant for the execution of a sentence of imprisonment shall be directed to the officer in charge of the jail or other place in which the prisoner is, or is to be, confined."
+                        }
+                    },
+                    "Section 460.": {
+                        "heading": "Warrant with whom to be lodged.",
+                        "paragraphs": {
+                            "0": "When the prisoner is to be confined in a jail, the warrant shall be lodged with the jailor."
+                        }
+                    },
+                    "Section 461.": {
+                        "heading": "Warrant for levy of fine.",
+                        "paragraphs": {
+                            "0": "(1) When an offender has been sentenced to pay a fine, but no such payment has been made, the Court passing the sentence may take action for the recovery of the fine in either or both of the following ways, that is to say, it may— (a) issue a warrant for the levy of the amount by attachment and sale of any movable property belonging to the offender; (b) issue a warrant to the Collector of the district, authorising him to realise the amount as arrears of land revenue from the movable or immovable property, or both, of the defaulter: Provided that, if the sentence directs that in default of payment of the fine, the offender shall be imprisoned, and if such offender has undergone the whole of such imprisonment in default, no Court shall issue such warrant unless, for special reasons to be recorded in writing, it considers it necessary so to do, or unless it has made an order for the payment of expenses or compensation out of the fine under section 395.",
+                            "1": "(2) The State Government may make rules regulating the manner in which warrants under clause (a) of sub-section (1) are to be executed, and for the summary determination of any claims made by any person other than the offender in respect of any property attached in execution of such warrant.",
+                            "2": "(3) Where the Court issues a warrant to the Collector under clause (b) of sub-section (1), the Collector shall realise the amount in accordance with the law relating to recovery of arrears of land revenue, as if such warrant were a certificate issued under such law: Provided that no such warrant shall be executed by the arrest or detention in prison of the offender."
+                        }
+                    },
+                    "Section 462.": {
+                        "heading": "Effect of such warrant.",
+                        "paragraphs": {
+                            "0": "A warrant issued under clause (a) of sub-section (1) of section 461 by any Court may be executed within the local jurisdiction of such Court, and it shall authorise the attachment and sale of any such property outside such jurisdiction, when it is endorsed by the District Magistrate within whose local jurisdiction such property is found."
+                        }
+                    },
+                    "Section 463.": {
+                        "heading": "Warrant for levy of fine issued by a Court in any territory to which this Sanhita does not extend.",
+                        "paragraphs": {
+                            "0": "Notwithstanding anything in this Sanhita or in any other law for the time being in force, when an offender has been sentenced to pay a fine by a Criminal Court in any territory to which this Sanhita does not extend and the Court passing the sentence issues a warrant to the Collector of a district in the territories to which this Sanhita extends, authorising him to realise the amount as if it were an arrear of land revenue, such warrant shall be deemed to be a warrant issued under clause (b) of sub-section (1) of section 461 by a Court in the territories to which this Sanhita extends, and the provisions of sub-section (3) of the said section as to the execution of such warrant shall apply accordingly."
+                        }
+                    },
+                    "Section 464.": {
+                        "heading": "Suspension of execution of sentence of imprisonment.",
+                        "paragraphs": {
+                            "0": "(1) When an offender has been sentenced to fine only and to imprisonment in default of payment of the fine, and the fine is not paid forthwith, the Court may— (a) order that the fine shall be payable either in full on or before a date not more than thirty days from the date of the order, or in two or three installments, of which the first shall be payable on or before a date not more than thirty days from the date of the order and the other or others at an interval or at intervals, as the case may be, of not more than thirty days; (b) suspend the execution of the sentence of imprisonment and release the offender, on the execution by the offender of a bond or bail bond, as the Court thinks fit, conditioned for his appearance before the Court on the date or dates on or before which payment of the fine or the installments thereof, as the case may be, is to be made; and if the amount of the fine or of any installment, as the case may be, is not realised on or before the latest date on which it is payable under the order, the Court may direct the sentence of imprisonment to be carried into execution at once.",
+                            "1": "(2) The provisions of sub-section (1) shall be applicable also in any case in which an order for the payment of money has been made on non-recovery of which imprisonment may be awarded and the money is not paid forthwith; and, if the person against whom the order has been made, on being required to enter into a bond such as is referred to in that sub-section, fails to do so, the Court may at once pass sentence of imprisonment."
+                        }
+                    },
+                    "Section 465.": {
+                        "heading": "Who may issue warrant.",
+                        "paragraphs": {
+                            "0": "Every warrant for the execution of a sentence may be issued either by the Judge or Magistrate who passed the sentence, or by his successor-in-office."
+                        }
+                    },
+                    "Section 466.": {
+                        "heading": "Sentence on escaped convict when to take effect.",
+                        "paragraphs": {
+                            "0": "(1) When a sentence of death, imprisonment for life or fine is passed under this Sanhita on an escaped convict, such sentence shall, subject to the provisions hereinbefore contained, take effect immediately.",
+                            "1": "(2) When a sentence of imprisonment for a term is passed under this Sanhita on an escaped convict, — (a) if such sentence is severer in kind than the sentence which such convict was undergoing when he escaped, the new sentence shall take effect immediately; (b) if such sentence is not severer in kind than the sentence which such convict was undergoing when he escaped, the new sentence shall take effect after he has suffered imprisonment for a further period equal to that which, at the time of his escape, remained unexpired of his former sentence.",
+                            "2": "(3) For the purposes of sub-section (2), a sentence of rigorous imprisonment shall be deemed to be severer in kind than a sentence of simple imprisonment."
+                        }
+                    },
+                    "Section 467.": {
+                        "heading": "Sentence on offender already sentenced for another offence.",
+                        "paragraphs": {
+                            "0": "(1) When a person already undergoing a sentence of imprisonment is sentenced on a subsequent conviction to imprisonment or imprisonment for life, such imprisonment or imprisonment for life shall commence at the expiration of the imprisonment to which he has been previously sentenced, unless the Court directs that the subsequent sentence shall run concurrently with such previous sentence: Provided that where a person who has been sentenced to imprisonment by an order under section 141 in default of furnishing security is, whilst undergoing such sentence, sentenced to imprisonment for an offence committed prior to the making of such order, the latter sentence shall commence immediately.",
+                            "1": "(2) When a person already undergoing a sentence of imprisonment for life is sentenced on a subsequent conviction to imprisonment for a term or imprisonment for life, the subsequent sentence shall run concurrently with such previous sentence."
+                        }
+                    },
+                    "Section 468.": {
+                        "heading": "Period of detention undergone by accused to be set off against sentence of imprisonment.",
+                        "paragraphs": {
+                            "0": "Where an accused person has, on conviction, been sentenced to imprisonment for a term, not being imprisonment in default of payment of fine, the period of detention, if any, undergone by him during the investigation, inquiry or trial of the same case and before the date of such conviction, shall be set off against the term of imprisonment imposed on him on such conviction, and the liability of such person to undergo imprisonment on such conviction shall be restricted to the remainder, if any, of the term of imprisonment imposed on him: Provided that in cases referred to in section 475, such period of detention shall be set off against the period of fourteen years referred to in that section."
+                        }
+                    },
+                    "Section 469.": {
+                        "heading": "Saving.",
+                        "paragraphs": {
+                            "0": "(1) Nothing in section 466 or section 467 shall be held to excuse any person from any part of the punishment to which he is liable upon his former or subsequent conviction.",
+                            "1": "(2) When an award of imprisonment in default of payment of a fine is annexed to a substantive sentence of imprisonment and the person undergoing the sentence is after its execution to undergo a further substantive sentence or further substantive sentences of imprisonment, effect shall not be given to the award of imprisonment in default of payment of the fine until the person has undergone the further sentence or sentences."
+                        }
+                    },
+                    "Section 470.": {
+                        "heading": "Return of warrant on execution of sentence.",
+                        "paragraphs": {
+                            "0": "When a sentence has been fully executed, the officer executing it shall return the warrant to the Court from which it is issued, with an endorsement under his hand certifying the manner in which the sentence has been executed."
+                        }
+                    },
+                    "Section 471.": {
+                        "heading": "Money ordered to be paid recoverable as a fine.",
+                        "paragraphs": {
+                            "0": "Any money (other than a fine) payable by virtue of any order made under this Sanhita, and the method of recovery of which is not otherwise expressly provided for, shall be recoverable as if it were a fine: Provided that section 461 shall, in its application to an order under section 400, by virtue of this section, be construed as if in the proviso to sub-section (1) of section 461, after the words and figures “under section 395”, the words and figures “or an order for payment of costs under section 400” had been inserted."
+                        }
+                    },
+                    "Section 472.": {
+                        "heading": "Mercy petition in death sentence cases.",
+                        "paragraphs": {
+                            "0": "(1) A convict under the sentence of death or his legal heir or any other relative may, if he has not already submitted a petition for mercy, file a mercy petition before the President of India under article 72 or the Governor of the State under article 161 of the Constitution within a period of thirty days from the date on which the Superintendent of the jail, — (i) informs him about the dismissal of the appeal, review or special leave to appeal by the Supreme Court; or (ii) informs him about the date of confirmation of the sentence of death by the High Court and the time allowed to file an appeal or special leave in the Supreme Court has expired.",
+                            "1": "(2) The petition under sub-section (1) may, initially be made to the Governor and on its rejection or disposal by the Governor, the petition shall be made to the President within a period of sixty days from the date of rejection or disposal of such petition.",
+                            "2": "(3) The Superintendent of the jail or officer in charge of the jail shall ensure, that every convict, in case there are more than one convict in a case, also files the mercy petition within a period of sixty days and on non-receipt of such petition from the other convicts, Superintendent of the jail shall send the names, addresses, copy of the record of the case and all other details of the case to the Central Government or the State Government for consideration along with the said mercy petition.",
+                            "3": "(4) The Central Government shall, on receipt of the mercy petition seek the comments of the State Government and consider the petition along with the records of the case and make recommendations to the President in this behalf, as expeditiously as possible, within a period of sixty days from the date of receipt of comments of the State Government and records from Superintendent of the Jail.",
+                            "4": "(5) The President may, consider, decide and dispose of the mercy petition and, in case there are more than one convict in a case, the petitions shall be decided by the President together in the interests of justice.",
+                            "5": "(6) Upon receipt of the order of the President on the mercy petition, the Central Government shall within forty-eight hours, communicate the same to the Home Department of the State Government and the Superintendent of the jail or officer in charge of the jail.",
+                            "6": "(7) No appeal shall lie in any Court against the order of the President or of the Governor made under article 72 or article 161 of the Constitution and it shall be final, and any question as to the arriving of the decision by the President or the Governor shall not be inquired into in any Court."
+                        }
+                    }
+                }
+            },
+            "33": {
+                "ID": "CHAPTER XXXV",
+                "Name": "PROVISIONS AS TO BAIL AND BONDS",
+                "Sections": {
+                    "Section 478.": {
+                        "heading": "In what cases bail to be taken",
+                        "paragraphs": {
+                            "0": "(1) When any person other than a person accused of a non-bailable offence is arrested or detained without warrant by an officer in charge of a police station, or appears or is brought before a Court, and is prepared at any time while in the custody of such officer or at any stage of the proceeding before such Court to give bail, such person shall be released on bail: Provided that such officer or Court, if he or it thinks fit, may, and shall, if such person is indigent and is unable to furnish surety, instead of taking bail bond from such person, discharge him on his executing a bond for his appearance as hereinafter provided.",
+                            "1": "Explanation.—Where a person is unable to give bail bond within a week of the date of his arrest, it shall be a sufficient ground for the officer or the Court to presume that he is an indigent person for the purposes of this proviso: Provided further that nothing in this section shall be deemed to affect the provisions of sub-section (3) of section 135 or section 492.",
+                            "2": "(2) Notwithstanding anything in sub-section (1), where a person has failed to comply with the conditions of the bond or bail bond as regards the time and place of attendance, the Court may refuse to release him on bail, when on a subsequent occasion in the same case he appears before the Court or is brought in custody and any such refusal shall be without prejudice to the powers of the Court to call upon any person bound by such bond or bail bond to pay the penalty thereof under section 491."
+                        }
+                    },
+                    "Section 479.": {
+                        "heading": "Maximum period for which under trial prisoner can be detained",
+                        "paragraphs": {
+                            "0": "(1) Where a person has, during the period of investigation, inquiry or trial under this Sanhita of an offence under any law (not being an offence for which the punishment of death or life imprisonment has been specified as one of the punishments under that law) undergone detention for a period extending up to one-half of the maximum period of imprisonment specified for that offence under that law, he shall be released by the Court on bail: Provided that where such person is a first-time offender (who has never been convicted of any offence in the past) he shall be released on bond by the Court, if he has undergone detention for the period extending up to one-third of the maximum period of imprisonment specified for such offence under that law: Provided further that the Court may, after hearing the Public Prosecutor and for reasons to be recorded by it in writing, order the continued detention of such person for a period longer than one-half of the said period or release him on bail bond instead of his bond: Provided also that no such person shall in any case be detained during the period of investigation, inquiry or trial for more than the maximum period of imprisonment provided for the said offence under that law.",
+                            "1": "Explanation.—In computing the period of detention under this section for granting bail, the period of detention passed due to delay in proceeding caused by the accused shall be excluded.",
+                            "2": "(2) Notwithstanding anything in sub-section (1), and subject to the third proviso thereof, where an investigation, inquiry or trial in more than one offence or in multiple cases are pending against a person, he shall not be released on bail by the Court.",
+                            "3": "(3) The Superintendent of jail, where the accused person is detained, on completion of one-half or one-third of the period mentioned in sub-section (1), as the case may be, shall forthwith make an application in writing to the Court to proceed under sub-section (1) for the release of such person on bail."
+                        }
+                    },
+                    "Section 480.": {
+                        "heading": "When bail may be taken in case of non-bailable offence",
+                        "paragraphs": {
+                            "0": "(1) When any person accused of, or suspected of, the commission of any non-bailable offence is arrested or detained without warrant by an officer in charge of a police station or appears or is brought before a Court other than the High Court or Court of Session, he may be released on bail, but—",
+                            "1": "(i) such person shall not be so released if there appear reasonable grounds for believing that he has been guilty of an offence punishable with death or imprisonment for life;",
+                            "2": "(ii) such person shall not be so released if such offence is a cognizable offence and he had been previously convicted of an offence punishable with death, imprisonment for life or imprisonment for seven years or more, or he had been previously convicted on two or more occasions of a cognizable offence punishable with imprisonment for three years or more but less than seven years: Provided that the Court may direct that a person referred to in clause (i) or clause (ii) be released on bail if such person is a child or is a woman or is sick or infirm: Provided further that the Court may also direct that a person referred to in clause (ii) be released on bail if it is satisfied that it is just and proper so to do for any other special reason: Provided also that the mere fact that an accused person may be required for being identified by witnesses during investigation or for police custody beyond the first fifteen days shall not be sufficient ground for refusing to grant bail if he is otherwise entitled to be released on bail and gives an undertaking that he shall comply with such directions as may be given by the Court: Provided also that no person shall, if the offence alleged to have been committed by him is punishable with death, imprisonment for life, or imprisonment for seven years or more, be released on bail by the Court under this sub-section without giving an opportunity of hearing to the Public Prosecutor.",
+                            "3": "(2) If it appears to such officer or Court at any stage of the investigation, inquiry or trial, as the case may be, that there are not reasonable grounds for believing that the accused has committed a non-bailable offence, but that there are sufficient grounds for further inquiry into his guilt, the accused shall, subject to the provisions of section 492 and pending such inquiry, be released on bail, or, at the discretion of such officer or Court, on the execution by him of a bond for his appearance as hereinafter provided.",
+                            "4": "(3) When a person accused or suspected of the commission of an offence punishable with imprisonment which may extend to seven years or more or of an offence under Chapter VI, Chapter VII or Chapter XVII of the Bharatiya Nyaya Sanhita, 2023 or abetment of, or conspiracy or attempt to commit, any such offence, is released on bail under sub-section (1), the Court shall impose the conditions,--",
+                            "5": "(a) that such person shall attend in accordance with the conditions of the bond executed under this Chapter;",
+                            "6": "(b) that such person shall not commit an offence similar to the offence of which he is accused, or suspected, of the commission of which he is suspected;",
+                            "7": "(c) that such person shall not directly or indirectly make any inducement, threat or promise to any person acquainted with the facts of the case so as to dissuade him from disclosing such facts to the Court or to any police officer; and may also impose, in the interests of justice, such other conditions as it considers necessary.",
+                            "8": "(4) An officer or a Court releasing any person on bail under sub-section (1) or sub-section (2), shall record in writing his or its reasons or special reasons for so doing.",
+                            "9": "(5) Any Court which has released a person on bail under sub-section (1) or sub-section (2), may, if it considers it necessary so to do, direct that such person be arrested and commit him to custody.",
+                            "10": "(6) If, in any case triable by a Magistrate, the trial of a person accused of any non-bailable offence is not concluded within a period of sixty days from the first date fixed for taking evidence in the case, such person shall, if he is in custody during the whole of the said period, be released on bail to the satisfaction of the Magistrate, unless for reasons to be recorded in writing, the Magistrate otherwise directs.",
+                            "11": "(7) If, at any time, after the conclusion of the trial of a person accused of a non-bailable offence and before judgment is delivered, the Court is of opinion that there are reasonable grounds for believing that the accused is not guilty of any such offence, it shall release the accused, if he is in custody, on the execution by him of a bond for his appearance to hear judgment delivered."
+                        }
+                    },
+                    "Section 481.": {
+                        "heading": "Bail to require accused to appear before next Appellate Court",
+                        "paragraphs": {
+                            "0": "(1) Before conclusion of the trial and before disposal of the appeal, the Court trying the offence or the Appellate Court, as the case may be, shall require the accused to execute a bond or bail bond, to appear before the higher Court as and when such Court issues notice in respect of any appeal or petition filed against the judgment of the respective Court and such bond shall be in force for six months.",
+                            "1": "(2) If such accused fails to appear, the bond stand forfeited and the procedure under section 491 shall apply."
+                        }
+                    },
+                    "Section 482.": {
+                        "heading": "Direction for grant of bail to person apprehending arrest",
+                        "paragraphs": {
+                            "0": "(1) When any person has reason to believe that he may be arrested on an accusation of having committed a non-bailable offence, he may apply to the High Court or the Court of Session for a direction under this section; and that Court may, if it thinks fit, direct that in the event of such arrest, he shall be released on bail.",
+                            "1": "(2) When the High Court or the Court of Session makes a direction under sub-section (1), it may include such conditions in such directions in the light of the facts of the particular case, as it may think fit, including—",
+                            "2": "(i) a condition that the person shall make himself available for interrogation by a police officer as and when required;",
+                            "3": "(ii) a condition that the person shall not, directly or indirectly, make any inducement, threat or promise to any person acquainted with the facts of the case so as to dissuade him from disclosing such facts to the Court or to any police officer;",
+                            "4": "(iii) a condition that the person shall not leave India without the previous permission of the Court;",
+                            "5": "(iv) such other condition as may be imposed under sub-section (3) of section 480, as if the bail were granted under that section.",
+                            "6": "(3) If such person is thereafter arrested without warrant by an officer in charge of a police station on such accusation, and is prepared either at the time of arrest or at any time while in the custody of such officer to give bail, he shall be released on bail; and if a Magistrate taking cognizance of such offence decides that a warrant should be issued in the first instance against that person, he shall issue a bailable warrant in conformity with the direction of the Court under sub-section (1).",
+                            "7": "(4) Nothing in this section shall apply to any case involving the arrest of any person on accusation of having committed an offence under section 65 and sub-section (2) of section 70 of the Bharatiya Nyaya Sanhita, 2023."
+                        }
+                    },
+                    "Section 483.": {
+                        "heading": "Special powers of High Court or Court of Session regarding bail",
+                        "paragraphs": {
+                            "0": "(1) A High Court or Court of Session may direct,—",
+                            "1": "(a) that any person accused of an offence and in custody be released on bail, and if the offence is of the nature specified in sub-section (3) of section 480, may impose any condition which it considers necessary for the purposes mentioned in that sub-section;",
+                            "2": "(b) that any condition imposed by a Magistrate when releasing any person on bail be set aside or modified: Provided that the High Court or the Court of Session shall, before granting bail to a person who is accused of an offence which is triable exclusively by the Court of Session or which, though not so triable, is punishable with imprisonment for life, give notice of the application for bail to the Public Prosecutor unless it is, for reasons to be recorded in writing, of opinion that it is not practicable to give such notice: Provided further that the High Court or the Court of Session shall, before granting bail to a person who is accused of an offence triable under section 65 or sub-section (2) of section 70 of the Bharatiya Nyaya Sanhita, 2023, give notice of the application for bail to the Public Prosecutor within a period of fifteen days from the date of receipt of the notice of such application.",
+                            "3": "(2) The presence of the informant or any person authorised by him shall be obligatory at the time of hearing of the application for bail to the person under section 65 or sub-section (2) of section 70 of the Bharatiya Nyaya Sanhita, 2023.",
+                            "4": "(3) A High Court or Court of Session may direct that any person who has been released on bail under this Chapter be arrested and commit him to custody."
+                        }
+                    },
+                    "Section 484.": {
+                        "heading": "Amount of bond and reduction thereof",
+                        "paragraphs": {
+                            "0": "(1) The amount of every bond executed under this Chapter shall be fixed with due regard to the circumstances of the case and shall not be excessive.",
+                            "1": "(2) The High Court or the Court of Session may direct that the bail required by a police officer or Magistrate be reduced."
+                        }
+                    },
+                    "Section 485.": {
+                        "heading": "Bond of accused and sureties",
+                        "paragraphs": {
+                            "0": "(1) Before any person is released on bond or bail bond, a bond for such sum of money as the police officer or Court, as the case may be, thinks sufficient shall be executed by such person, and, when he is released on bond or bail bond, by one or more sufficient sureties conditioned that such person shall attend at the time and place mentioned in the bond, and shall continue so to attend until otherwise directed by the police officer or Court, as the case may be.",
+                            "1": "(2) Where any condition is imposed for the release of any person on bail, the bond or bail bond shall also contain that condition.",
+                            "2": "(3) If the case so requires, the bond or bail bond shall also bind the person released on bail to appear when called upon at the High Court, Court of Session or other Court to answer the charge.",
+                            "3": "(4) For the purpose of determining whether the sureties are fit or sufficient, the Court may accept affidavits in proof of the facts contained therein relating to the sufficiency or fitness of the sureties, or, if it considers necessary, may either hold an enquiry itself or cause an inquiry to be made by a Magistrate subordinate to the Court, as to such sufficiency or fitness."
+                        }
+                    },
+                    "Section 486.": {
+                        "heading": "Declaration by sureties",
+                        "paragraphs": {
+                            "0": "Every person standing surety to an accused person for his release on bail, shall make a declaration before the Court as to the number of persons to whom he has stood surety including the accused, giving therein all the relevant particulars."
+                        }
+                    },
+                    "Section 487.": {
+                        "heading": "Discharge from custody",
+                        "paragraphs": {
+                            "0": "(1) As soon as the bond or bail bond has been executed, the person for whose appearance it has been executed shall be released; and, when he is in jail, the court admitting him to bail shall issue an order of release to the officer in charge of the jail, and such officer on receipt of the orders shall release him.",
+                            "1": "(2) Nothing in this section, section 478 or section 480, shall be deemed to require the release of any person liable to be detained for some matter other than that in respect of which the bond or bail bond was executed."
+                        }
+                    },
+                    "Section 488.": {
+                        "heading": "Power to order sufficient bail when that first taken is insufficient",
+                        "paragraphs": {
+                            "0": "If, through mistake, fraud or otherwise, insufficient sureties have been accepted, or if they afterwards become insufficient, the Court may issue a warrant of arrest directing that the person released on bail be brought before it and may order him to find sufficient sureties, and, on his failing so to do, may commit him to jail."
+                        }
+                    },
+                    "Section 489.": {
+                        "heading": "Discharge of sureties",
+                        "paragraphs": {
+                            "0": "(1) All or any sureties for the attendance and appearance of a person released on bail may at any time apply to a Magistrate to discharge the bond, either wholly or so far as relates to the applicants.",
+                            "1": "(2) On such application being made, the Magistrate shall issue his warrant of arrest directing that the person so released be brought before him.",
+                            "2": "(3) On the appearance of such person pursuant to the warrant, or on his voluntary surrender, the Magistrate shall direct the bond to be discharged either wholly or so far as relates to the applicants, and shall call upon such person to find other sufficient sureties, and, if he fails to do so, may commit him to jail."
+                        }
+                    },
+                    "Section 490.": {
+                        "heading": "Deposit instead of recognizance",
+                        "paragraphs": {
+                            "0": "When any person is required by any Court or officer to execute a bond or bail bond, such Court or officer may, except in the case of a bond for good behaviour, permit him to deposit a sum of money or Government promissory notes to such amount as the Court or officer may fix in lieu of executing such bond."
+                        }
+                    }
+                }
+            },
+            "34": {
+                "ID": "CHAPTER XXXVI",
+                "Name": "DISPOSAL OF PROPERTY",
+                "Sections": {
+                    "Section 497.": {
+                        "heading": "Order for custody and disposal of property pending trial in certain cases",
+                        "paragraphs": {
+                            "0": "(1) When any property is produced before any Criminal Court or the Magistrate empowered to take cognizance or commit the case for trial during any investigation, inquiry or trial, the Court or the Magistrate may make such order as it thinks fit for the proper custody of such property pending the conclusion of the investigation, inquiry or trial, and, if the property is subject to speedy and natural decay, or if it is otherwise expedient so to do, the Court or the Magistrate may, after recording such evidence as it thinks necessary, order it to be sold or otherwise disposed of.",
+                            "1": "Explanation.—For the purposes of this section, “property” includes— (a) property of any kind or document which is produced before the Court or which is in its custody; (b) any property regarding which an offence appears to have been committed or which appears to have been used for the commission of any offence.",
+                            "2": "(2) The Court or the Magistrate shall, within a period of fourteen days from the production of the property referred to in sub-section (1) before it, prepare a statement of such property containing its description in such form and manner as the State Government may, by rules, provide.",
+                            "3": "(3) The Court or the Magistrate shall cause to be taken the photograph and if necessary, videograph on mobile phone or any electronic media, of the property referred to in sub-section (1).",
+                            "4": "(4) The statement prepared under sub-section (2) and the photograph or the videography taken under sub-section (3) shall be used as evidence in any inquiry, trial or other proceeding under the Sanhita.",
+                            "5": "(5) The Court or the Magistrate shall, within a period of thirty days after the statement has been prepared under sub-section (2) and the photograph or the videography has been taken under sub-section (3), order the disposal, destruction, confiscation or delivery of the property in the manner specified hereinafter."
+                        }
+                    },
+                    "Section 498.": {
+                        "heading": "Order for disposal of property at conclusion of trial",
+                        "paragraphs": {
+                            "0": "(1) When an investigation, inquiry or trial in any criminal case is concluded, the Court or the Magistrate may make such order as it thinks fit for the disposal, by destruction, confiscation or delivery to any person claiming to be entitled to possession thereof or otherwise, of any property or document produced before it or in its custody, or regarding which any offence appears to have been committed, or which has been used for the commission of any offence.",
+                            "1": "(2) An order may be made under sub-section (1) for the delivery of any property to any person claiming to be entitled to the possession thereof, without any condition or on condition that he executes a bond, with or without securities, to the satisfaction of the Court or the Magistrate, engaging to restore such property to the Court if the order made under sub-section (1) is modified or set aside on appeal or revision.",
+                            "2": "(3) A Court of Session may, instead of itself making an order under sub-section (1), direct the property to be delivered to the Chief Judicial Magistrate, who shall thereupon deal with it in the manner provided in sections 503, 504 and 505.",
+                            "3": "(4) Except where the property is livestock or is subject to speedy and natural decay, or where a bond has been executed in pursuance of sub-section (2), an order made under sub-section (1) shall not be carried out for two months, or when an appeal is presented, until such appeal has been disposed of.",
+                            "4": "(5) In this section, the term “property” includes, in the case of property regarding which an offence appears to have been committed, not only such property as has been originally in the possession or under the control of any party, but also any property into or for which the same may have been converted or exchanged, and anything acquired by such conversion or exchange, whether immediately or otherwise."
+                        }
+                    },
+                    "Section 499.": {
+                        "heading": "Payment to innocent purchaser of money found on accused",
+                        "paragraphs": {
+                            "0": "When any person is convicted of any offence which includes, or amounts to, theft or receiving stolen property, and it is proved that any other person bought the stolen property from him without knowing or having reason to believe that the same was stolen, and that any money has on his arrest been taken out of the possession of the convicted person, the Court may, on the application of such purchaser and on the restitution of the stolen property to the person entitled to the possession thereof, order that out of such money a sum not exceeding the price paid by such purchaser be delivered to him within six months from the date of such order."
+                        }
+                    },
+                    "Section 500.": {
+                        "heading": "Appeal against orders under section 498 or section 499",
+                        "paragraphs": {
+                            "0": "(1) Any person aggrieved by an order made by a Court or Magistrate under section 498 or section 499, may appeal against it to the Court to which appeals ordinarily lie from convictions by the former Court.",
+                            "1": "(2) On such appeal, the Appellate Court may direct the order to be stayed pending disposal of the appeal, or may modify, alter or annul the order and make any further orders that may be just.",
+                            "2": "(3) The powers referred to in sub-section (2) may also be exercised by a Court of appeal, confirmation or revision while dealing with the case in which the order referred to in sub-section (1) was made."
+                        }
+                    },
+                    "Section 501.": {
+                        "heading": "Destruction of libellous and other matter",
+                        "paragraphs": {
+                            "0": "(1) On a conviction under section 294, section 295, or sub-sections (3) and (4) of section 356 of the Bharatiya Nyaya Sanhita, 2023, the Court may order the destruction of all the copies of the thing in respect of which the conviction was had, and which are in the custody of the Court or remain in the possession or power of the person convicted.",
+                            "1": "(2) The Court may, in like manner, on a conviction under section 274, section 275, section 276 or section 277 of the Bharatiya Nyaya Sanhita, 2023, order the food, drink, drug or medical preparation in respect of which the conviction was had, to be destroyed."
+                        }
+                    },
+                    "Section 502.": {
+                        "heading": "Power to restore possession of immovable property",
+                        "paragraphs": {
+                            "0": "(1) When a person is convicted of an offence by use of criminal force or show of force or by criminal intimidation, and it appears to the Court that, by such use of force or show of force or intimidation, any person has been dispossessed of any immovable property, the Court may, if it thinks fit, order that possession of the same be restored to that person after evicting by force, if necessary, any other person who may be in possession of the property: Provided that no such order shall be made by the Court more than one month after the date of the conviction.",
+                            "1": "(2) Where the Court trying the offence has not made an order under sub-section (1), the Court of appeal, confirmation or revision may, if it thinks fit, make such order while disposing of the appeal, reference or revision, as the case may be.",
+                            "2": "(3) Where an order has been made under sub-section (1), the provisions of section 500 shall apply in relation thereto as they apply in relation to an order under section 499.",
+                            "3": "(4) No order made under this section shall prejudice any right or interest to or in such immovable property which any person may be able to establish in a civil suit."
+                        }
+                    },
+                    "Section 503.": {
+                        "heading": "Procedure by police upon seizure of property",
+                        "paragraphs": {
+                            "0": "(1) Whenever the seizure of property by any police officer is reported to a Magistrate under the provisions of this Sanhita, and such property is not produced before a Criminal Court during an inquiry or trial, the Magistrate may make such order as he thinks fit respecting the disposal of such property or the delivery of such property to the person entitled to the possession thereof, or if such person cannot be ascertained, respecting the custody and production of such property.",
+                            "1": "(2) If the person so entitled is known, the Magistrate may order the property to be delivered to him on such conditions (if any) as the Magistrate thinks fit and if such person is unknown, the Magistrate may detain it and shall, in such case, issue a proclamation specifying the articles of which such property consists, and requiring any person who may have a claim thereto, to appear before him and establish his claim within six months from the date of such proclamation."
+                        }
+                    },
+                    "Section 504.": {
+                        "heading": "Procedure where no claimant appears within six months",
+                        "paragraphs": {
+                            "0": "(1) If no person within such period establishes his claim to such property, and if the person in whose possession such property was found is unable to show that it was legally acquired by him, the Magistrate may by order direct that such property shall be at the disposal of the State Government and may be sold by that Government and the proceeds of such sale shall be dealt with in such manner as the State Government may, by rules, provide.",
+                            "1": "(2) An appeal shall lie against any such order to the Court to which appeals ordinarily lie from convictions by the Magistrate."
+                        }
+                    },
+                    "Section 505.": {
+                        "heading": "Power to sell perishable property",
+                        "paragraphs": {
+                            "0": "If the person entitled to the possession of such property is unknown or absent and the property is subject to speedy and natural decay, or if the Magistrate to whom its seizure is reported is of opinion that its sale would be for the benefit of the owner, or that the value of such property is less than ten thousand rupees, the Magistrate may at any time direct it to be sold; and the provisions of sections 503 and 504 shall, as nearly as may be practicable, apply to the net proceeds of such sale."
+                        }
+                    }
+                }
+            },
+            "35": {
+                "ID": "CHAPTER XXXVII",
+                "Name": "IRREGULAR PROCEEDINGS",
+                "Sections": {
+                    "Section 506.": {
+                        "heading": "Irregularities which do not vitiate proceedings.—",
+                        "paragraphs": {
+                            "0": "(a) to issue a search-warrant under section 97; (b) to order, under section 174, the police to investigate an offence; (c) to hold an inquest under section 196; (d) to issue process under section 207, for the apprehension of a person within his local jurisdiction who has committed an offence outside the limits of such jurisdiction; (e) to take cognizance of an offence under clause (a) or clause (b) of sub-section (1) of section 210; (f) to make over a case under sub-section (2) of section 212; (g) to tender a pardon under section 343; (h) to recall a case and try it himself under section 450; or (i) to sell property under section 504 or section 505, erroneously in good faith does that thing, his proceedings shall not be set aside merely on the ground of his not being so empowered."
+                        }
+                    },
+                    "Section 507.": {
+                        "heading": "Irregularities which vitiate proceedings.—",
+                        "paragraphs": {
+                            "0": "(a) attaches and sells property under section 85; (b) issues a search-warrant for a document, parcel or other things in the custody of a postal authority; (c) demands security to keep the peace; (d) demands security for good behaviour; (e) discharges a person lawfully bound to be of good behaviour; (f) cancels a bond to keep the peace; (g) makes an order for maintenance; (h) makes an order under section 152 as to a local nuisance; (i) prohibits, under section 162, the repetition or continuance of a public nuisance; (j) makes an order under Part C or Part D of Chapter XI; (k) takes cognizance of an offence under clause (c) of sub-section (1) of section 210; (l) tries an offender; (m) tries an offender summarily; (n) passes a sentence, under section 364, on proceedings recorded by another Magistrate; (o) decides an appeal; (p) calls, under section 438, for proceedings; or (q) revises an order passed under section 491, his proceedings shall be void."
+                        }
+                    },
+                    "Section 508.": {
+                        "heading": "Proceedings in wrong place.—",
+                        "paragraphs": {
+                            "0": "No finding, sentence or order of any Criminal Court shall be set aside merely on the ground that the inquiry, trial or other proceedings in the course of which it was arrived at or passed, took place in a wrong sessions division, district, sub-division or other local area, unless it appears that such error has in fact occasioned a failure of justice."
+                        }
+                    },
+                    "Section 509.": {
+                        "heading": "Non-compliance with provisions of section 183 or section 316.—",
+                        "paragraphs": {
+                            "0": "(1) If any Court before which a confession or other statement of an accused person recorded, or purporting to be recorded under section 183 or section 316, is tendered, or has been received, in evidence finds that any of the provisions of either of such sections have not been complied with by the Magistrate recording the statement, it may, notwithstanding anything contained in section 94 of the Bharatiya Sakshya Adhiniyam, 2023, take evidence in regard to such non-compliance, and may, if satisfied that such non-compliance has not injured the accused in his defence on the merits and that he duly made the statement recorded, admit such statement.",
+                            "1": "(2) The provisions of this section apply to Courts of appeal, reference and revision."
+                        }
+                    },
+                    "Section 510.": {
+                        "heading": "Effect of omission to frame, or absence of, or error in, charge.—",
+                        "paragraphs": {
+                            "0": "(1) No finding, sentence or order by a Court of competent jurisdiction shall be deemed invalid merely on the ground that no charge was framed or on the ground of any error, omission or irregularity in the charge including any misjoinder of charges, unless, in the opinion of the Court of appeal, confirmation or revision, a failure of justice has in fact been occasioned thereby.",
+                            "1": "(2) If the Court of appeal, confirmation or revision, is of opinion that a failure of justice has in fact been occasioned, it may,— (a) in the case of an omission to frame a charge, order that a charge be framed, and that the trial be recommenced from the point immediately after the framing of the charge; (b) in the case of an error, omission or irregularity in the charge, direct a new trial to be had upon a charge framed in whatever manner it thinks fit: Provided that if the Court is of opinion that the facts of the case are such that no valid charge could be preferred against the accused in respect of the facts proved, it shall quash the conviction."
+                        }
+                    },
+                    "Section 511.": {
+                        "heading": "Finding or sentence when reversible by reason of error, omission or irregularity.—",
+                        "paragraphs": {
+                            "0": "(1) Subject to the provisions hereinbefore contained, no finding, sentence or order passed by a Court of competent jurisdiction shall be reversed or altered by a Court of appeal, confirmation of revision on account of any error, omission or irregularity in the complaint, summons, warrant, proclamation, order, judgment or other proceedings before or during trial or in any inquiry or other proceedings under this Sanhita, or any error, or irregularity in any sanction for the prosecution, unless in the opinion of that Court, a failure of justice has in fact been occasioned thereby.",
+                            "1": "(2) In determining whether any error, omission or irregularity in any proceeding under this Sanhita, or any error, or irregularity in any sanction for the prosecution has occasioned a failure of justice, the Court shall have regard to the fact whether the objection could and should have been raised at an earlier stage in the proceedings."
+                        }
+                    },
+                    "Section 512.": {
+                        "heading": "Defect or error not to make attachment unlawful.—",
+                        "paragraphs": {
+                            "0": "No attachment made under this Sanhita shall be deemed unlawful, nor shall any person making the same be deemed a trespasser, on account of any defect or want of form in the summons, conviction, writ of attachment or other proceedings relating thereto."
+                        }
+                    }
+                }
+            },
+            "36": {
+                "ID": "CHAPTER XXXVIII",
+                "Name": "LIMITATION FOR TAKING COGNIZANCE OF CERTAIN OFFENCES",
+                "Sections": {
+                    "Section 513.": {
+                        "heading": "Definitions.",
+                        "paragraphs": {
+                            "0": "For the purposes of this Chapter, unless the context otherwise requires, “period of limitation” means the period specified in section 514 for taking cognizance of an offence."
+                        }
+                    },
+                    "Section 514.": {
+                        "heading": "Bar to taking cognizance after lapse of period of limitation.",
+                        "paragraphs": {
+                            "0": "(1) Except as otherwise provided in this Sanhita, no Court shall take cognizance of an offence of the category specified in sub-section (2), after the expiry of the period of limitation.",
+                            "1": "(2) The period of limitation shall be—",
+                            "2": "(a) six months, if the offence is punishable with fine only;",
+                            "3": "(b) one year, if the offence is punishable with imprisonment for a term not exceeding one year;",
+                            "4": "(c) three years, if the offence is punishable with imprisonment for a term exceeding one year but not exceeding three years.",
+                            "5": "(3) For the purposes of this section, the period of limitation, in relation to offences which may be tried together, shall be determined with reference to the offence which is punishable with the more severe punishment or, as the case may be, the most severe punishment.",
+                            "6": "Explanation.—For the purpose of computing the period of limitation, the relevant date shall be the date of filing complaint under section 223 or the date of recording of information under section 173."
+                        }
+                    },
+                    "Section 515.": {
+                        "heading": "Commencement of period of limitation.",
+                        "paragraphs": {
+                            "0": "(1) The period of limitation, in relation to an offender, shall commence,—",
+                            "1": "(a) on the date of the offence; or",
+                            "2": "(b) where the commission of the offence was not known to the person aggrieved by the offence or to any police officer, the first day on which such offence comes to the knowledge of such person or to any police officer, whichever is earlier; or",
+                            "3": "(c) where it is not known by whom the offence was committed, the first day on which the identity of the offender is known to the person aggrieved by the offence or to the police officer making investigation into the offence, whichever is earlier.",
+                            "4": "(2) In computing the said period, the day from which such period is to be computed shall be excluded."
+                        }
+                    },
+                    "Section 516.": {
+                        "heading": "Exclusion of time in certain cases.",
+                        "paragraphs": {
+                            "0": "(1) In computing the period of limitation, the time during which any person has been prosecuting with due diligence another prosecution, whether in a Court of first instance or in a Court of appeal or revision, against the offender, shall be excluded: Provided that no such exclusion shall be made unless the prosecution relates to the same facts and is prosecuted in good faith in a Court which from defect of jurisdiction or other cause of a like nature, is unable to entertain it.",
+                            "1": "(2) Where the institution of the prosecution in respect of an offence has been stayed by an injunction or order, then, in computing the period of limitation, the period of the continuance of the injunction or order, the day on which it was issued or made, and the day on which it was withdrawn, shall be excluded.",
+                            "2": "(3) Where notice of prosecution for an offence has been given, or where, under any law for the time being in force, the previous consent or sanction of the Government or any other authority is required for the institution of any prosecution for an offence, then, in computing the period of limitation, the period of 170 such notice or, as the case may be, the time required for obtaining such consent or sanction shall be excluded.",
+                            "3": "Explanation.—In computing the time required for obtaining the consent or sanction of the Government or any other authority, the date on which the application was made for obtaining the consent or sanction and the date of receipt of the order of the Government or other authority shall both be excluded.",
+                            "4": "(4) In computing the period of limitation, the time during which the offender—",
+                            "5": "(a) has been absent from India or from any territory outside India which is under the administration of the Central Government; or",
+                            "6": "(b) has avoided arrest by absconding or concealing himself, shall be excluded."
+                        }
+                    },
+                    "Section 517.": {
+                        "heading": "Exclusion of date on which Court is closed.",
+                        "paragraphs": {
+                            "0": "Where the period of limitation expires on a day when the Court is closed, the Court may take cognizance on the day on which the Court reopens.",
+                            "1": "Explanation.—A Court shall be deemed to be closed on any day within the meaning of this section, if, during its normal working hours, it remains closed on that day."
+                        }
+                    },
+                    "Section 518.": {
+                        "heading": "Continuing offence.",
+                        "paragraphs": {
+                            "0": "In the case of a continuing offence, a fresh period of limitation shall begin to run at every moment of the time during which the offence continues."
+                        }
+                    },
+                    "Section 519.": {
+                        "heading": "Extension of period of limitation in certain cases.",
+                        "paragraphs": {
+                            "0": "Notwithstanding anything contained in the foregoing provisions of this Chapter, any Court may take cognizance of an offence after the expiry of the period of limitation, if it is satisfied on the facts and in the circumstances of the case that the delay has been properly explained or that it is necessary so to do in the interests of justice."
+                        }
+                    }
+                }
+            },
+            "37": {
+                "ID": "CHAPTER XXXIX",
+                "Name": "MISCELLANEOUS",
+                "Sections": {
+                    "Section 520.": {
+                        "heading": "Trials before High Courts",
+                        "paragraphs": {
+                            "0": "When an offence is tried by the High Court otherwise than under section 447, it shall, in the trial of the offence, observe the same procedure as a Court of Sessions would observe if it were trying the case."
+                        }
+                    },
+                    "Section 521.": {
+                        "heading": "Delivery to commanding officers of persons liable to be tried by Court-martial",
+                        "paragraphs": {
+                            "0": "(1) The Central Government may make rules consistent with this Sanhita and the Air Force Act, 1950 (45 of 1950), the Army Act, 1950 (46 of 1950), the Navy Act, 1957 (62 of 1957), and any other law, relating to the Armed Forces of the Union, for the time being in force, as to cases in which persons subject to army, naval or air-force law, or such other law, shall be tried by a Court to which this Sanhita applies, or by a Court-martial; and when any person is brought before a Magistrate and charged with an offence for which he is liable to be tried either by a Court to which this Sanhita applies or by a Court-martial, such Magistrate shall have regard to such rules, and shall in proper cases deliver him, together with a statement of the offence of which he is accused, to the commanding officer of the unit to which he belongs, or to the commanding officer of the nearest army, naval or air-force station, as the case may be, for the purpose of being tried by a Court- martial.",
+                            "1": "Explanation.—In this section— (a) “unit” includes a regiment, corps, ship, detachment, group, battalion or company; (b) “Court-martial” includes any Tribunal with the powers similar to those of a Court-martial constituted under the relevant law applicable to the Armed Forces of the Union.",
+                            "2": "(2) Every Magistrate shall, on receiving a written application for that purpose by the commanding officer of any unit or body of soldiers, sailors or airmen stationed or employed at any such place, use his utmost endeavours to apprehend and secure any person accused of such offence.",
+                            "3": "(3) A High Court may, if it thinks fit, direct that a prisoner detained in any jail situate within the State be brought before a Court-martial for trial or to be examined touching any matter pending before the Court- martial."
+                        }
+                    },
+                    "Section 522.": {
+                        "heading": "Forms",
+                        "paragraphs": {
+                            "0": "Subject to the power conferred by article 227 of the Constitution, the forms set forth in the Second Schedule, with such variations as the circumstances of each case require, may be used for the respective purposes therein mentioned, and if used shall be sufficient."
+                        }
+                    },
+                    "Section 523.": {
+                        "heading": "Power of High Court to make rules",
+                        "paragraphs": {
+                            "0": "(1) Every High Court may, with the previous approval of the State Government, make rules— (a) as to the persons who may be permitted to act as petition-writers in the Criminal Courts subordinate to it; (b) regulating the issue of licences to such persons, the conduct of business by them, and the scale of fees to be charged by them; (c) providing a penalty for a contravention of any of the rules so made and determining the authority by which such contravention may be investigated and the penalties imposed; (d) any other matter which is required to be, or may be, provided by rules made by the State Government.",
+                            "1": "(2) All rules made under this section shall be published in the Official Gazette."
+                        }
+                    },
+                    "Section 524.": {
+                        "heading": "Power to alter functions allocated to Executive Magistrate in certain cases",
+                        "paragraphs": {
+                            "0": "If the Legislative Assembly of a State by a resolution so permits, the State Government may, after consultation with the High Court, by notification, direct that references in sections 127, 128, 129, 164 and 166 to an Executive Magistrate shall be construed as references to a Judicial Magistrate of the first class."
+                        }
+                    },
+                    "Section 525.": {
+                        "heading": "Cases in which Judge or Magistrate is personally interested",
+                        "paragraphs": {
+                            "0": "No Judge or Magistrate shall, except with the permission of the Court to which an appeal lies from his Court, try or commit for trial any case to or in which he is a party, or personally interested, and no Judge or Magistrate shall hear an appeal from any judgment or order passed or made by himself.",
+                            "1": "Explanation.—A Judge or Magistrate shall not be deemed to be a party to, or personally interested in, any case by reason only that he is concerned therein in a public capacity, or by reason only that he has viewed the place in which an offence is alleged to have been committed, or any other place in which any other transaction material to the case is alleged to have occurred, and made an inquiry in connection with the case."
+                        }
+                    },
+                    "Section 526.": {
+                        "heading": "Practising advocate not to sit as Magistrate in certain Courts",
+                        "paragraphs": {
+                            "0": "No advocate who practices in the Court of any Magistrate shall sit as a Magistrate in that Court or in any Court within the local jurisdiction of that Court."
+                        }
+                    },
+                    "Section 527.": {
+                        "heading": "Public servant concerned in sale not to purchase or bid for property",
+                        "paragraphs": {
+                            "0": "A public servant having any duty to perform in connection with the sale of any property under this Sanhita shall not purchase or bid for the property."
+                        }
+                    },
+                    "Section 528.": {
+                        "heading": "Saving of inherent powers of High Court",
+                        "paragraphs": {
+                            "0": "Nothing in this Sanhita shall be deemed to limit or affect the inherent powers of the High Court to make such orders as may be necessary to give effect to any order under this Sanhita, or to prevent abuse of the process of any Court or otherwise to secure the ends of justice."
+                        }
+                    },
+                    "Section 529.": {
+                        "heading": "Duty of High Court to exercise continuous superintendence over Courts",
+                        "paragraphs": {
+                            "0": "Every High Court shall so exercise its superintendence over the Courts of Session and Courts of Judicial Magistrates subordinate to it as to ensure that there is an expeditious and proper disposal of cases by the Judges and Magistrates."
+                        }
+                    },
+                    "Section 530.": {
+                        "heading": "Trial and proceedings to be held in electronic mode",
+                        "paragraphs": {
+                            "0": "All trials, inquires and proceedings under this Sanhita, including— (i) issuance, service and execution of summons and warrant; (ii) examination of complainant and witnesses; (iii) recording of evidence in inquiries and trials; and (iv) all appellate proceedings or any other proceeding, may be held in electronic mode, by use of electronic communication or use of audio-video electronic means."
+                        }
+                    },
+                    "Section 531.": {
+                        "heading": "Repeal and savings",
+                        "paragraphs": {
+                            "0": "(1) The Code of Criminal Procedure, 1973 (2 of 1974) is hereby repealed.",
+                            "1": "(2) Notwithstanding such repeal— (a) if, immediately before the date on which this Sanhita comes into force, there is any appeal, application, trial, inquiry or investigation pending, then, such appeal, application, trial, inquiry or investigation shall be disposed of, continued, held or made, as the case may be, in accordance with the provisions of the Code of Criminal Procedure, 1973 (2 of 1974), as in force immediately before such commencement (hereinafter referred to as the said Code), as if this Sanhita had not come into force;",
+                            "2": "(b) all notifications published, proclamations issued, powers conferred, forms provided by rules, local jurisdictions defined, sentences passed and orders, rules and appointments, not being appointments as Special Magistrates, made under the said Code and which are in force immediately before the commencement of this Sanhita, shall be deemed, respectively, to have been published, issued, conferred, specified, defined, passed or made under the corresponding provisions of this Sanhita;",
+                            "3": "(c) any sanction accorded or consent given under the said Code in pursuance of which no proceeding was commenced under that Code, shall be deemed to have been accorded or given under the corresponding provisions of this Sanhita and proceedings may be commenced under this Sanhita in pursuance of such sanction or consent.",
+                            "4": "(3) Where the period specified for an application or other proceeding under the said Code had expired on or before the commencement of this Sanhita, nothing in this Sanhita shall be construed as enabling any such application to be made or proceeding to be commenced under this Sanhita by reason only of the fact that a longer period therefor is specified by this Sanhita or provisions are made in this Sanhita for the extension of time."
+                        }
                     }
                 }
             }
         }
     }
+}
 ]
         
             

@@ -50,36 +50,72 @@ const router = express.Router();
 
 router.get("/", (req, res) => res.send("🚀 LawSphere Engine Active"));
 
+
 router.post("/ask", async (req, res) => {
-    try {
-        const { query, language } = req.body;
-        const queryVector = await getEmbedding(query);
+  try {
+    const { query, language } = req.body;
+    if (!query) return res.status(400).json({ error: "Query required" });
 
-        const result = await index.namespace(NAMESPACE).query({ vector: queryVector, topK: 10, includeMetadata: true });
-        
-        let contextText = "";
-        let sources = [];
+    const refinedQuery = await optimizeQuery(query);
+    const queryVector = await getEmbedding(refinedQuery);
 
-        for (const match of result.matches) {
-            const doc = await db.collection("legal_sections").doc(match.metadata.firestore_id).get();
-            if (doc.exists) {
-                const d = doc.data();
-                contextText += `[ACT: ${d.act_name} | SEC: ${d.section_raw}]\nTEXT: ${d.content}\n\n`;
-                sources.push({ sourceNumber: sources.length + 1, snippet: `[${d.act_name}] ${d.section_raw}` });
-            }
-        }
+    const searchResult = await index.namespace(NAMESPACE).query({
+      vector: queryVector,
+      topK: 15, 
+      includeMetadata: true,
+    });
 
-        const lang = language === "hindi" ? "Answer in HINDI." : "Answer in English.";
-        const completion = await groq.chat.completions.create({
-            messages: [{
+    const matches = searchResult.matches || [];
+    const context = matches.map(m => `[ACT: ${m.metadata?.source}] [SECTION: ${m.metadata?.section}]\nTEXT: ${m.metadata?.text}`).join("\n\n---\n\n");
+
+    const langInstruction = language === "hindi" ? "Answer in HINDI." : "Answer in English.";
+
+    const completion = await groq.chat.completions.create({
+        messages: [
+            {
                 role: "system",
-                content: `You are LawSphere AI. ${lang} Answer ONLY using provided Context. Use simple words. Cite Act and Section.`
-            }, { role: "user", content: `CONTEXT:\n${contextText}\n\nQUESTION: ${query}` }],
-            model: LLM_MODEL, temperature: 0.1
-        });
+                content: `You are LawSphere, a premium Legal AI Assistant. 
+                ${langInstruction}
 
-        res.json({ formattedAnswer: completion.choices[0].message.content, retrievedSources: sources.slice(0, 5) });
-    } catch (error) { res.status(500).json({ formattedAnswer: "Brain connection error." }); }
+                CRITICAL FORMATTING RULES:
+                1. Use Markdown to make the answer highly readable.
+                2. Structure the response EXACTLY like this:
+                   
+                   # [Title of the Law/Topic]
+                   
+                   > **Statutory Provision:** [Copy the most relevant sentence from the context here]
+                   
+                   ### 📘 Simple Explanation
+                   [Explain the law in 2-3 bullet points for a common citizen]
+                   
+                   ### ⚖️ Legal Details
+                   - **Act:** [Name of the Act]
+                   - **Section/Article:** [Number]
+                   - **Nature:** [Cognizable/Bailable if known]
+                   
+                   ### 🛑 Punishment
+                   [Mention the penalty clearly in a bold highlight]
+
+                3. Use horizontal rules (---) to separate sections if the answer is long.
+                4. ZERO Hallucination: Use ONLY provided context.`
+            },
+            { role: "user", content: `CONTEXT:\n${context}\n\nUSER QUESTION:\n${query}` }
+        ],
+        model: LLM_MODEL,
+        temperature: 0.1, 
+    });
+
+    res.json({
+      formattedAnswer: completion.choices[0]?.message?.content || "No answer generated.",
+      retrievedSources: matches.slice(0, 5).map((m, i) => ({
+        sourceNumber: i + 1,
+        snippet: `[${m.metadata?.source}]`
+      }))
+    });
+
+  } catch (error) {
+    res.status(500).json({ formattedAnswer: "Server Error" });
+  }
 });
 
 router.post("/lookup", async (req, res) => {
@@ -118,7 +154,6 @@ router.post("/lookup", async (req, res) => {
         const data = doc.data();
         console.log(`✅ Match Found: ${data.title}`);
 
-        // 3. AI Extraction for UI Tags
         const completion = await groq.chat.completions.create({
             messages: [{
                 role: "system",
