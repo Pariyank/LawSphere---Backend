@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ================= 1. FIREBASE ADMIN SETUP (STABLE) =================
+
 try {
     let serviceAccount;
     if (process.env.FIREBASE_SERVICE_ACCOUNT) {
@@ -27,20 +27,18 @@ try {
 } catch (e) { console.error("Firebase Init Error"); }
 const db = admin.firestore();
 
-// ================= 2. SERVICES =================
 const PORT = process.env.PORT || 3000;
 const pinecone = new Pinecone({ apiKey: process.env.PINECONE_API_KEY });
 const index = pinecone.index(process.env.PINECONE_INDEX || "lawsphere-index");
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
-// ================= 3. MEMORY-OPTIMIZED EMBEDDING ENGINE =================
 let embedder = null;
 async function loadModel() {
     if (embedder) return;
     try {
         embedder = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2", {
             revision: "main",
-            quantized: true // 🟢 Crucial for staying within 512MB RAM
+            quantized: true 
         });
     } catch (err) { console.error("Model Load Error"); }
 }
@@ -53,12 +51,11 @@ async function getEmbedding(text) {
 
 const normalize = (s) => String(s || "").replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
 
-// ================= 4. ROUTES =================
+
 const router = express.Router();
 
 router.get("/", (req, res) => res.send("🚀 LawSphere Engine Stable & Formatted"));
 
-// 🟢 CHAT ROUTE (With Beautiful Formatting + Stability)
 router.post("/ask", async (req, res) => {
     try {
         const { query, language } = req.body;
@@ -89,7 +86,6 @@ router.post("/ask", async (req, res) => {
 
         const lang = language === "hindi" ? "HINDI (Devanagari)" : "English";
 
-        // 🟢 THE RE-INJECTED PREMIUM PROMPT
         const completion = await groq.chat.completions.create({
             messages: [
                 { 
@@ -120,7 +116,6 @@ router.post("/ask", async (req, res) => {
     }
 });
 
-// 🟢 LOOKUP & COMPARE ROUTES (Preserved with Stability Fixes)
 router.post("/lookup", async (req, res) => {
     try {
         const { act, section } = req.body;
@@ -139,6 +134,34 @@ router.post("/lookup", async (req, res) => {
         const tags = JSON.parse(completion.choices[0].message.content);
         res.json({ section: data.section_raw, title: data.title, description: data.content, punishment: tags.punishment, cognizable: tags.cognizable, bailable: tags.bailable, chapter: data.chapter_name });
     } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+router.get("/list-acts", (req, res) => {
+    try {
+        const actListData = fs.readFileSync("./legal_acts.json", "utf8");
+        res.json(JSON.parse(actListData));
+    } catch (e) {
+        res.status(500).json({ error: "Could not load act list" });
+    }
+});
+
+router.get("/offline-data", (req, res) => {
+    try {
+        const offlineData = fs.readFileSync("./offline_critical.json", "utf8");
+        res.json(JSON.parse(offlineData));
+    } catch (e) {
+        res.status(500).json({ error: "Could not load offline data" });
+    }
+});
+
+router.get("/bnss-forms", (req, res) => {
+    try {
+        const formsData = fs.readFileSync("./bnss_forms.json", "utf8");
+        res.json(JSON.parse(formsData));
+    } catch (e) {
+        console.error("Error loading forms:", e);
+        res.status(500).json({ error: "Could not load BNSS forms list" });
+    }
 });
 
 app.use("/api", router);

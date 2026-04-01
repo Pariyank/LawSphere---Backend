@@ -1,0 +1,1093 @@
+[
+    {
+        "Act Title": "THE BHARATIYA SAKSHYA ADHINIYAM",
+        "Act ID": "ACT NO. 47 OF 2023",
+        "Enactment Date": "[25th December, 2023]",
+        "Act Definition": {
+            "0": "An Act to consolidate and to provide for general rules and principles of evidence for fair trial"
+        },
+        "Chapters": {
+            "0": {
+                "ID": "CHAPTER I",
+                "Name": "PRELIMINARY",
+                "Sections": {
+                    "Section 1.": {
+                        "heading": "Short title, application and commencement.",
+                        "paragraphs": {
+                            "0": "(1) This Act may be called the Bharatiya Sakshya Adhiniyam, 2023.",
+                            "1": "(2) It applies to all judicial proceedings in or before any Court, including Courts-martial, but not to affidavits presented to any Court or officer, nor to proceedings before an arbitrator.",
+                            "2": "(3) It shall come into force on such date as the Central Government may, by notification in the Official Gazette, appoint."
+                        }
+                    },
+                    "Section 2.": {
+                        "heading": "Definitions.",
+                        "paragraphs": {
+                            "0": "(1) In this Adhiniyam, unless the context otherwise requires,",
+                            "1": "(a) “Court” includes all Judges and Magistrates, and all persons, except arbitrators, legally authorised to take evidence;",
+                            "2": "(b) “conclusive proof” means when one fact is declared by this Adhiniyam to be conclusive proof of another, the Court shall, on proof of the one fact, regard the other as proved, and shall not allow evidence to be given for the purpose of disproving it;",
+                            "3": "(c) “disproved” in relation to a fact, means when, after considering the matters before it, the Court either believes that it does not exist, or considers its non-existence so probable that a prudent man ought, under the circumstances of the particular case, to act upon the supposition that it does not exist;",
+                            "4": "(d) “document” means any matter expressed or described or otherwise recorded upon any substance by means of letters, figures or marks or any other means or by more than one of those means, intended to be used, or which may be used, for the purpose of recording that matter and includes electronic and digital records.",
+                            "5": "Illustrations. (i) A writing is a document. (ii) Words printed, lithographed or photographed are documents. (iii) A map or plan is a document. (iv) An inscription on a metal plate or stone is a document. (v) A caricature is a document. (vi) An electronic record on emails, server logs, documents on computers, laptop or smartphone, messages, websites, locational evidence and voice mail messages stored on digital devices are documents;",
+                            "6": "(e) “evidence” means and includes— (i) all statements including statements given electronically which the Court permits or requires to be made before it by witnesses in relation to matters of fact under inquiry and such statements are called oral evidence; (ii) all documents including electronic or digital records produced for the inspection of the Court and such documents are called documentary evidence;",
+                            "7": "(f) “fact” means and includes— (i) any thing, state of things, or relation of things, capable of being perceived by the senses; (ii) any mental condition of which any person is conscious.",
+                            "8": "Illustrations. (i) That there are certain objects arranged in a certain order in a certain place, is a fact. (ii) That a person heard or saw something, is a fact. (iii) That a person said certain words, is a fact. (iv) That a person holds a certain opinion, has a certain intention, acts in good faith, or fraudulently, or uses a particular word in a particular sense, or is or was at a specified time conscious of a particular sensation, is a fact;",
+                            "9": "(g) “facts in issue” means and includes any fact from which, either by itself or in connection with other facts, the existence, non-existence, nature or extent of any right, liability or disability, asserted or denied in any suit or proceeding, necessarily follows.",
+                            "10": "Explanation.—Whenever, under the provisions of the law for the time being in force relating to Civil Procedure, any Court records an issue of fact, the fact to be asserted or denied in the answer to such issue is a fact in issue.",
+                            "11": "Illustrations. A is accused of the murder of B. At his trial, the following facts may be in issue:— (i) That A caused B's death. (ii) That A intended to cause B's death. (iii) That A had received grave and sudden provocation from B. (iv) That A, at the time of doing the act which caused B’s death, was, by reason of unsoundness of mind, incapable of knowing its nature;",
+                            "12": "(h) “may presume”.—Whenever it is provided by this Adhiniyam that the Court may presume a fact, it may either regard such fact as proved, unless and until it is disproved or may call for proof of it;",
+                            "13": "(i) “not proved”.—A fact is said to be not proved when it is neither proved nor disproved;",
+                            "14": "(j) “proved”.—A fact is said to be proved when, after considering the matters before it, the Court either believes it to exist, or considers its existence so probable that a prudent man ought, under the circumstances of the particular case, to act upon the supposition that it exists;",
+                            "15": "(k) “relevant”.—A fact is said to be relevant to another when it is connected with the other in any of the ways referred to in the provisions of this Adhiniyam relating to the relevancy of facts;",
+                            "16": "(l) “shall presume”.—Whenever it is directed by this Adhiniyam that the Court shall presume a fact, it shall regard such fact as proved, unless and until it is disproved.",
+                            "17": "(2) Words and expressions used herein and not defined but defined in the Information Technology Act, 2000 (21 of 2000), the Bharatiya Nagarik Suraksha Sanhita, 2023 and the Bharatiya Nyaya Sanhita, 2023 shall have the same meanings as assigned to them in the said Act and Sanhitas."
+                        }
+                    }
+                }
+            },
+            "1": {
+                "ID": "CHAPTER II",
+                "Name": "RELEVANCY OF FACTS",
+                "Sections": {
+                    "Section 3.": {
+                        "heading": "Evidence may be given of facts in issue and relevant facts",
+                        "paragraphs": {
+                            "0": "Evidence may be given in any suit or proceeding of the existence or non-existence of every fact in issue and of such other facts as are hereinafter declared to be relevant, and of no others.",
+                            "1": "Explanation.—This section shall not enable any person to give evidence of a fact which he is disentitled to prove by any provision of the law for the time being in force relating to civil procedure.",
+                            "2": "Illustrations. (a) A is tried for the murder of B by beating him with a club with the intention of causing his death.",
+                            "3": "At A’s trial the following facts are in issue:— A’s beating B with the club; A’s causing B’s death by such beating; A’s intention to cause B’s death.",
+                            "4": "(b) A suitor does not bring with him, and have in readiness for production at the first hearing of the case, a bond on which he relies.",
+                            "5": "This section does not enable him to produce the bond or prove its contents at a subsequent stage of the proceedings, otherwise than in accordance with the conditions prescribed by the Code of Civil Procedure, 1908 (5 of 1908)."
+                        }
+                    },
+                    "Section 4.": {
+                        "heading": "Relevancy of facts forming part of same transaction",
+                        "paragraphs": {
+                            "0": "Facts which, though not in issue, are so connected with a fact in issue or a relevant fact as to form part of the same transaction, are relevant, whether they occurred at the same time and place or at different times and places.",
+                            "1": "Illustrations. (a) A is accused of the murder of B by beating him.",
+                            "2": "Whatever was said or done by A or B or the bystanders at the beating, or so shortly before or after it as to form part of the transaction, is a relevant fact.",
+                            "3": "(b) A is accused of waging war against the Government of India by taking part in an armed insurrection in which property is destroyed, troops are attacked and jails are broken open.",
+                            "4": "The occurrence of these facts is relevant, as forming part of the general transaction, though A may not have been present at all of them.",
+                            "5": "(c) A sues B for a libel contained in a letter forming part of a correspondence.",
+                            "6": "Letters between the parties relating to the subject out of which the libel arose, and forming part of the correspondence in which it is contained, are relevant facts, though they do not contain the libel itself."
+                        }
+                    },
+                    "Section 5.": {
+                        "heading": "Facts which are occasion, cause or effect of facts in issue or relevant facts",
+                        "paragraphs": {
+                            "0": "Facts which are the occasion, cause or effect, immediate or otherwise, of relevant facts, or facts in issue, or which constitute the state of things under which they happened, or which afforded an opportunity for their occurrence or transaction, are relevant.",
+                            "1": "Illustrations. (a) The question is, whether A robbed B.",
+                            "2": "The facts that, shortly before the robbery, B went to a fair with money in his possession, and that he showed it, or mentioned the fact that he had it, to third persons, are relevant.",
+                            "3": "(b) The question is, whether A murdered B.",
+                            "4": "Marks on the ground, produced by a struggle at or near the place where the murder was committed, are relevant facts.",
+                            "5": "(c) The question is, whether A poisoned B.",
+                            "6": "The state of B's health before the symptoms ascribed to poison, and habits of B, known to A, which afforded an opportunity for the administration of poison, are relevant facts."
+                        }
+                    },
+                    "Section 6.": {
+                        "heading": "Motive, preparation and previous or subsequent conduct",
+                        "paragraphs": {
+                            "0": "(1) Any fact is relevant which shows or constitutes a motive or preparation for any fact in issue or relevant fact.",
+                            "1": "(2) The conduct of any party, or of any agent to any party, to any suit or proceeding, in reference to such suit or proceeding, or in reference to any fact in issue therein or relevant thereto, and the conduct of any person, an offence against whom is the subject of any proceeding, is relevant, if such conduct influences or is influenced by any fact in issue or relevant fact, and whether it was previous or subsequent thereto.",
+                            "2": "Explanation 1.—The word “conduct” in this section does not include statements, unless those statements accompany and explain acts other than statements; but this explanation is not to affect the relevancy of statements under any other section of this Adhiniyam.",
+                            "3": "Explanation 2.—When the conduct of any person is relevant, any statement made to him or in his presence and hearing, which affects such conduct, is relevant.",
+                            "4": "Illustrations. (a) A is tried for the murder of B.",
+                            "5": "The facts that A murdered C, that B knew that A had murdered C, and that B had tried to extort money from A by threatening to make his knowledge public, are relevant."
+                        }
+                    },
+                    "Section 7.": {
+                        "heading": "Facts necessary to explain or introduce fact in issue or relevant facts",
+                        "paragraphs": {
+                            "0": "Facts necessary to explain or introduce a fact in issue or relevant fact, or which support or rebut an inference suggested by a fact in issue or a relevant fact, or which establish the identity of anything, or person whose identity, is relevant, or fix the time or place at which any fact in issue or relevant fact happened, or which show the relation of parties by whom any such fact was transacted, are relevant in so far as they are necessary for that purpose.",
+                            "1": "Illustrations. (a) The question is, whether a given document is the will of A.",
+                            "2": "The state of A's property and of his family at the date of the alleged will may be relevant facts.",
+                            "3": "(b) A sues B for a libel imputing disgraceful conduct to A; B affirms that the matter alleged to be libellous is true.",
+                            "4": "The position and relations of the parties at the time when the libel was published may be relevant facts as introductory to the facts in issue."
+                        }
+                    },
+                    "Section 8.": {
+                        "heading": "Things said or done by conspirator in reference to common design",
+                        "paragraphs": {
+                            "0": "Where there is reasonable ground to believe that two or more persons have conspired together to commit an offence or an actionable wrong, anything said, done or written by any one of such persons in reference to their common intention, after the time when such intention was first entertained by any one of them, is a relevant fact as against each of the persons believed to be so conspiring, as well for the purpose of proving the existence of the conspiracy as for the purpose of showing that any such person was a party to it.",
+                            "1": "Illustration. Reasonable ground exists for believing that A has joined in a conspiracy to wage war against the State.",
+                            "2": "The facts that B procured arms in Europe for the purpose of the conspiracy, C collected money in Kolkata for a like object, D persuaded persons to join the conspiracy in Mumbai, E published writings advocating the object in view at Agra, and F transmitted from Delhi to G at Singapore the money which C had collected at Kolkata, and the contents of a letter written by H giving an account of the conspiracy, are each relevant, both to prove the existence of the conspiracy, and to prove A's complicity in it, although he may have been ignorant of all of them, and although the persons by whom they were done were strangers to him, and although they may have taken place before he joined the conspiracy or after he left it."
+                        }
+                    },
+                    "Section 9.": {
+                        "heading": "When facts not otherwise relevant become relevant",
+                        "paragraphs": {
+                            "0": "Facts not otherwise relevant are relevant—",
+                            "1": "(1) if they are inconsistent with any fact in issue or relevant fact;",
+                            "2": "(2) if by themselves or in connection with other facts they make the existence or non-existence of any fact in issue or relevant fact highly probable or improbable.",
+                            "3": "Illustrations. (a) The question is, whether A committed a crime at Chennai on a certain day.",
+                            "4": "The fact that, on that day, A was at Ladakh is relevant."
+                        }
+                    },
+                    "Section 10.": {
+                        "heading": "Facts tending to enable Court to determine amount are relevant in suits for damages",
+                        "paragraphs": {
+                            "0": "In suits in which damages are claimed, any fact which will enable the Court to determine the amount of damages which ought to be awarded, is relevant."
+                        }
+                    },
+                    "Section 11.": {
+                        "heading": "Facts relevant when right or custom is in question",
+                        "paragraphs": {
+                            "0": "Where the question is as to the existence of any right or custom, the following facts are relevant—",
+                            "1": "(a) any transaction by which the right or custom in question was created, claimed, modified, recognised, asserted or denied, or which was inconsistent with its existence;",
+                            "2": "(b) particular instances in which the right or custom was claimed, recognised or exercised, or in which its exercise was disputed, asserted or departed from.",
+                            "3": "Illustration. The question is, whether A has a right to a fishery."
+                        }
+                    },
+                    "Section 12.": {
+                        "heading": "Facts showing existence of state of mind, or of body or bodily feeling",
+                        "paragraphs": {
+                            "0": "Facts showing the existence of any state of mind, such as intention, knowledge, good faith, negligence, rashness, ill-will or goodwill towards any particular person, or showing the existence of any state of body or bodily feeling, are relevant, when the existence of any such state of mind or body or bodily feeling is in issue or relevant.",
+                            "1": "Explanation 1.—A fact relevant as showing the existence of a relevant state of mind must show that the state of mind exists, not generally, but in reference to the particular matter in question.",
+                            "2": "Explanation 2.—But where, upon the trial of a person accused of an offence, the previous commission by the accused of an offence is relevant within the meaning of this section, the previous conviction of such person shall also be a relevant fact."
+                        }
+                    },
+                    "Section 13.": {
+                        "heading": "Facts bearing on question whether act was accidental or intentional",
+                        "paragraphs": {
+                            "0": "When there is a question whether an act was accidental or intentional, or done with a particular knowledge or intention, the fact that such act formed part of a series of similar occurrences, in each of which the person doing the act was concerned, is relevant.",
+                            "1": "Illustrations. (a) A is accused of burning down his house in order to obtain money for which it is insured.",
+                            "2": "The facts that A lived in several houses successively each of which he insured, in each of which a fire occurred, and after each of which fires A received payment from a different insurance company, are relevant, as tending to show that the fires were not accidental."
+                        }
+                    },
+                    "Section 14.": {
+                        "heading": "Existence of course of business when relevant",
+                        "paragraphs": {
+                            "0": "When there is a question whether a particular act was done, the existence of any course of business, according to which it naturally would have been done, is a relevant fact.",
+                            "1": "Illustrations. (a) The question is, whether a particular letter was dispatched.",
+                            "2": "The facts that it was the ordinary course of business for all letters put in a certain place to be carried to the post, and that particular letter was put in that place are relevant."
+                        }
+                    },
+                    "Section 15.": {
+                        "heading": "Admission defined",
+                        "paragraphs": {
+                            "0": "An admission is a statement, oral or documentary or contained in electronic form, which suggests any inference as to any fact in issue or relevant fact, and which is made by any of the persons, and under the circumstances, hereinafter mentioned."
+                        }
+                    },
+                    "Section 16.": {
+                        "heading": "Admission by party to proceeding or his agent",
+                        "paragraphs": {
+                            "0": "(1) Statements made by a party to the proceeding, or by an agent to any such party, whom the Court regards, under the circumstances of the case, as expressly or impliedly authorised by him to make them, are admissions.",
+                            "1": "(2) Statements made by—",
+                            "2": "(i) parties to suits suing or sued in a representative character, are not admissions, unless they were made while the party making them held that character;",
+                            "3": "(ii) (a) persons who have any proprietary or pecuniary interest in the subject matter of the proceeding, and who make the statement in their character of persons so interested; or",
+                            "4": "(b) persons from whom the parties to the suit have derived their interest in the subject matter of the suit, are admissions, if they are made during the continuance of the interest of the persons making the statements."
+                        }
+                    },
+                    "Section 17.": {
+                        "heading": "Admissions by persons whose position must be proved as against party to suit",
+                        "paragraphs": {
+                            "0": "Statements made by persons whose position or liability, it is necessary to prove as against any party to the suit, are admissions, if such statements would be relevant as against such persons in relation to such position or liability in a suit brought by or against them, and if they are made whilst the person making them occupies such position or is subject to such liability.",
+                            "1": "Illustration. A undertakes to collect rents for B.",
+                            "2": "B sues A for not collecting rent due from C to B.",
+                            "3": "A denies that rent was due from C to B.",
+                            "4": "A statement by C that he owed B rent is an admission, and is a relevant fact as against A, if A denies that C did owe rent to B."
+                        }
+                    },
+                    "Section 18.": {
+                        "heading": "Admissions by persons expressly referred to by party to suit",
+                        "paragraphs": {
+                            "0": "Statements made by persons to whom a party to the suit has expressly referred for information in reference to a matter in dispute are admissions.",
+                            "1": "Illustration. The question is, whether a horse sold by A to B is sound.",
+                            "2": "A says to B— “Go and ask C, C knows all about it”.",
+                            "3": "C's statement is an admission."
+                        }
+                    },
+                    "Section 19.": {
+                        "heading": "Proof of admissions against persons making them, and by or on their behalf",
+                        "paragraphs": {
+                            "0": "Admissions are relevant and may be proved as against the person who makes them, or his representative in interest; but they cannot be proved by or on behalf of the person who makes them or by his representative in interest, except in the following cases, namely:—",
+                            "1": "(1) an admission may be proved by or on behalf of the person making it, when it is of such a nature that, if the person making it were dead, it would be relevant as between third persons under section 26;",
+                            "2": "(2) an admission may be proved by or on behalf of the person making it, when it consists of a statement of the existence of any state of mind or body, relevant or in issue, made at or about the time when such state of mind or body existed, and is accompanied by conduct rendering its falsehood improbable;",
+                            "3": "(3) an admission may be proved by or on behalf of the person making it, if it is relevant otherwise than as an admission."
+                        }
+                    }
+                }
+            },
+            "2": {
+                "ID": "CHAPTER III",
+                "Name": "FACTS WHICH NEED NOT BE PROVED",
+                "Sections": {
+                    "Section 51.": {
+                        "heading": "Fact judicially noticeable need not be proved",
+                        "paragraphs": {
+                            "0": "No fact of which the Court will take judicial notice need be proved."
+                        }
+                    },
+                    "Section 52.": {
+                        "heading": "Facts of which Court shall take judicial notice",
+                        "paragraphs": {
+                            "0": "(1) The Court shall take judicial notice of the following facts, namely:—",
+                            "1": "(a) all laws in force in the territory of India including laws having extra-territorial operation;",
+                            "2": "(b) international treaty, agreement or convention with country or countries by India, or decisions made by India at international associations or other bodies;",
+                            "3": "(c) the course of proceeding of the Constituent Assembly of India, of Parliament of India and of the State Legislatures;",
+                            "4": "(d) the seals of all Courts and Tribunals;",
+                            "5": "(e) the seals of Courts of Admiralty and Maritime Jurisdiction, Notaries Public, and all seals which any person is authorised to use by the Constitution, or by an Act of Parliament or State Legislatures, or Regulations having the force of law in India;",
+                            "6": "(f) the accession to office, names, titles, functions, and signatures of the persons filling for the time being any public office in any State, if the fact of their appointment to such office is notified in any Official Gazette;",
+                            "7": "(g) the existence, title and national flag of every country or sovereign recognised by the Government of India;",
+                            "8": "(h) the divisions of time, the geographical divisions of the world, and public festivals, fasts and holidays notified in the Official Gazette;",
+                            "9": "(i) the territory of India;",
+                            "10": "(j) the commencement, continuance and termination of hostilities between the Government of India and any other country or body of persons;",
+                            "11": "(k) the names of the members and officers of the Court and of their deputies and subordinate officers and assistants, and also of all officers acting in execution of its process, and of advocates and other persons authorised by law to appear or act before it;",
+                            "12": "(l) the rule of the road on land or at sea.",
+                            "13": "(2) In the cases referred to in sub-section (1) and also on all matters of public history, literature, science or art, the Court may resort for its aid to appropriate books or documents of reference and if the Court is called upon by any person to take judicial notice of any fact, it may refuse to do so unless and until such person produces any such book or document as it may consider necessary to enable it to do so."
+                        }
+                    },
+                    "Section 53.": {
+                        "heading": "Facts admitted need not be proved",
+                        "paragraphs": {
+                            "0": "No fact needs to be proved in any proceeding which the parties thereto or their agents agree to admit at the hearing, or which, before the hearing, they agree to admit by any writing under their hands, or which by any rule of pleading in force at the time they are deemed to have admitted by their pleadings:",
+                            "1": "Provided that the Court may, in its discretion, require the facts admitted to be proved otherwise than by such admissions."
+                        }
+                    }
+                }
+            },
+            "3": {
+                "ID": "CHAPTER IV",
+                "Name": "OF ORAL EVIDENCE",
+                "Sections": {
+                    "Section 54.": {
+                        "heading": "Proof of facts by oral evidence.",
+                        "paragraphs": {
+                            "0": "All facts, except the contents of documents may be proved by oral evidence."
+                        }
+                    },
+                    "Section 55.": {
+                        "heading": "Oral evidence to be direct.",
+                        "paragraphs": {
+                            "0": "Oral evidence shall, in all cases whatever, be direct; if it refers to,",
+                            "1": "(i) a fact which could be seen, it must be the evidence of a witness who says he saw it;",
+                            "2": "(ii) a fact which could be heard, it must be the evidence of a witness who says he heard it;",
+                            "3": "(iii) a fact which could be perceived by any other sense or in any other manner, it must be the evidence of a witness who says he perceived it by that sense or in that manner;",
+                            "4": "(iv) an opinion or to the grounds on which that opinion is held, it must be the evidence of the person who holds that opinion on those grounds: Provided that the opinions of experts expressed in any treatise commonly offered for sale, and the grounds on which such opinions are held, may be proved by the production of such treatises if the author is dead or cannot be found, or has become incapable of giving evidence, or cannot be called as a witness without an amount of delay or expense which the Court regards as unreasonable: Provided further that, if oral evidence refers to the existence or condition of any material thing other than a document, the Court may, if it thinks fit, require the production of such material thing for its inspection."
+                        }
+                    }
+                }
+            },
+            "4": {
+                "ID": "CHAPTER V",
+                "Name": "OF DOCUMENTARY EVIDENCE",
+                "Sections": {
+                    "Section 56.": {
+                        "heading": "Proof of contents of documents.",
+                        "paragraphs": {
+                            "0": "The contents of documents may be proved either by primary or by secondary evidence."
+                        }
+                    },
+                    "Section 57.": {
+                        "heading": "Primary evidence.",
+                        "paragraphs": {
+                            "0": "Primary evidence means the document itself produced for the inspection of the Court.",
+                            "1": "Explanation 1.—Where a document is executed in several parts, each part is primary evidence of the document.",
+                            "2": "Explanation 2.—Where a document is executed in counterpart, each counterpart being executed by one or some of the parties only, each counterpart is primary evidence as against the parties executing it.",
+                            "3": "Explanation 3.—Where a number of documents are all made by one uniform process, as in the case of printing, lithography or photography, each is primary evidence of the contents of the rest; but, where they are all copies of a common original, they are not primary evidence of the contents of the original.",
+                            "4": "Explanation 4.—Where an electronic or digital record is created or stored, and such storage occurs simultaneously or sequentially in multiple files, each such file is primary evidence.",
+                            "5": "Explanation 5.—Where an electronic or digital record is produced from proper custody, such electronic and digital record is primary evidence unless it is disputed.",
+                            "6": "Explanation 6.—Where a video recording is simultaneously stored in electronic form and transmitted or broadcast or transferred to another, each of the stored recordings is primary evidence.",
+                            "7": "Explanation 7.—Where an electronic or digital record is stored in multiple storage spaces in a computer resource, each such automated storage, including temporary files, is primary evidence."
+                        }
+                    },
+                    "Section 58.": {
+                        "heading": "Secondary evidence.",
+                        "paragraphs": {
+                            "0": "Secondary evidence includes—",
+                            "1": "(i) certified copies given under the provisions hereinafter contained;",
+                            "2": "(ii) copies made from the original by mechanical processes which in themselves ensure the accuracy of the copy, and copies compared with such copies;",
+                            "3": "(iii) copies made from or compared with the original;",
+                            "4": "(iv) counterparts of documents as against the parties who did not execute them;",
+                            "5": "(v) oral accounts of the contents of a document given by some person who has himself seen it;",
+                            "6": "(vi) oral admissions;",
+                            "7": "(vii) written admissions;",
+                            "8": "(viii) evidence of a person who has examined a document, the original of which consists of numerous accounts or other documents which cannot conveniently be examined in Court, and who is skilled in the examination of such documents."
+                        }
+                    },
+                    "Section 59.": {
+                        "heading": "Proof of documents by primary evidence.",
+                        "paragraphs": {
+                            "0": "Documents shall be proved by primary evidence except in the cases hereinafter mentioned."
+                        }
+                    },
+                    "Section 60.": {
+                        "heading": "Cases in which secondary evidence relating to documents may be given.",
+                        "paragraphs": {
+                            "0": "Secondary evidence may be given of the existence, condition, or contents of a document in the following cases, namely:—",
+                            "1": "(a) when the original is shown or appears to be in the possession or power—",
+                            "2": "(i) of the person against whom the document is sought to be proved; or",
+                            "3": "(ii) of any person out of reach of, or not subject to, the process of the Court; or",
+                            "4": "(iii) of any person legally bound to produce it, and when, after the notice mentioned in section 64 such person does not produce it;",
+                            "5": "(b) when the existence, condition or contents of the original have been proved to be admitted in writing by the person against whom it is proved or by his representative in interest;",
+                            "6": "(c) when the original has been destroyed or lost, or when the party offering evidence of its contents cannot, for any other reason not arising from his own default or neglect, produce it in reasonable time;",
+                            "7": "(d) when the original is of such a nature as not to be easily movable;",
+                            "8": "(e) when the original is a public document within the meaning of section 74;",
+                            "9": "(f) when the original is a document of which a certified copy is permitted by this Adhiniyam, or by any other law in force in India to be given in evidence;",
+                            "10": "(g) when the originals consist of numerous accounts or other documents which cannot conveniently be examined in Court, and the fact to be proved is the general result of the whole collection."
+                        }
+                    },
+                    "Section 61.": {
+                        "heading": "Electronic or digital record.",
+                        "paragraphs": {
+                            "0": "Nothing in this Adhiniyam shall apply to deny the admissibility of an electronic or digital record in the evidence on the ground that it is an electronic or digital record and such record shall, subject to section 63, have the same legal effect, validity and enforceability as other document."
+                        }
+                    },
+                    "Section 62.": {
+                        "heading": "Special provisions as to evidence relating to electronic record.",
+                        "paragraphs": {
+                            "0": "The contents of electronic records may be proved in accordance with the provisions of section 63."
+                        }
+                    },
+                    "Section 63.": {
+                        "heading": "Admissibility of electronic records.",
+                        "paragraphs": {
+                            "0": "(1) Notwithstanding anything contained in this Adhiniyam, any information contained in an electronic record which is printed on paper, stored, recorded or copied in optical or magnetic media or semiconductor memory which is produced by a computer or any communication device or otherwise stored, recorded or copied in any electronic form (hereinafter referred to as the computer output) shall be deemed to be also a document, if the conditions mentioned in this section are satisfied in relation to the information and computer in question and shall be admissible in any proceedings, without further proof or production of the original, as evidence or any contents of the original or of any fact stated therein of which direct evidence would be admissible.",
+                            "1": "(2) The conditions referred to in sub-section (1) in respect of a computer output shall be the following, namely:—",
+                            "2": "(a) the computer output containing the information was produced by the computer or communication device during the period over which the computer or Communication device was used regularly to create, store or process information for the purposes of any activity regularly carried on over that period by the person having lawful control over the use of the computer or communication device;",
+                            "3": "(b) during the said period, information of the kind contained in the electronic record or of the kind from which the information so contained is derived was regularly fed into the computer or Communication device in the ordinary course of the said activities;",
+                            "4": "(c) throughout the material part of the said period, the computer or communication device was operating properly or, if not, then in respect of any period in which it was not operating properly or was out of operation during that part of the period, was not such as to affect the electronic record or the accuracy of its contents;",
+                            "5": "(d) the information contained in the electronic record reproduces or is derived from such information fed into the computer or Communication device in the ordinary course of the said activities.",
+                            "6": "(3) Where over any period, the function of creating, storing or processing information for the purposes of any activity regularly carried on over that period as mentioned in clause (a) of sub-section (2) was regularly performed by means of one or more computers or communication device, whether—",
+                            "7": "(a) in standalone mode; or",
+                            "8": "(b) on a computer system; or",
+                            "9": "(c) on a computer network; or",
+                            "10": "(d) on a computer resource enabling information creation or providing information processing and storage;",
+                            "11": "(e) through an intermediary, all the computers or communication devices used for that purpose during that period shall be treated for the purposes of this section as constituting a single computer or communication device; and references in this section to a computer or communication device shall be construed accordingly.",
+                            "12": "(4) In any proceeding where it is desired to give a statement in evidence by virtue of this section, a certificate doing any of the following things shall be submitted along with the electronic record at each instance where it is being submitted for admission, namely:—",
+                            "13": "(a) identifying the electronic record containing the statement and describing the manner in which it was produced;",
+                            "14": "(b) giving such particulars of any device involved in the production of that electronic record as may be appropriate for the purpose of showing that the electronic record was produced by a computer or a communication device referred to in clauses (a) to (e) of sub-section (3);",
+                            "15": "(c) dealing with any of the matters to which the conditions mentioned in sub-section (2) relate, and purporting to be signed by a person in charge of the computer or communication device or the management of the relevant activities (whichever is appropriate) and an expert shall be evidence of any matter stated in the certificate; and for the purposes of this sub-section it shall be sufficient for a matter to be stated to the best of the knowledge and belief of the person stating it in the certificate specified in the Schedule.",
+                            "16": "(5) For the purposes of this section,—",
+                            "17": "(a) information shall be taken to be supplied to a computer or communication device if it is supplied thereto in any appropriate form and whether it is so supplied directly or (with or without human intervention) by means of any appropriate equipment;",
+                            "18": "(b) a computer output shall be taken to have been produced by a computer or communication device whether it was produced by it directly or (with or without human intervention) by means of any appropriate equipment or by other electronic means as referred to in clauses (a) to (e) of sub-section (3)."
+                        }
+                    },
+                    "Section 64.": {
+                        "heading": "Rules as to notice to produce.",
+                        "paragraphs": {
+                            "0": "Secondary evidence of the contents of the documents referred to in clause (a) of section 60, shall not be given unless the party proposing to give such secondary evidence has previously given to the party in whose possession or power the document is, or to his advocate or representative, such notice to produce it as is prescribed by law; and if no notice is prescribed by law, then such notice as the Court considers reasonable under the circumstances of the case:",
+                            "1": "Provided that such notice shall not be required in order to render secondary evidence admissible in any of the following cases, or in any other case in which the Court thinks fit to dispense with it:—",
+                            "2": "(a) when the document to be proved is itself a notice;",
+                            "3": "(b) when, from the nature of the case, the adverse party must know that he will be required to produce it;",
+                            "4": "(c) when it appears or is proved that the adverse party has obtained possession of the original by fraud or force;",
+                            "5": "(d) when the adverse party or his agent has the original in Court;",
+                            "6": "(e) when the adverse party or his agent has admitted the loss of the document;",
+                            "7": "(f) when the person in possession of the document is out of reach of, or not subject to, the process of the Court."
+                        }
+                    },
+                    "Section 65.": {
+                        "heading": "Proof of signature and handwriting of person alleged to have signed or written document produced.",
+                        "paragraphs": {
+                            "0": "If a document is alleged to be signed or to have been written wholly or in part by any person, the signature or the handwriting of so much of the document as is alleged to be in that person's handwriting must be proved to be in his handwriting."
+                        }
+                    },
+                    "Section 66.": {
+                        "heading": "Proof as to electronic signature.",
+                        "paragraphs": {
+                            "0": "Except in the case of a secure electronic signature, if the electronic signature of any subscriber is alleged to have been affixed to an electronic record, the fact that such electronic signature is the electronic signature of the subscriber must be proved."
+                        }
+                    },
+                    "Section 67.": {
+                        "heading": "Proof of execution of document required by law to be attested.",
+                        "paragraphs": {
+                            "0": "If a document is required by law to be attested, it shall not be used as evidence until one attesting witness at least has been called for the purpose of proving its execution, if there be an attesting witness alive, and subject to the process of the Court and capable of giving evidence:",
+                            "1": "Provided that it shall not be necessary to call an attesting witness in proof of the execution of any document, not being a will, which has been registered in accordance with the provisions of the Indian Registration Act, 1908 (16 of 1908), unless its execution by the person by whom it purports to have been executed is specifically denied."
+                        }
+                    },
+                    "Section 68.": {
+                        "heading": "Proof where no attesting witness found.",
+                        "paragraphs": {
+                            "0": "If no such attesting witness can be found, it must be proved that the attestation of one attesting witness at least is in his handwriting, and that the signature of the person executing the document is in the handwriting of that person."
+                        }
+                    },
+                    "Section 69.": {
+                        "heading": "Admission of execution by party to attested document.",
+                        "paragraphs": {
+                            "0": "The admission of a party to an attested document of its execution by himself shall be sufficient proof of its execution as against him, though it be a document required by law to be attested."
+                        }
+                    },
+                    "Section 70.": {
+                        "heading": "Proof when attesting witness denies execution.",
+                        "paragraphs": {
+                            "0": "If the attesting witness denies or does not recollect the execution of the document, its execution may be proved by other evidence."
+                        }
+                    },
+                    "Section 71.": {
+                        "heading": "Proof of document not required by law to be attested.",
+                        "paragraphs": {
+                            "0": "An attested document not required by law to be attested may be proved as if it was unattested."
+                        }
+                    },
+                    "Section 72.": {
+                        "heading": "Comparison of signature, writing or seal with others admitted or proved.",
+                        "paragraphs": {
+                            "0": "(1) In order to ascertain whether a signature, writing or seal is that of the person by whom it purports to have been written or made, any signature, writing, or seal admitted or proved to the satisfaction of the Court to have been written or made by that person may be compared with the one which is to be proved, although that signature, writing or seal has not been produced or proved for any other purpose.",
+                            "1": "(2) The Court may direct any person present in Court to write any words or figures for the purpose of enabling the Court to compare the words or figures so written with any words or figures alleged to have been written by such person.",
+                            "2": "(3) This section applies also, with any necessary modifications, to finger impressions."
+                        }
+                    },
+                    "Section 73.": {
+                        "heading": "Proof as to verification of digital signature.",
+                        "paragraphs": {
+                            "0": "In order to ascertain whether a digital signature is that of the person by whom it purports to have been affixed, the Court may direct—",
+                            "1": "(a) that person or the Controller or the Certifying Authority to produce the Digital Signature Certificate;",
+                            "2": "(b) any other person to apply the public key listed in the Digital Signature Certificate and verify the digital signature purported to have been affixed by that person."
+                        }
+                    },
+                    "Section 74.": {
+                        "heading": "Public and private documents.",
+                        "paragraphs": {
+                            "0": "(1) The following documents are public documents:—",
+                            "1": "(a) documents forming the acts, or records of the acts—",
+                            "2": "(i) of the sovereign authority;",
+                            "3": "(ii) of official bodies and tribunals;",
+                            "4": "(iii) of public officers, legislative, judicial and executive of India or of a foreign country;",
+                            "5": "(b) public records kept in any State or Union territory of private documents.",
+                            "6": "(2) All other documents except the documents referred to in sub-section (1) are private."
+                        }
+                    },
+                    "Section 75.": {
+                        "heading": "Certified copies of public documents.",
+                        "paragraphs": {
+                            "0": "Every public officer having the custody of a public document, which any person has a right to inspect, shall give that person on demand a copy of it on payment of the legal fees therefor, together with a certificate written at the foot of such copy that it is a true copy of such document or part thereof, as the case may be, and such certificate shall be dated and subscribed by such officer with his name and his official title, and shall be sealed, whenever such officer is authorised by law to make use of a seal; and such copies so certified shall be called certified copies.",
+                            "1": "Explanation.—Any officer who, by the ordinary course of official duty, is authorised to deliver such copies, shall be deemed to have the custody of such documents within the meaning of this section."
+                        }
+                    },
+                    "Section 76.": {
+                        "heading": "Proof of documents by production of certified copies.",
+                        "paragraphs": {
+                            "0": "Such certified copies may be produced in proof of the contents of the public documents or parts of the public documents of which they purport to be copies."
+                        }
+                    }
+                }
+            },
+            "5": {
+                "ID": "CHAPTER VI",
+                "Name": "OF THE EXCLUSION OF ORAL EVIDENCE BY DOCUMENTARY EVIDENCE",
+                "Sections": {
+                    "Section 94.": {
+                        "heading": "Evidence of terms of contracts, grants and other dispositions of property reduced to form of document.",
+                        "paragraphs": {
+                            "0": "(1) When the terms of a contract, or of a grant, or of any other disposition of property, have been reduced to the form of a document, and in all cases in which any matter is required by law to be reduced to the form of a document, no evidence shall be given in proof of the terms of such contract, grant or other disposition of property, or of such matter, except the document itself, or secondary evidence of its contents in cases in which secondary evidence is admissible under the provisions hereinbefore contained.",
+                            "1": "Exception 1.—When a public officer is required by law to be appointed in writing, and when it is shown that any particular person has acted as such officer, the writing by which he is appointed need not be proved.",
+                            "2": "Exception 2.—Wills admitted to probate in India may be proved by the probate.",
+                            "3": "Explanation 1.—This section applies equally to cases in which the contracts, grants or dispositions of property referred to are contained in one document, and to cases in which they are contained in more documents than one.",
+                            "4": "Explanation 2.—Where there are more originals than one, one original only need be proved.",
+                            "5": "Explanation 3.—The statement, in any document whatever, of a fact other than the facts referred to in this section, shall not preclude the admission of oral evidence as to the same fact.",
+                            "6": "Illustrations. (a) If a contract be contained in several letters, all the letters in which it is contained must be proved.",
+                            "7": "(b) If a contract is contained in a bill of exchange, the bill of exchange must be proved.",
+                            "8": "(c) If a bill of exchange is drawn in a set of three, one only need be proved.",
+                            "9": "(d) A contracts, in writing, with B, for the delivery of indigo upon certain terms. The contract mentions the fact that B had paid A the price of other indigo contracted for verbally on another occasion. Oral evidence is offered that no payment was made for the other indigo. The evidence is admissible.",
+                            "10": "(e) A gives B a receipt for money paid by B. Oral evidence is offered of the payment. The evidence is admissible."
+                        }
+                    },
+                    "Section 95.": {
+                        "heading": "Exclusion of evidence of oral agreement.",
+                        "paragraphs": {
+                            "0": "When the terms of any such contract, grant or other disposition of property, or any matter required by law to be reduced to the form of a document, have been proved according to section 94, no evidence of any oral agreement or statement shall be admitted, as between the parties to any such instrument or their representatives in interest, for the purpose of contradicting, varying, adding to, or subtracting from, its terms:",
+                            "1": "Provided that any fact may be proved which would invalidate any document, or which would entitle any person to any decree or order relating thereto; such as fraud, intimidation, illegality, want of due execution, want of capacity in any contracting party, want or failure of consideration, or mistake in fact or law:",
+                            "2": "Provided further that the existence of any separate oral agreement as to any matter on which a document is silent, and which is not inconsistent with its terms, may be proved.",
+                            "3": "Provided also that the existence of any separate oral agreement, constituting a condition precedent to the attaching of any obligation under any such contract, grant or disposition of property, may be proved:",
+                            "4": "Provided also that the existence of any distinct subsequent oral agreement to rescind or modify any such contract, grant or disposition of property, may be proved, except in cases in which such contract, grant or disposition of property is by law required to be in writing, or has been registered according to the law in force for the time being as to the registration of documents:",
+                            "5": "Provided also that any usage or custom by which incidents not expressly mentioned in any contract are usually annexed to contracts of that description, may be proved:",
+                            "6": "Provided also that the annexing of such incident would not be repugnant to, or inconsistent with, the express terms of the contract:",
+                            "7": "Provided also that any fact may be proved which shows in what manner the language of a document is related to existing facts.",
+                            "8": "Illustrations. (a) A policy of insurance is effected on goods “in ships from Kolkata to Visakhapatnam”. The goods are shipped in a particular ship which is lost. The fact that particular ship was orally excepted from the policy, cannot be proved.",
+                            "9": "(b) A agrees absolutely in writing to pay B one thousand rupees on the 1st March, 2023. The fact that, at the same time, an oral agreement was made that the money should not be paid till the 31st March, 2023, cannot be proved.",
+                            "10": "(c) An estate called “the Rampur tea estate” is sold by a deed which contains a map of the property sold. The fact that land not included in the map had always been regarded as part of the estate and was meant to pass by the deed cannot be proved.",
+                            "11": "(d) A enters into a written contract with B to work certain mines, the property of B, upon certain terms. A was induced to do so by a misrepresentation of B's as to their value. This fact may be proved.",
+                            "12": "(e) A institutes a suit against B for the specific performance of a contract, and also prays that the contract may be reformed as to one of its provisions, as that provision was inserted in it by mistake. A may prove that such a mistake was made as would by law entitle him to have the contract reformed.",
+                            "13": "(f) A orders goods of B by a letter in which nothing is said as to the time of payment, and accepts the goods on delivery. B sues A for the price. A may show that the goods were supplied on credit for a term still unexpired.",
+                            "14": "(g) A sells B a horse and verbally warrants him sound. A gives B a paper in these words— “Bought of A a horse for thirty thousand rupees”. B may prove the verbal warranty.",
+                            "15": "(h) A hires lodgings of B, and gives B a card on which is written— “Rooms, ten thousand rupees a month”. A may prove a verbal agreement that these terms were to include partial board.",
+                            "16": "A hires lodging of B for a year, and a regularly stamped agreement, drawn up by an advocate, is made between them. It is silent on the subject of board. A may not prove that board was included in the term verbally.",
+                            "17": "(i) A applies to B for a debt due to A by sending a receipt for the money. B keeps the receipt and does not send the money. In a suit for the amount, A may prove this.",
+                            "18": "(j) A and B make a contract in writing to take effect upon the happening of a certain contingency. The writing is left with B who sues A upon it. A may show the circumstances under which it was delivered."
+                        }
+                    },
+                    "Section 96.": {
+                        "heading": "Exclusion of evidence to explain or amend ambiguous document.",
+                        "paragraphs": {
+                            "0": "When the language used in a document is, on its face, ambiguous or defective, evidence may not be given of facts which would show its meaning or supply its defects.",
+                            "1": "Illustrations. (a) A agrees, in writing, to sell a horse to B for “one lakh rupees or one lakh fifty thousand rupees”. Evidence cannot be given to show which price was to be given.",
+                            "2": "(b) A deed contains blanks. Evidence cannot be given of facts which would show how they were meant to be filled."
+                        }
+                    },
+                    "Section 97.": {
+                        "heading": "Exclusion of evidence against application of document to existing facts.",
+                        "paragraphs": {
+                            "0": "When language used in a document is plain in itself, and when it applies accurately to existing facts, evidence may not be given to show that it was not meant to apply to such facts.",
+                            "1": "Illustration. A sells to B, by deed, “my estate at Rampur containing one hundred bighas”. A has an estate at Rampur containing one hundred bighas. Evidence may not be given of the fact that the estate meant to be sold was one situated at a different place and of a different size."
+                        }
+                    },
+                    "Section 98.": {
+                        "heading": "Evidence as to document unmeaning in reference to existing facts.",
+                        "paragraphs": {
+                            "0": "When language used in a document is plain in itself, but is unmeaning in reference to existing facts, evidence may be given to show that it was used in a peculiar sense.",
+                            "1": "Illustration. A sells to B, by deed, “my house in Kolkata”. A had no house in Kolkata, but it appears that he had a house at Howrah, of which B had been in possession since the execution of the deed. These facts may be proved to show that the deed related to the house at Howrah."
+                        }
+                    },
+                    "Section 99.": {
+                        "heading": "Evidence as to application of language which can apply to one only of several persons.",
+                        "paragraphs": {
+                            "0": "When the facts are such that the language used might have been meant to apply to any one, and could not have been meant to apply to more than one, of several persons or things, evidence may be given of facts which show which of those persons or things it was intended to apply to.",
+                            "1": "Illustrations. (a) A agrees to sell to B, for one thousand rupees, “my white horse”. A has two white horses. Evidence may be given of facts which show which of them was meant.",
+                            "2": "(b) A agrees to accompany B to Ramgarh. Evidence may be given of facts showing whether Ramgarh in Rajasthan or Ramgarh in Uttarakhand was meant."
+                        }
+                    },
+                    "Section 100.": {
+                        "heading": "Evidence as to application of language to one of two sets of facts, to neither of which the whole correctly applies.",
+                        "paragraphs": {
+                            "0": "When the language used applies partly to one set of existing facts, and partly to another set of existing facts, but the whole of it does not apply correctly to either, evidence may be given to show to which of the two it was meant to apply.",
+                            "1": "Illustration. A agrees to sell to B “my land at X in the occupation of Y”. A has land at X, but not in the occupation of Y, and he has land in the occupation of Y but it is not at X. Evidence may be given of facts showing which he meant to sell."
+                        }
+                    },
+                    "Section 101.": {
+                        "heading": "Evidence as to meaning of illegible characters, etc.",
+                        "paragraphs": {
+                            "0": "Evidence may be given to show the meaning of illegible or not commonly intelligible characters, of foreign, obsolete, technical, local and regional expressions, of abbreviations and of words used in a peculiar sense.",
+                            "1": "Illustration. A, sculptor, agrees to sell to B, “all my mods”. A has both models and modelling tools. Evidence may be given to show which he meant to sell."
+                        }
+                    },
+                    "Section 102.": {
+                        "heading": "Who may give evidence of agreement varying terms of document.",
+                        "paragraphs": {
+                            "0": "Persons who are not parties to a document, or their representatives in interest, may give evidence of any facts tending to show a contemporaneous agreement varying the terms of the document.",
+                            "1": "Illustration. A and B make a contract in writing that B shall sell A certain cotton, to be paid for on delivery. At the same time, they make an oral agreement that three months’ credit shall be given to A. This could not be shown as between A and B, but it might be shown by C, if it affected his interests."
+                        }
+                    },
+                    "Section 103.": {
+                        "heading": "Saving of provisions of Indian Succession Act relating to wills.",
+                        "paragraphs": {
+                            "0": "Nothing in this Chapter shall be taken to affect any of the provisions of the Indian Succession Act, 1925 (39 of 1925) as to the construction of wills."
+                        }
+                    }
+                }
+            },
+            "6": {
+                "ID": "CHAPTER VII",
+                "Name": "OF THE BURDEN OF PROOF",
+                "Sections": {
+                    "Section 104.": {
+                        "heading": "Burden of proof.—",
+                        "paragraphs": {
+                            "0": "(1) Whoever desires any Court to give judgment as to any legal right or liability dependent on the existence of facts which he asserts must prove that those facts exist, and when a person is bound to prove the existence of any fact, it is said that the burden of proof lies on that person.",
+                            "1": "Illustrations. (a) A desires a Court to give judgment that B shall be punished for a crime which A says B has committed. A must prove that B has committed the crime.",
+                            "2": "(b) A desires a Court to give judgment that he is entitled to certain land in the possession of B, by reason of facts which he asserts, and which B denies, to be true. A must prove the existence of those facts."
+                        }
+                    },
+                    "Section 105.": {
+                        "heading": "On whom burden of proof lies.—",
+                        "paragraphs": {
+                            "0": "The burden of proof in a suit or proceeding lies on that person who would fail if no evidence at all were given on either side.",
+                            "1": "Illustrations. (a) A sues B for land of which B is in possession, and which, as A asserts, was left to A by the will of C, B's father.",
+                            "2": "If no evidence were given on either side, B would be entitled to retain his possession. Therefore, the burden of proof is on A.",
+                            "3": "(b) A sues B for money due on a bond. The execution of the bond is admitted, but B says that it was obtained by fraud, which A denies.",
+                            "4": "If no evidence were given on either side, A would succeed, as the bond is not disputed and the fraud is not proved. Therefore, the burden of proof is on B."
+                        }
+                    },
+                    "Section 106.": {
+                        "heading": "Burden of proof as to particular fact.—",
+                        "paragraphs": {
+                            "0": "The burden of proof as to any particular fact lies on that person who wishes the Court to believe in its existence, unless it is provided by any law that the proof of that fact shall lie on any particular person.",
+                            "1": "Illustration. A prosecutes B for theft, and wishes the Court to believe that B admitted the theft to C. A must prove the admission.",
+                            "2": "B wishes the Court to believe that, at the time in question, he was elsewhere. He must prove it."
+                        }
+                    },
+                    "Section 107.": {
+                        "heading": "Burden of proving fact to be proved to make evidence admissible.—",
+                        "paragraphs": {
+                            "0": "The burden of proving any fact necessary to be proved in order to enable any person to give evidence of any other fact is on the person who wishes to give such evidence.",
+                            "1": "Illustrations. (a) A wishes to prove a dying declaration by B. A must prove B's death.",
+                            "2": "(b) A wishes to prove, by secondary evidence, the contents of a lost document. A must prove that the document has been lost."
+                        }
+                    },
+                    "Section 108.": {
+                        "heading": "Burden of proving that case of accused comes within exceptions.—",
+                        "paragraphs": {
+                            "0": "When a person is accused of any offence, the burden of proving the existence of circumstances bringing the case within any of the General Exceptions in the Bharatiya Nyaya Sanhita, 2023 or within any special exception or proviso contained in any other part of the said Sanhita, or in any law defining the offence, is upon him, and the Court shall presume the absence of such circumstances.",
+                            "1": "Illustrations. (a) A, accused of murder, alleges that, by reason of unsoundness of mind, he did not know the nature of the act. The burden of proof is on A.",
+                            "2": "(b) A, accused of murder, alleges that, by grave and sudden provocation, he was deprived of the power of self-control. The burden of proof is on A.",
+                            "3": "(c) Section 117 of the Bharatiya Nyaya Sanhita, 2023 provides that whoever, except in the case provided for by sub-section (2) of section 122, voluntarily causes grievous hurt, shall be subject to certain punishments.",
+                            "4": "A is charged with voluntarily causing grievous hurt under section 117. The burden of proving the circumstances bringing the case under sub-section (2) of section 122 lies on A."
+                        }
+                    },
+                    "Section 109.": {
+                        "heading": "Burden of proving fact especially within knowledge.—",
+                        "paragraphs": {
+                            "0": "When any fact is especially within the knowledge of any person, the burden of proving that fact is upon him.",
+                            "1": "Illustrations. (a) When a person does an act with some intention other than that which the character and circumstances of the act suggest, the burden of proving that intention is upon him.",
+                            "2": "(b) A is charged with travelling on a railway without a ticket. The burden of proving that he had a ticket is on him."
+                        }
+                    },
+                    "Section 110.": {
+                        "heading": "Burden of proving death of person known to have been alive within thirty years.—",
+                        "paragraphs": {
+                            "0": "When the question is whether a man is alive or dead, and it is shown that he was alive within thirty years, the burden of proving that he is dead is on the person who affirms it."
+                        }
+                    },
+                    "Section 111.": {
+                        "heading": "Burden of proving that person is alive who has not been heard of for seven years.—",
+                        "paragraphs": {
+                            "0": "When the question is whether a man is alive or dead, and it is proved that he has not been heard of for seven years by those who would naturally have heard of him if he had been alive, the burden of proving that he is alive is shifted to the person who affirms it."
+                        }
+                    },
+                    "Section 112.": {
+                        "heading": "Burden of proof as to relationship in the cases of partners, landlord and tenant, principal and agent.—",
+                        "paragraphs": {
+                            "0": "When the question is whether persons are partners, landlord and tenant, or principal and agent, and it has been shown that they have been acting as such, the burden of proving that they do not stand, or have ceased to stand, to each other in those relationships respectively, is on the person who affirms it."
+                        }
+                    },
+                    "Section 113.": {
+                        "heading": "Burden of proof as to ownership.—",
+                        "paragraphs": {
+                            "0": "When the question is whether any person is owner of anything of which he is shown to be in possession, the burden of proving that he is not the owner is on the person who affirms that he is not the owner."
+                        }
+                    },
+                    "Section 114.": {
+                        "heading": "Proof of good faith in transactions where one party is in relation of active confidence.—",
+                        "paragraphs": {
+                            "0": "Where there is a question as to the good faith of a transaction between parties, one of whom stands to the other in a position of active confidence, the burden of proving the good faith of the transaction is on the party who is in a position of active confidence.",
+                            "1": "Illustrations. (a) The good faith of a sale by a client to an advocate is in question in a suit brought by the client.",
+                            "2": "The burden of proving the good faith of the transaction is on the advocate.",
+                            "3": "(b) The good faith of a sale by a son just come of age to a father is in question in a suit brought by the son.",
+                            "4": "The burden of proving the good faith of the transaction is on the father."
+                        }
+                    },
+                    "Section 115.": {
+                        "heading": "Presumption as to certain offences.—",
+                        "paragraphs": {
+                            "0": "(1) Where a person is accused of having committed any offence specified in sub-section (2), in—",
+                            "1": "(a) any area declared to be a disturbed area under any enactment for the time being in force, making provision for the suppression of disorder and restoration and maintenance of public order;",
+                            "2": "(b) any area in which there has been, over a period of more than one month, extensive disturbance of the public peace, and it is shown that such person had been at a place in such area at a time when firearms or explosives were used at or from that place to attack or resist the members of any armed forces or the forces charged with the maintenance of public order acting in the discharge of their duties, it shall be presumed, unless the contrary is shown, that such person had committed such offence.",
+                            "3": "(2) The offences referred to in sub-section (1) are the following, namely:—",
+                            "4": "(a) an offence under section 147, section 148, section 149 or section 150 of the Bharatiya Nyaya Sanhita, 2023;",
+                            "5": "(b) criminal conspiracy or attempt to commit, or abetment of, an offence under section 149 or section 150 of the Bharatiya Nyaya Sanhita, 2023."
+                        }
+                    },
+                    "Section 116.": {
+                        "heading": "Birth during marriage, conclusive proof of legitimacy.—",
+                        "paragraphs": {
+                            "0": "The fact that any person was born during the continuance of a valid marriage between his mother and any man, or within two hundred and eighty days after its dissolution, the mother remaining unmarried, shall be conclusive proof that he is the legitimate child of that man, unless it can be shown that the parties to the marriage had no access to each other at any time when he could have been begotten."
+                        }
+                    },
+                    "Section 117.": {
+                        "heading": "Presumption as to abetment of suicide by a married woman.—",
+                        "paragraphs": {
+                            "0": "When the question is whether the commission of suicide by a woman had been abetted by her husband or any relative of her husband and it is shown that she had committed suicide within a period of seven years from the date of her marriage and that her husband or such relative of her husband had subjected her to cruelty, the Court may presume, having regard to all the other circumstances of the case, that such suicide had been abetted by her husband or by such relative of her husband.",
+                            "1": "Explanation.—For the purposes of this section, “cruelty” shall have the same meaning as in section 86 of the Bharatiya Nyaya Sanhita, 2023."
+                        }
+                    },
+                    "Section 118.": {
+                        "heading": "Presumption as to dowry death.—",
+                        "paragraphs": {
+                            "0": "When the question is whether a person has committed the dowry death of a woman and it is shown that soon before her death, such woman had been subjected by such person to cruelty or harassment for, or in connection with, any demand for dowry, the Court shall presume that such person had caused the dowry death.",
+                            "1": "Explanation.—For the purposes of this section, “dowry death” shall have the same meaning as in section 80 of the Bharatiya Nyaya Sanhita, 2023."
+                        }
+                    },
+                    "Section 119.": {
+                        "heading": "Court may presume existence of certain facts.—",
+                        "paragraphs": {
+                            "0": "(1) The Court may presume the existence of any fact which it thinks likely to have happened, regard being had to the common course of natural events, human conduct and public and private business, in their relation to the facts of the particular case.",
+                            "1": "Illustrations. The Court may presume that—",
+                            "2": "(a) a man who is in possession of stolen goods soon, after the theft is either the thief or has received the goods knowing them to be stolen, unless he can account for his possession;",
+                            "3": "(b) an accomplice is unworthy of credit, unless he is corroborated in material particulars;",
+                            "4": "(c) a bill of exchange, accepted or endorsed, was accepted or endorsed for good consideration;",
+                            "5": "(d) a thing or state of things which has been shown to be in existence within a period shorter than that within which such things or state of things usually cease to exist, is still in existence;",
+                            "6": "(e) judicial and official acts have been regularly performed;",
+                            "7": "(f) the common course of business has been followed in particular cases;",
+                            "8": "(g) evidence which could be and is not produced would, if produced, be unfavourable to the person who withholds it;",
+                            "9": "(h) if a man refuses to answer a question which he is not compelled to answer by law, the answer, if given, would be unfavourable to him;",
+                            "10": "(i) when a document creating an obligation is in the hands of the obligor, the obligation has been discharged.",
+                            "11": "(2) The Court shall also have regard to such facts as the following, in considering whether such maxims do or do not apply to the particular case before it:—",
+                            "12": "(i) as to Illustration (a)—a shop-keeper has in his bill a marked rupee soon after it was stolen, and cannot account for its possession specifically, but is continually receiving rupees in the course of his business;",
+                            "13": "(ii) as to Illustration (b) —A, a person of the highest character, is tried for causing a man's death by an act of negligence in arranging certain machinery.",
+                            "14": "B, a person of equally good character, who also took part in the arrangement, describes precisely what was done, and admits and explains the common carelessness of A and himself;",
+                            "15": "(iii) as to Illustration (b) —a crime is committed by several persons.",
+                            "16": "A, B and C, three of the criminals, are captured on the spot and kept apart from each other.",
+                            "17": "Each gives an account of the crime implicating D, and the accounts corroborate each other in such a manner as to render previous concert highly improbable;",
+                            "18": "(iv) as to Illustration (c)—A, the drawer of a bill of exchange, was a man of business.",
+                            "19": "B, the acceptor, was a young and ignorant person, completely under A's influence;",
+                            "20": "(v) as to Illustration (d)—it is proved that a river ran in a certain course five years ago, but it is known that there have been floods since that time which might change its course;",
+                            "21": "(vi) as to Illustration (e)—a judicial act, the regularity of which is in question, was performed under exceptional circumstances;",
+                            "22": "(vii) as to Illustration (f)—the question is, whether a letter was received.",
+                            "23": "It is shown to have been posted, but the usual course of the post was interrupted by disturbances;",
+                            "24": "(viii) as to Illustration (g)—a man refuses to produce a document which would bear on a contract of small importance on which he is sued, but which might also injure the feelings and reputation of his family;",
+                            "25": "(ix) as to Illustration (h)—a man refuses to answer a question which he is not compelled by law to answer, but the answer to it might cause loss to him in matters unconnected with the matter in relation to which it is asked;",
+                            "26": "(x) as to Illustration (i)—a bond is in possession of the obligor, but the circumstances of the case are such that he may have stolen it."
+                        }
+                    },
+                    "Section 120.": {
+                        "heading": "Presumption as to absence of consent in certain prosecution for rape.—",
+                        "paragraphs": {
+                            "0": "In a prosecution for rape under sub-section (2) of section 64 of the Bharatiya Nyaya Sanhita, 2023, where sexual intercourse by the accused is proved and the question is whether it was without the consent of the woman alleged to have been raped and such woman states in her evidence before the Court that she did not consent, the Court shall presume that she did not consent.",
+                            "1": "Explanation.—In this section, “sexual intercourse” shall mean any of the acts mentioned in section 63 of the Bharatiya Nyaya Sanhita, 2023."
+                        }
+                    }
+                }
+            },
+            "7": {
+                "ID": "CHAPTER VIII",
+                "Name": "ESTOPPEL",
+                "Sections": {
+                    "Section 121.": {
+                        "heading": "Estoppel.—When one person has, by his declaration, act or omission, intentionally caused or permitted another person to believe a thing to be true and to act upon such belief, neither he nor his representative shall be allowed, in any suit or proceeding between himself and such person or his representative, to deny the truth of that thing.",
+                        "paragraphs": {
+                            "0": "(1) A intentionally and falsely leads B to believe that certain land belongs to A, and thereby induces B to buy and pay for it.",
+                            "1": "The land afterwards becomes the property of A, and A seeks to set aside the sale on the ground that, at the time of the sale, he had no title.",
+                            "2": "He must not be allowed to prove his want of title."
+                        }
+                    },
+                    "Section 122.": {
+                        "heading": "Estoppel of tenant and of licensee of person in possession.—No tenant of immovable property, or person claiming through such tenant, shall, during the continuance of the tenancy or any time thereafter, be permitted to deny that the landlord of such tenant had, at the beginning of the tenancy, a title to such immovable property; and no person who came upon any immovable property by the licence of the person in possession thereof shall be permitted to deny that such person had a title to such possession at the time when such licence was given.",
+                        "paragraphs": {
+                            "0": ""
+                        }
+                    },
+                    "Section 123.": {
+                        "heading": "Estoppel of acceptor of bill of exchange, bailee or licensee.—No acceptor of a bill of exchange shall be permitted to deny that the drawer had authority to draw such bill or to endorse it; nor shall any bailee or licensee be permitted to deny that his bailor or licensor had, at the time when the bailment or licence commenced, authority to make such bailment or grant such licence.",
+                        "paragraphs": {
+                            "0": "Explanation 1.—The acceptor of a bill of exchange may deny that the bill was really drawn by the person by whom it purports to have been drawn.",
+                            "1": "Explanation 2.—If a bailee delivers the goods bailed to a person other than the bailor, he may prove that such person had a right to them as against the bailor."
+                        }
+                    }
+                }
+            },
+            "8": {
+                "ID": "CHAPTER IX",
+                "Name": "OF WITNESSES",
+                "Sections": {
+                    "Section 124.": {
+                        "heading": "Who may testify",
+                        "paragraphs": {
+                            "0": "All persons shall be competent to testify unless the Court considers that they are prevented from understanding the questions put to them, or from giving rational answers to those questions, by tender years, extreme old age, disease, whether of body or mind, or any other cause of the same kind.",
+                            "1": "Explanation.—A person of unsound mind is not incompetent to testify, unless he is prevented by his unsoundness of mind from understanding the questions put to him and giving rational answers to them."
+                        }
+                    },
+                    "Section 125.": {
+                        "heading": "Witness unable to communicate verbally",
+                        "paragraphs": {
+                            "0": "A witness who is unable to speak may give his evidence in any other manner in which he can make it intelligible, as by writing or by signs; but such writing must be written and the signs made in open Court and evidence so given shall be deemed to be oral evidence: Provided that if the witness is unable to communicate verbally, the Court shall take the assistance of an interpreter or a special educator in recording the statement, and such statement shall be videographed."
+                        }
+                    },
+                    "Section 126.": {
+                        "heading": "Competency of husband and wife as witnesses in certain cases",
+                        "paragraphs": {
+                            "0": "(1) In all civil proceedings the parties to the suit, and the husband or wife of any party to the suit, shall be competent witnesses.",
+                            "1": "(2) In criminal proceedings against any person, the husband or wife of such person, respectively, shall be a competent witness."
+                        }
+                    },
+                    "Section 127.": {
+                        "heading": "Judges and Magistrates",
+                        "paragraphs": {
+                            "0": "No Judge or Magistrate shall, except upon the special order of some Court to which he is subordinate, be compelled to answer any question as to his own conduct in Court as such Judge or Magistrate, or as to anything which came to his knowledge in Court as such Judge or Magistrate; but he may be examined as to other matters which occurred in his presence whilst he was so acting.",
+                            "1": "Illustrations. (a) A, on his trial before the Court of Session, says that a deposition was improperly taken by B, the Magistrate. B cannot be compelled to answer questions as to this, except upon the special order of a superior Court.",
+                            "2": "(b) A is accused before the Court of Session of having given false evidence before B, a Magistrate. B cannot be asked what A said, except upon the special order of the superior Court.",
+                            "3": "(c) A is accused before the Court of Session of attempting to murder a police officer whilst on his trial before B, a Sessions Judge. B may be examined as to what occurred."
+                        }
+                    },
+                    "Section 128.": {
+                        "heading": "Communications during marriage",
+                        "paragraphs": {
+                            "0": "No person who is or has been married, shall be compelled to disclose any communication made to him during marriage by any person to whom he is or has been married; nor shall he be permitted to disclose any such communication, unless the person who made it, or his representative in interest, consents, except in suits between married persons, or proceedings in which one married person is prosecuted for any crime committed against the other."
+                        }
+                    },
+                    "Section 129.": {
+                        "heading": "Evidence as to affairs of State",
+                        "paragraphs": {
+                            "0": "No one shall be permitted to give any evidence derived from unpublished official records relating to any affairs of State, except with the permission of the officer at the head of the department concerned, who shall give or withhold such permission as he thinks fit."
+                        }
+                    },
+                    "Section 130.": {
+                        "heading": "Official communications",
+                        "paragraphs": {
+                            "0": "No public officer shall be compelled to disclose communications made to him in official confidence, when he considers that the public interests would suffer by the disclosure."
+                        }
+                    },
+                    "Section 131.": {
+                        "heading": "Information as to commission of offences",
+                        "paragraphs": {
+                            "0": "No Magistrate or police officer shall be compelled to say when he got any information as to the commission of any offence, and no revenue officer shall be compelled to say when he got any information as to the commission of any offence against the public revenue.",
+                            "1": "Explanation.—“revenue officer” means any officer employed in or about the business of any branch of the public revenue."
+                        }
+                    },
+                    "Section 132.": {
+                        "heading": "Professional communications",
+                        "paragraphs": {
+                            "0": "(1) No advocate, shall at any time be permitted, unless with his client’s express consent, to disclose any communication made to him in the course and for the purpose of his service as such advocate, by or on behalf of his client, or to state the contents or condition of any document with which he has become acquainted in the course and for the purpose of his professional service, or to disclose any advice given by him to his client in the course and for the purpose of such service: Provided that nothing in this section shall protect from disclosure of—",
+                            "1": "(a) any such communication made in furtherance of any illegal purpose;",
+                            "2": "(b) any fact observed by any advocate, in the course of his service as such, showing that any crime or fraud has been committed since the commencement of his service.",
+                            "3": "Explanation.—The obligation stated in this section continues after the professional service has ceased.",
+                            "4": "Illustrations. (a) A, a client, says to B, an advocate— “I have committed forgery, and I wish you to defend me”. As the defence of a man known to be guilty is not a criminal purpose, this communication is protected from disclosure.",
+                            "5": "(b) A, a client, says to B, an advocate— “I wish to obtain possession of property by the use of a forged deed on which I request you to sue”. This communication, being made in furtherance of a criminal purpose, is not protected from disclosure.",
+                            "6": "(c) A, being charged with embezzlement, retains B, an advocate, to defend him. In the course of the proceedings, B observes that an entry has been made in A’s account book, charging A with the sum said to have been embezzled, which entry was not in the book at the commencement of his professional service. This being a fact observed by B in the course of his service, showing that a fraud has been committed since the commencement of the proceedings, it is not protected from disclosure.",
+                            "7": "(2) The provisions of this section shall apply to interpreters, and the clerks or employees of advocates.",
+                            "8": "(3) The provisions of this section shall apply to interpreters, and the clerks or employees of advocates."
+                        }
+                    },
+                    "Section 133.": {
+                        "heading": "Privilege not waived by volunteering evidence",
+                        "paragraphs": {
+                            "0": "If any party to a suit gives evidence therein at his own instance or otherwise, he shall not be deemed to have consented thereby to such disclosure as is mentioned in section 132; and, if any party to a suit or proceeding calls any such advocate, as a witness, he shall be deemed to have consented to such disclosure only if he questions such advocate, on matters which, but for such question, he would not be at liberty to disclose."
+                        }
+                    },
+                    "Section 134.": {
+                        "heading": "Confidential communication with legal advisers",
+                        "paragraphs": {
+                            "0": "No one shall be compelled to disclose to the Court any confidential communication which has taken place between him and his legal adviser, unless he offers himself as a witness, in which case he may be compelled to disclose any such communications as may appear to the Court necessary to be known in order to explain any evidence which he has given, but no others."
+                        }
+                    },
+                    "Section 135.": {
+                        "heading": "Production of title-deeds of witness not a party",
+                        "paragraphs": {
+                            "0": "No witness who is not a party to a suit shall be compelled to produce his title-deeds to any property, or any document in virtue of which he holds any property as pledgee or mortgagee or any document the production of which might tend to criminate him, unless he has agreed in writing to produce them with the person seeking the production of such deeds or some person through whom he claims."
+                        }
+                    },
+                    "Section 136.": {
+                        "heading": "Production of documents or electronic records which another person, having possession, could refuse to produce",
+                        "paragraphs": {
+                            "0": "No one shall be compelled to produce documents in his possession or electronic records under his control, which any other person would be entitled to refuse to produce if they were in his possession or control, unless such last-mentioned person consents to their production."
+                        }
+                    },
+                    "Section 137.": {
+                        "heading": "Witness not excused from answering on ground that answer will criminate",
+                        "paragraphs": {
+                            "0": "A witness shall not be excused from answering any question as to any matter relevant to the matter in issue in any suit or in any civil or criminal proceeding, upon the ground that the answer to such question will criminate, or may tend directly or indirectly to criminate, such witness, or that it will expose, or tend directly or indirectly to expose, such witness to a penalty or forfeiture of any kind: Provided that no such answer, which a witness shall be compelled to give, shall subject him to any arrest or prosecution, or be proved against him in any criminal proceeding, except a prosecution for giving false evidence by such answer."
+                        }
+                    },
+                    "Section 138.": {
+                        "heading": "Accomplice",
+                        "paragraphs": {
+                            "0": "An accomplice shall be a competent witness against an accused person; and a conviction is not illegal if it proceeds upon the corroborated testimony of an accomplice."
+                        }
+                    },
+                    "Section 139.": {
+                        "heading": "Number of witnesses",
+                        "paragraphs": {
+                            "0": "No particular number of witnesses shall in any case be required for the proof of any fact."
+                        }
+                    }
+                }
+            },
+            "9": {
+                "ID": "CHAPTER X",
+                "Name": "OF EXAMINATION OF WITNESSES",
+                "Sections": {
+                    "Section 140.": {
+                        "heading": "Order of production and examination of witnesses",
+                        "paragraphs": {
+                            "0": "The order in which witnesses are produced and examined shall be regulated by the law and practice for the time being relating to civil and criminal procedure respectively, and, in the absence of any such law, by the discretion of the Court."
+                        }
+                    },
+                    "Section 141.": {
+                        "heading": "Judge to decide as to admissibility of evidence",
+                        "paragraphs": {
+                            "0": "(1) When either party proposes to give evidence of any fact, the Judge may ask the party proposing to give the evidence in what manner the alleged fact, if proved, would be relevant; and the Judge shall admit the evidence if he thinks that the fact, if proved, would be relevant, and not otherwise.",
+                            "1": "(2) If the fact proposed to be proved is one of which evidence is admissible only upon proof of some other fact, such last mentioned fact must be proved before evidence is given of the fact first mentioned, unless the party undertakes to give proof of such fact, and the Court is satisfied with such undertaking.",
+                            "2": "(3) If the relevancy of one alleged fact depends upon another alleged fact being first proved, the Judge may, in his discretion, either permit evidence of the first fact to be given before the second fact is proved, or require evidence to be given of the second fact before evidence is given of the first fact."
+                        }
+                    },
+                    "Section 142.": {
+                        "heading": "Examination of witnesses",
+                        "paragraphs": {
+                            "0": "(1) The examination of a witness by the party who calls him shall be called his examination-in-chief.",
+                            "1": "(2) The examination of a witness by the adverse party shall be called his cross-examination.",
+                            "2": "(3) The examination of a witness, subsequent to the cross-examination, by the party who called him, shall be called his re-examination."
+                        }
+                    },
+                    "Section 143.": {
+                        "heading": "Order of examinations",
+                        "paragraphs": {
+                            "0": "(1) Witnesses shall be first examined-in-chief, then (if the adverse party so desires) cross-examined, then (if the party calling him so desires) re-examined.",
+                            "1": "(2) The examination-in-chief and cross-examination must relate to relevant facts, but the cross-examination need not be confined to the facts to which the witness testified on his examination-in- chief.",
+                            "2": "(3) The re-examination shall be directed to the explanation of matters referred to in cross-examination; and, if new matter is, by permission of the Court, introduced in re-examination, the adverse party may further cross-examine upon that matter."
+                        }
+                    },
+                    "Section 144.": {
+                        "heading": "Cross-examination of person called to produce a document",
+                        "paragraphs": {
+                            "0": "A person summoned to produce a document does not become a witness by the mere fact that he produces it, and cannot be cross-examined unless and until he is called as a witness."
+                        }
+                    },
+                    "Section 145.": {
+                        "heading": "Witnesses to character",
+                        "paragraphs": {
+                            "0": "Witnesses to character may be cross-examined and re-examined."
+                        }
+                    },
+                    "Section 146.": {
+                        "heading": "Leading questions",
+                        "paragraphs": {
+                            "0": "(1) Any question suggesting the answer which the person putting it wishes or expects to receive, is called a leading question.",
+                            "1": "(2) Leading questions must not, if objected to by the adverse party, be asked in an examination-in-chief, or in a re-examination, except with the permission of the Court.",
+                            "2": "(3) The Court shall permit leading questions as to matters which are introductory or undisputed, or which have, in its opinion, been already sufficiently proved.",
+                            "3": "(4) Leading questions may be asked in cross-examination."
+                        }
+                    },
+                    "Section 147.": {
+                        "heading": "Evidence as to matters in writing",
+                        "paragraphs": {
+                            "0": "Any witness may be asked, while under examination, whether any contract, grant or other disposition of property, as to which he is giving evidence, was not contained in a document, and if he says that it was, or if he is about to make any statement as to the contents of any document, which, in the opinion of the Court, ought to be produced, the adverse party may object to such evidence being given until such document is produced, or until facts have been proved which entitle the party who called the witness to give secondary evidence of it."
+                        }
+                    },
+                    "Section 148.": {
+                        "heading": "Cross-examination as to previous statements in writing",
+                        "paragraphs": {
+                            "0": "A witness may be cross-examined as to previous statements made by him in writing or reduced into writing, and relevant to matters in question, without such writing being shown to him, or being proved; but, if it is intended to contradict him by the writing, his attention must, before the writing can be proved, be called to those parts of it which are to be used for the purpose of contradicting him."
+                        }
+                    },
+                    "Section 149.": {
+                        "heading": "Questions lawful in cross-examination",
+                        "paragraphs": {
+                            "0": "When a witness is cross-examined, he may, in addition to the questions hereinbefore referred to, be asked any questions which tend— (a) to test his veracity; or (b) to discover who he is and what is his position in life; or (c) to shake his credit, by injuring his character, although the answer to such questions might tend directly or indirectly to criminate him, or might expose or tend directly or indirectly to expose him to a penalty or forfeiture:"
+                        }
+                    },
+                    "Section 150.": {
+                        "heading": "When witness to be compelled to answer",
+                        "paragraphs": {
+                            "0": "If any such question relates to a matter relevant to the suit or proceeding, the provisions of section 137 shall apply thereto."
+                        }
+                    },
+                    "Section 151.": {
+                        "heading": "Court to decide when question shall be asked and when witness compelled to answer",
+                        "paragraphs": {
+                            "0": "(1) If any such question relates to a matter not relevant to the suit or proceeding, except in so far as it affects the credit of the witness by injuring his character, the Court shall decide whether or not the witness shall be compelled to answer it, and may, if it thinks fit, warn the witness that he is not obliged to answer it.",
+                            "1": "(2) In exercising its discretion, the Court shall have regard to the following considerations, namely:— (a) such questions are proper if they are of such a nature that the truth of the imputation conveyed by them would seriously affect the opinion of the Court as to the credibility of the witness on the matter to which he testifies;"
+                        }
+                    },
+                    "Section 152.": {
+                        "heading": "Question not to be asked without reasonable grounds",
+                        "paragraphs": {
+                            "0": "No such question as is referred to in section 151 ought to be asked, unless the person asking it has reasonable grounds for thinking that the imputation which it conveys is well-founded."
+                        }
+                    },
+                    "Section 153.": {
+                        "heading": "Procedure of Court in case of question being asked without reasonable grounds",
+                        "paragraphs": {
+                            "0": "If the Court is of opinion that any such question was asked without reasonable grounds, it may, if it was asked by any advocate, report the circumstances of the case to the High Court or other authority to which such advocate is subject in the exercise of his profession."
+                        }
+                    },
+                    "Section 154.": {
+                        "heading": "Indecent and scandalous questions",
+                        "paragraphs": {
+                            "0": "The Court may forbid any questions or inquiries which it regards as indecent or scandalous, although such questions or inquiries may have some bearing on the questions before the Court, unless they relate to facts in issue, or to matters necessary to be known in order to determine whether or not the facts in issue existed."
+                        }
+                    },
+                    "Section 155.": {
+                        "heading": "Questions intended to insult or annoy",
+                        "paragraphs": {
+                            "0": "The Court shall forbid any question which appears to it to be intended to insult or annoy, or which, though proper in itself, appears to the Court needlessly offensive in form."
+                        }
+                    },
+                    "Section 156.": {
+                        "heading": "Exclusion of evidence to contradict answers to questions testing veracity",
+                        "paragraphs": {
+                            "0": "When a witness has been asked and has answered any question which is relevant to the inquiry only in so far as it tends to shake his credit by injuring his character, no evidence shall be given to contradict him; but, if he answers falsely, he may afterwards be charged with giving false evidence."
+                        }
+                    },
+                    "Section 157.": {
+                        "heading": "Question by party to his own witness",
+                        "paragraphs": {
+                            "0": "(1) The Court may, in its discretion, permit the person who calls a witness to put any question to him which might be put in cross-examination by the adverse party.",
+                            "1": "(2) Nothing in this section shall disentitle the person so permitted under sub-section (1), to rely on any part of the evidence of such witness."
+                        }
+                    },
+                    "Section 158.": {
+                        "heading": "Impeaching credit of witness",
+                        "paragraphs": {
+                            "0": "The credit of a witness may be impeached in the following ways by the adverse party, or, with the consent of the Court, by the party who calls him— (a) by the evidence of persons who testify that they, from their knowledge of the witness, believe him to be unworthy of credit;"
+                        }
+                    },
+                    "Section 159.": {
+                        "heading": "Questions tending to corroborate evidence of relevant fact, admissible",
+                        "paragraphs": {
+                            "0": "When a witness whom it is intended to corroborate gives evidence of any relevant fact, he may be questioned as to any other circumstances which he observed at or near to the time or place at which such relevant fact occurred, if the Court is of opinion that such circumstances, if proved, would corroborate the testimony of the witness as to the relevant fact which he testifies."
+                        }
+                    },
+                    "Section 160.": {
+                        "heading": "Former statements of witness may be proved to corroborate later testimony as to same fact",
+                        "paragraphs": {
+                            "0": "In order to corroborate the testimony of a witness, any former statement made by such witness relating to the same fact, at or about the time when the fact took place, or before any authority legally competent to investigate the fact, may be proved."
+                        }
+                    },
+                    "Section 161.": {
+                        "heading": "What matters may be proved in connection with proved statement relevant under section 26 or 27",
+                        "paragraphs": {
+                            "0": "Whenever any statement, relevant under section 26 or 27, is proved, all matters may be proved either in order to contradict or to corroborate it, or in order to impeach or confirm the credit of the person by whom it was made, which might have been proved if that person had been called as a witness and had denied upon cross-examination the truth of the matter suggested."
+                        }
+                    },
+                    "Section 162.": {
+                        "heading": "Refreshing memory",
+                        "paragraphs": {
+                            "0": "(1) A witness may, while under examination, refresh his memory by referring to any writing made by himself at the time of the transaction concerning which he is questioned, or so soon afterwards that the Court considers it likely that the transaction was at that time fresh in his memory:",
+                            "1": "(2) Whenever a witness may refresh his memory by reference to any document, he may, with the permission of the Court, refer to a copy of such document: Provided that the Court be satisfied that there is sufficient reason for the non-production of the original: Provided further that an expert may refresh his memory by reference to professional treatises."
+                        }
+                    },
+                    "Section 163.": {
+                        "heading": "Testimony to facts stated in document mentioned in section 162",
+                        "paragraphs": {
+                            "0": "A witness may also testify to facts mentioned in any such document as is mentioned in section 162, although he has no specific recollection of the facts themselves, if he is sure that the facts were correctly recorded in the document."
+                        }
+                    },
+                    "Section 164.": {
+                        "heading": "Right of adverse party as to writing used to refresh memory",
+                        "paragraphs": {
+                            "0": "Any writing referred to under the provisions of the two last preceding sections shall be produced and shown to the adverse party if he requires it; such party may, if he pleases, cross-examine the witness thereupon."
+                        }
+                    },
+                    "Section 165.": {
+                        "heading": "Production of documents",
+                        "paragraphs": {
+                            "0": "(1) A witness summoned to produce a document shall, if it is in his possession or power, bring it to Court, notwithstanding any objection which there may be to its production or to its admissibility: Provided that the validity of any such objection shall be decided on by the Court.",
+                            "1": "(2) The Court, if it sees fit, may inspect the document, unless it refers to matters of State, or take other evidence to enable it to determine on its admissibility.",
+                            "2": "(3) If for such a purpose it is necessary to cause any document to be translated, the Court may, if it thinks fit, direct the translator to keep the contents secret, unless the document is to be given in evidence and, if the interpreter disobeys such direction, he shall be held to have committed an offence under section 198 of the Bharatiya Nyaya Sanhita, 2023: Provided that no Court shall require any communication between the Ministers and the President of India to be produced before it."
+                        }
+                    },
+                    "Section 166.": {
+                        "heading": "Giving, as evidence, of document called for and produced on notice",
+                        "paragraphs": {
+                            "0": "When a party calls for a document which he has given the other party notice to produce, and such document is produced and inspected by the party calling for its production, he is bound to give it as evidence if the party producing it requires him to do so."
+                        }
+                    },
+                    "Section 167.": {
+                        "heading": "Using, as evidence, of document production of which was refused on notice",
+                        "paragraphs": {
+                            "0": "When a party refuses to produce a document which he has had notice to produce, he cannot afterwards use the document as evidence without the consent of the other party or the order of the Court."
+                        }
+                    },
+                    "Section 168.": {
+                        "heading": "Judge’s power to put questions or order production",
+                        "paragraphs": {
+                            "0": "The Judge may, in order to discover or obtain proof of relevant facts, ask any question he considers necessary, in any form, at any time, of any witness, or of the parties about any fact; and may order the production of any document or thing; and neither the parties nor their representatives shall be entitled to make any objection to any such question or order, nor, without the leave of the Court, to cross-examine any witness upon any answer given in reply to any such question: Provided that the judgment must be based upon facts declared by this Adhiniyam to be relevant, and duly proved: Provided further that this section shall not authorise any Judge to compel any witness to answer any question, or to produce any document which such witness would be entitled to refuse to answer or produce under sections 127 to 136, both inclusive, if the question were asked or the document were called for by the adverse party; nor shall the Judge ask any question which it would be improper for any other person to ask under section 151 or 152; nor shall he dispense with primary evidence of any document, except in the cases hereinbefore excepted."
+                        }
+                    }
+                }
+            },
+            "10": {
+                "ID": "CHAPTER XI",
+                "Name": "OF IMPROPER ADMISSION AND REJECTION OF EVIDENCE",
+                "Sections": {
+                    "Section 169.": {
+                        "heading": "No new trial for improper admission or rejection of evidence",
+                        "paragraphs": {
+                            "0": "The improper admission or rejection of evidence shall not be ground of itself for a new trial or reversal of any decision in any case, if it shall appear to the Court before which such objection is raised that, independently of the evidence objected to and admitted, there was sufficient evidence to justify the decision, or that, if the rejected evidence had been received, it ought not to have varied the decision."
+                        }
+                    }
+                }
+            },
+            "11": {
+                "ID": "CHAPTER XII",
+                "Name": "REPEAL AND SAVINGS",
+                "Sections": {
+                    "Section 170.": {
+                        "heading": "Repeal and savings.",
+                        "paragraphs": {
+                            "0": "(1) The Indian Evidence Act, 1872 (1 of 1872) is hereby repealed.",
+                            "1": "(2) Notwithstanding such repeal, if, immediately before the date on which this Adhiniyam comes into force, there is any application, trial, inquiry, investigation, proceeding or appeal pending, then, such application, trial, inquiry, investigation, proceeding or appeal shall be dealt with under the provisions of the Indian Evidence Act, 1872 (1 of 1872), as in force immediately before such commencement, as if this Adhiniyam had not come into force."
+                        }
+                    }
+                }
+            }
+        }
+    }
+]
