@@ -49,7 +49,8 @@ async function getEmbedding(text) {
     return Array.from(output.data).map(Number);
 }
 
-const normalize = (str) => String(str || "").replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+const normalizeSection = (str) => String(str || "").replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+const normalizeAct = (str) => String(str || "").replace(/\s+/g, ' ').trim().toLowerCase();
 
 
 const router = express.Router();
@@ -119,55 +120,59 @@ router.post("/ask", async (req, res) => {
 router.post("/lookup", async (req, res) => {
     try {
         const { act, section } = req.body;
-        console.log(`🔎 Lookup -> Act: ${act}, Section: ${section}`);
+        console.log(`🔎 Lookup -> Input Act: "${act}", Input Sec: "${section}"`);
 
-        // 🟢 THE FIX: Don't trust Firestore string matching alone. 
-        // Use Pinecone to find the exact Document ID first.
-        const searchQuery = `Act: ${act} Section: ${section}`;
-        const queryVector = await getEmbedding(searchQuery);
-        
-        const searchResult = await index.namespace(NAMESPACE).query({
-            vector: queryVector,
-            topK: 20, // Grab more to find the best match
-            includeMetadata: true
-        });
+        const searchSecNorm = normalizeSection(section);
+        const searchActNorm = normalizeAct(act);
 
-        // Search for the ID that belongs to this Act and has this Section number
-        const cleanReqAct = normalize(act);
-        const cleanReqSec = normalize(section);
+        // 🟢 FIX: We query by Section Number (which is usually standardized)
+        // Then we filter the Act name in JavaScript to ignore Capitalization
+        const snapshot = await db.collection("legal_sections")
+            .where("section_number", "==", searchSecNorm)
+            .get();
 
-        const match = searchResult.matches.find(m => {
-            const mAct = normalize(m.metadata.act);
-            const mSec = normalize(m.metadata.section);
-            // Verify it belongs to the act and section requested
-            return (mAct.includes(cleanReqAct) || cleanReqAct.includes(mAct)) && mSec === cleanReqSec;
-        });
-
-        if (!match) {
-            // Fallback: Direct Firestore Query if Vector search fails
-            const snapshot = await db.collection("legal_sections")
-                .where("section_number", "==", cleanReqSec)
-                .limit(20).get();
-            
-            const fallbackDoc = snapshot.docs.find(d => normalize(d.data().act_name).includes(cleanReqAct));
-            
-            if (!fallbackDoc) {
-                return res.json({ section: "!", title: "Not Found", description: "This specific section was not found in the selected Act.", punishment: "N/A" });
-            }
-            return sendSectionResponse(res, fallbackDoc.data());
+        if (snapshot.empty) {
+            return res.json({ section: section, title: "Not Found", description: `Section '${section}' not found in any Act.`, punishment: "N/A" });
         }
 
-        const doc = await db.collection("legal_sections").doc(match.metadata.firestore_id).get();
-        if (!doc.exists) throw new Error("Firestore ID mismatch");
+        // Search through results for the correct act (Case Insensitive)
+        const doc = snapshot.docs.find(d => {
+            const dbData = d.data();
+            const dbActNorm = normalizeAct(dbData.act_name);
+            return dbActNorm === searchActNorm || dbActNorm.includes(searchActNorm) || searchActNorm.includes(dbActNorm);
+        });
 
-        return sendSectionResponse(res, doc.data());
+        if (!doc) {
+            return res.json({ section: section, title: "Act Mismatch", description: `Section '${section}' exists, but not in the Act: ${act}.`, punishment: "N/A" });
+        }
 
+        const data = doc.data();
+        
+        // Use AI to extract UI tags
+        const completion = await groq.chat.completions.create({
+            messages: [{
+                role: "system",
+                content: 'Return JSON only: {"punishment":"...", "cognizable":"Yes/No/NA", "bailable":"Yes/No/NA"}.'
+            }, { role: "user", content: data.content }],
+            model: "llama-3.3-70b-versatile", temperature: 0, response_format: { type: "json_object" }
+        });
+
+        const tags = JSON.parse(completion.choices[0].message.content);
+
+        res.json({
+            section: data.section_raw,
+            title: data.title,
+            description: data.content,
+            punishment: tags.punishment || "N/A",
+            cognizable: tags.cognizable || "N/A",
+            bailable: tags.bailable || "N/A",
+            chapter: data.chapter_name || "General"
+        });
     } catch (e) { 
-        console.error(e);
-        res.status(500).json({ error: e.message }); 
+        console.error("Lookup Error:", e.message);
+        res.status(500).json({ error: "Failed to process lookup" }); 
     }
 });
-
 
 router.get("/list-acts", (req, res) => {
     try {
