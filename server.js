@@ -49,14 +49,7 @@ async function getEmbedding(text) {
     return Array.from(output.data).map(Number);
 }
 
-const normalize = (str) => {
-    return String(str || "")
-        .replace(/section/gi, '')
-        .replace(/article/gi, '')
-        .replace(/[^a-zA-Z0-9]/g, '')
-        .toLowerCase()
-        .trim();
-};
+const normalize = (str) => String(str || "").replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
 
 
 const router = express.Router();
@@ -126,77 +119,55 @@ router.post("/ask", async (req, res) => {
 router.post("/lookup", async (req, res) => {
     try {
         const { act, section } = req.body;
-        console.log(`🔎 Searching Firestore: Act [${act}] Section [${section}]`);
+        console.log(`🔎 Lookup -> Act: ${act}, Section: ${section}`);
 
-        const snapshot = await db.collection("legal_sections")
-            .where("act_name", "==", act)
-            .get();
-
-        if (snapshot.empty) {
-            return res.json({ title: "Act Not Found", description: "This Act is not loaded in the database." });
-        }
-
-        const userInputNorm = normalize(section);
+        // 🟢 THE FIX: Don't trust Firestore string matching alone. 
+        // Use Pinecone to find the exact Document ID first.
+        const searchQuery = `Act: ${act} Section: ${section}`;
+        const queryVector = await getEmbedding(searchQuery);
         
-        const doc = snapshot.docs.find(d => {
-            const data = d.data();
-            const dbSecNumNorm = normalize(data.section_number);
-            const dbSecRawNorm = normalize(data.section_raw);
-            
-            return dbSecNumNorm === userInputNorm || dbSecRawNorm === userInputNorm;
+        const searchResult = await index.namespace(NAMESPACE).query({
+            vector: queryVector,
+            topK: 20, // Grab more to find the best match
+            includeMetadata: true
         });
 
-        if (!doc) {
-            return res.json({ section: section, title: "Not Found", description: `Could not find '${section}' in ${act}.`, punishment: "N/A" });
+        // Search for the ID that belongs to this Act and has this Section number
+        const cleanReqAct = normalize(act);
+        const cleanReqSec = normalize(section);
+
+        const match = searchResult.matches.find(m => {
+            const mAct = normalize(m.metadata.act);
+            const mSec = normalize(m.metadata.section);
+            // Verify it belongs to the act and section requested
+            return (mAct.includes(cleanReqAct) || cleanReqAct.includes(mAct)) && mSec === cleanReqSec;
+        });
+
+        if (!match) {
+            // Fallback: Direct Firestore Query if Vector search fails
+            const snapshot = await db.collection("legal_sections")
+                .where("section_number", "==", cleanReqSec)
+                .limit(20).get();
+            
+            const fallbackDoc = snapshot.docs.find(d => normalize(d.data().act_name).includes(cleanReqAct));
+            
+            if (!fallbackDoc) {
+                return res.json({ section: "!", title: "Not Found", description: "This specific section was not found in the selected Act.", punishment: "N/A" });
+            }
+            return sendSectionResponse(res, fallbackDoc.data());
         }
 
-        const data = doc.data();
-   
-        const completion = await groq.chat.completions.create({
-            messages: [{
-                role: "system",
-                content: 'Return JSON only: {"punishment":"...", "cognizable":"Yes/No/NA", "bailable":"Yes/No/NA"}.'
-            }, { role: "user", content: data.content }],
-            model: "llama-3.3-70b-versatile", temperature: 0, response_format: { type: "json_object" }
-        });
+        const doc = await db.collection("legal_sections").doc(match.metadata.firestore_id).get();
+        if (!doc.exists) throw new Error("Firestore ID mismatch");
 
-        const tags = JSON.parse(completion.choices[0].message.content);
+        return sendSectionResponse(res, doc.data());
 
-        res.json({
-            section: data.section_raw,
-            title: data.title,
-            description: data.content,
-            punishment: tags.punishment || "N/A",
-            cognizable: tags.cognizable || "N/A",
-            bailable: tags.bailable || "N/A",
-            chapter: data.chapter_name || "General"
-        });
-    } catch (e) { res.status(500).json({ error: e.message }); }
+    } catch (e) { 
+        console.error(e);
+        res.status(500).json({ error: e.message }); 
+    }
 });
 
-router.post("/compare", async (req, res) => {
-    try {
-        const { act1, sec1, act2, sec2 } = req.body;
-        const [snap1, snap2] = await Promise.all([
-            db.collection("legal_sections").where("act_name", "==", act1).get(),
-            db.collection("legal_sections").where("act_name", "==", act2).get()
-        ]);
-
-        const findMatch = (snap, s) => {
-            const search = normalize(s);
-            return snap.docs.find(d => normalize(d.data().section_number) === search || normalize(d.data().section_raw) === search);
-        };
-
-        const d1 = findMatch(snap1, sec1), d2 = findMatch(snap2, sec2);
-        if (!d1 || !d2) return res.json({ formattedAnswer: "One or both sections not found." });
-
-        const completion = await groq.chat.completions.create({
-            messages: [{ role: "system", content: "Compare these laws. Output Markdown Table." }, { role: "user", content: `1: ${d1.data().content}\n2: ${d2.data().content}` }],
-            model: "llama-3.3-70b-versatile", temperature: 0.1
-        });
-        res.json({ formattedAnswer: completion.choices[0].message.content });
-    } catch (e) { res.status(500).json({ error: e.message }); }
-});
 
 router.get("/list-acts", (req, res) => {
     try {
