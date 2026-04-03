@@ -49,7 +49,14 @@ async function getEmbedding(text) {
     return Array.from(output.data).map(Number);
 }
 
-const normalize = (s) => String(s || "").replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+const normalize = (str) => {
+    return String(str || "")
+        .replace(/section/gi, '')
+        .replace(/article/gi, '')
+        .replace(/[^a-zA-Z0-9]/g, '')
+        .toLowerCase()
+        .trim();
+};
 
 
 const router = express.Router();
@@ -119,20 +126,75 @@ router.post("/ask", async (req, res) => {
 router.post("/lookup", async (req, res) => {
     try {
         const { act, section } = req.body;
-        const snapshot = await db.collection("legal_sections").where("act_name", "==", act).get();
-        const searchNorm = normalize(section);
-        const doc = snapshot.docs.find(d => normalize(d.data().section_number) === searchNorm || normalize(d.data().section_raw) === searchNorm);
+        console.log(`🔎 Searching Firestore: Act [${act}] Section [${section}]`);
 
-        if (!doc) return res.json({ title: "Not Found", description: "Section not found." });
-        const data = doc.data();
-        const completion = await groq.chat.completions.create({
-            messages: [{ role: "system", content: 'Return JSON: {"punishment":"...", "cognizable":"Yes/No/NA", "bailable":"Yes/No/NA"}' }, { role: "user", content: data.content }],
-            model: "llama-3.3-70b-versatile", 
-            temperature: 0, 
-            response_format: { type: "json_object" }
+        const snapshot = await db.collection("legal_sections")
+            .where("act_name", "==", act)
+            .get();
+
+        if (snapshot.empty) {
+            return res.json({ title: "Act Not Found", description: "This Act is not loaded in the database." });
+        }
+
+        const userInputNorm = normalize(section);
+        
+        const doc = snapshot.docs.find(d => {
+            const data = d.data();
+            const dbSecNumNorm = normalize(data.section_number);
+            const dbSecRawNorm = normalize(data.section_raw);
+            
+            return dbSecNumNorm === userInputNorm || dbSecRawNorm === userInputNorm;
         });
+
+        if (!doc) {
+            return res.json({ section: section, title: "Not Found", description: `Could not find '${section}' in ${act}.`, punishment: "N/A" });
+        }
+
+        const data = doc.data();
+   
+        const completion = await groq.chat.completions.create({
+            messages: [{
+                role: "system",
+                content: 'Return JSON only: {"punishment":"...", "cognizable":"Yes/No/NA", "bailable":"Yes/No/NA"}.'
+            }, { role: "user", content: data.content }],
+            model: "llama-3.3-70b-versatile", temperature: 0, response_format: { type: "json_object" }
+        });
+
         const tags = JSON.parse(completion.choices[0].message.content);
-        res.json({ section: data.section_raw, title: data.title, description: data.content, punishment: tags.punishment, cognizable: tags.cognizable, bailable: tags.bailable, chapter: data.chapter_name });
+
+        res.json({
+            section: data.section_raw,
+            title: data.title,
+            description: data.content,
+            punishment: tags.punishment || "N/A",
+            cognizable: tags.cognizable || "N/A",
+            bailable: tags.bailable || "N/A",
+            chapter: data.chapter_name || "General"
+        });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+router.post("/compare", async (req, res) => {
+    try {
+        const { act1, sec1, act2, sec2 } = req.body;
+        const [snap1, snap2] = await Promise.all([
+            db.collection("legal_sections").where("act_name", "==", act1).get(),
+            db.collection("legal_sections").where("act_name", "==", act2).get()
+        ]);
+
+        const findMatch = (snap, s) => {
+            const search = normalize(s);
+            return snap.docs.find(d => normalize(d.data().section_number) === search || normalize(d.data().section_raw) === search);
+        };
+
+        const d1 = findMatch(snap1, sec1), d2 = findMatch(snap2, sec2);
+        if (!d1 || !d2) return res.json({ formattedAnswer: "One or both sections not found." });
+
+        const completion = await groq.chat.completions.create({
+            messages: [{ role: "system", content: "Compare these laws. Output Markdown Table." }, { role: "user", content: `1: ${d1.data().content}\n2: ${d2.data().content}` }],
+            model: "llama-3.3-70b-versatile", temperature: 0.1
+        });
+        res.json({ formattedAnswer: completion.choices[0].message.content });
     } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
