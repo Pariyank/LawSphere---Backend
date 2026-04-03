@@ -1,0 +1,349 @@
+[
+  {
+    "category": "General",
+    "section": "BNS 103(1)",
+    "title": "Punishment for Murder",
+    "description": "Whoever commits murder shall be punished with death or imprisonment for life, and shall also be liable to fine.",
+    "punishment": "Death or Life Imprisonment + Fine"
+  },
+  {
+    "category": "General",
+    "section": "BNS 103(2)",
+    "title": "Mob Lynching",
+    "description": "Murder committed by a group of five or more persons based on identity grounds.",
+    "punishment": "Death or Life Imprisonment + Fine"
+  },
+  {
+    "category": "Arrest",
+    "section": "BNSS 35",
+    "title": "Arrest Without Warrant",
+    "description": "Police can arrest without warrant in cognizable offences.",
+    "punishment": "Procedure-based provision"
+  },
+  {
+    "category": "Arrest",
+    "section": "BNSS 36",
+    "title": "Right to Know Grounds of Arrest",
+    "description": "Person must be informed of the reason for arrest.",
+    "punishment": "Legal right protection"
+  },
+  {
+    "category": "Arrest",
+    "section": "BNSS 37",
+    "title": "Right to Inform Relative",
+    "description": "Arrested person has right to inform a friend or relative.",
+    "punishment": "Legal safeguard"
+  },
+  {
+    "category": "Women",
+    "section": "BNS 74",
+    "title": "Assault on Woman with Intent to Outrage Modesty",
+    "description": "Any act intended to outrage modesty of a woman.",
+    "punishment": "Up to 5 years + Fine"
+  },
+  {
+    "category": "Women",
+    "section": "BNS 75",
+    "title": "Sexual Harassment",
+    "description": "Includes unwelcome physical contact, demand for sexual favors, showing pornography.",
+    "punishment": "Up to 3 years + Fine"
+  },
+  {
+    "category": "Women",
+    "section": "BNS 76",
+    "title": "Voyeurism",
+    "description": "Watching or capturing images of a woman in private acts.",
+    "punishment": "3–7 years + Fine"
+  },
+  {
+    "category": "Women",
+    "section": "BNS 77",
+    "title": "Stalking",
+    "description": "Repeatedly following or contacting a woman.",
+    "punishment": "Up to 3 years (first), 5 years (repeat)"
+  },
+  {
+    "category": "Women",
+    "section": "BNS 64",
+    "title": "Rape",
+    "description": "Sexual intercourse without consent.",
+    "punishment": "10 years to Life Imprisonment"
+  },
+  {
+    "category": "Traffic",
+    "section": "MV Act 184",
+    "title": "Dangerous Driving",
+    "description": "Driving dangerously or rashly on public roads.",
+    "punishment": "Up to 6 months jail or ₹5000 fine"
+  },
+  {
+    "category": "Traffic",
+    "section": "MV Act 185",
+    "title": "Drunken Driving",
+    "description": "Driving under influence of alcohol.",
+    "punishment": "Up to 6 months jail + Fine"
+  },
+  {
+    "category": "Traffic",
+    "section": "MV Act 194D",
+    "title": "No Helmet",
+    "description": "Riding without helmet.",
+    "punishment": "₹1000 fine + License suspension"
+  },
+  {
+    "category": "Traffic",
+    "section": "MV Act 194B",
+    "title": "No Seatbelt",
+    "description": "Driving without seatbelt.",
+    "punishment": "₹1000 fine"
+  },
+  {
+    "category": "Cyber",
+    "section": "IT Act 66",
+    "title": "Computer Related Offences",
+    "description": "Unauthorized access, hacking, data theft.",
+    "punishment": "Up to 3 years + Fine"
+  },
+  {
+    "category": "Cyber",
+    "section": "IT Act 66C",
+    "title": "Identity Theft",
+    "description": "Using someone else's digital identity.",
+    "punishment": "Up to 3 years + Fine"
+  },
+  {
+    "category": "Cyber",
+    "section": "IT Act 66E",
+    "title": "Violation of Privacy",
+    "description": "Capturing private images without consent.",
+    "punishment": "Up to 3 years + Fine"
+  },
+  {
+    "category": "Property",
+    "section": "BNS 303",
+    "title": "Theft",
+    "description": "Dishonestly taking movable property.",
+    "punishment": "Up to 3 years + Fine"
+  },
+  {
+    "category": "Property",
+    "section": "BNS 316",
+    "title": "Criminal Breach of Trust",
+    "description": "Misuse of entrusted property.",
+    "punishment": "Up to 5 years + Fine"
+  },
+  {
+    "category": "Property",
+    "section": "BNS 318",
+    "title": "Cheating",
+    "description": "Fraudulently deceiving someone.",
+    "punishment": "Up to 7 years + Fine"
+  },
+  {
+    "category": "General",
+    "section": "BNS 351",
+    "title": "Criminal Intimidation",
+    "description": "Threatening a person to cause harm.",
+    "punishment": "Up to 2 years + Fine"
+  },
+  {
+    "category": "General",
+    "section": "BNS 352",
+    "title": "Intentional Insult",
+    "description": "Insult intended to provoke breach of peace.",
+    "punishment": "Up to 1 year + Fine"
+  },
+  {
+    "category": "Juvenile",
+    "section": "JJ Act",
+    "title": "Child in Conflict with Law",
+    "description": "Juvenile offenders handled under reformative system.",
+    "punishment": "Rehabilitation-based"
+  },
+  {
+    "category": "Women",
+    "section": "DV Act",
+    "title": "Domestic Violence",
+    "description": "Protection against abuse within household.",
+    "punishment": "Protection + Legal Action"
+  },
+  {
+    "category": "Arrest",
+    "section": "BNSS 51",
+    "title": "Search of Arrested Person",
+    "description": "Police can search arrested individual.",
+    "punishment": "Procedure"
+  },
+  {
+    "category": "General",
+    "section": "BNS 299",
+    "title": "Culpable Homicide",
+    "description": "Causing death without intent of murder.",
+    "punishment": "Up to Life Imprisonment"
+  },
+
+  {
+    "category": "General",
+    "section": "BNS 115",
+    "title": "Voluntarily Causing Hurt",
+    "description": "Causing bodily pain or injury.",
+    "punishment": "Up to 1 year + Fine"
+  },
+  {
+    "category": "General",
+    "section": "BNS 117",
+    "title": "Grievous Hurt",
+    "description": "Serious bodily injury.",
+    "punishment": "Up to 7 years + Fine"
+  },
+  {
+    "category": "Traffic",
+    "section": "MV Act 192A",
+    "title": "Driving Without License",
+    "description": "Operating vehicle without license.",
+    "punishment": "₹5000 fine"
+  },
+  {
+    "category": "Traffic",
+    "section": "MV Act 194C",
+    "title": "Overloading",
+    "description": "Carrying excess passengers.",
+    "punishment": "₹200 per extra passenger"
+  },
+
+  {
+    "category": "Cyber",
+    "section": "IT Act 67",
+    "title": "Publishing Obscene Content",
+    "description": "Publishing obscene content online.",
+    "punishment": "Up to 5 years + Fine"
+  },
+
+  {
+    "category": "Women",
+    "section": "BNS 85",
+    "title": "Cruelty by Husband",
+    "description": "Cruelty towards married woman.",
+    "punishment": "Up to 3 years + Fine"
+  },
+
+  {
+    "category": "General",
+    "section": "BNS 233",
+    "title": "False Evidence",
+    "description": "Giving false evidence in court.",
+    "punishment": "Up to 7 years"
+  },
+
+  {
+    "category": "Property",
+    "section": "BNS 329",
+    "title": "Mischief",
+    "description": "Destroying or damaging property.",
+    "punishment": "Up to 2 years"
+  },
+
+  {
+    "category": "General",
+    "section": "BNS 189",
+    "title": "Unlawful Assembly",
+    "description": "Gathering with intent to commit offence.",
+    "punishment": "Up to 6 months"
+  },
+
+  {
+    "category": "General",
+    "section": "BNS 191",
+    "title": "Rioting",
+    "description": "Violence by unlawful assembly.",
+    "punishment": "Up to 2 years"
+  },
+
+  {
+    "category": "General",
+    "section": "BNS 194",
+    "title": "Promoting Enmity",
+    "description": "Promoting hatred between groups.",
+    "punishment": "Up to 3 years"
+  },
+
+  {
+    "category": "Women",
+    "section": "POSH Act",
+    "title": "Workplace Harassment",
+    "description": "Protection against workplace sexual harassment.",
+    "punishment": "Employer action + penalties"
+  },
+
+  {
+    "category": "General",
+    "section": "BNS 82",
+    "title": "Kidnapping",
+    "description": "Taking away a person unlawfully.",
+    "punishment": "Up to 7 years"
+  },
+
+  {
+    "category": "General",
+    "section": "BNS 140",
+    "title": "Wrongful Restraint",
+    "description": "Blocking someone's movement.",
+    "punishment": "Up to 1 month"
+  },
+
+  {
+    "category": "General",
+    "section": "BNS 141",
+    "title": "Wrongful Confinement",
+    "description": "Detaining someone unlawfully.",
+    "punishment": "Up to 1 year"
+  },
+
+  {
+    "category": "Property",
+    "section": "BNS 305",
+    "title": "Snatching",
+    "description": "Sudden theft using force.",
+    "punishment": "Up to 5 years"
+  },
+
+  {
+    "category": "Cyber",
+    "section": "IT Act 72",
+    "title": "Breach of Confidentiality",
+    "description": "Unauthorized disclosure of data.",
+    "punishment": "Up to 2 years"
+  },
+
+  {
+    "category": "Traffic",
+    "section": "MV Act 196",
+    "title": "Driving Without Insurance",
+    "description": "Driving uninsured vehicle.",
+    "punishment": "₹2000 fine"
+  },
+
+  {
+    "category": "General",
+    "section": "BNS 267",
+    "title": "Public Nuisance",
+    "description": "Act causing public inconvenience.",
+    "punishment": "Fine"
+  },
+
+  {
+    "category": "General",
+    "section": "BNS 270",
+    "title": "Negligent Act Spreading Disease",
+    "description": "Spreading infectious disease negligently.",
+    "punishment": "Up to 2 years"
+  },
+
+  {
+    "category": "General",
+    "section": "BNS 304",
+    "title": "Extortion",
+    "description": "Forcing someone to give property.",
+    "punishment": "Up to 3 years"
+  }
+]
